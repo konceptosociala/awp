@@ -10,7 +10,7 @@ import org.verstiukhnutov.swelm.app.IWidgetCollection;
 
 public class Button extends Widget {
 
-    JButton button;
+    private JButton button;
 
     public <Msg> Button(IWidgetCollection widgets, String widgetName){
         super(widgets, widgetName);
@@ -18,12 +18,12 @@ public class Button extends Widget {
     }
 
     public Button text(String text) {
-        button.setText(text);
+        setText(text);
         return this;
     }
 
     public Button bounds(int x, int y, int width, int height) {
-        button.setBounds(x, y, width, height);
+        setBounds(x, y, width, height);
         return this;
     }
 
@@ -34,6 +34,14 @@ public class Button extends Widget {
             }
         });
         return this;
+    }
+
+    public void setText(String text) {
+        button.setText(text);
+    }
+
+    public void setBounds(int x, int y, int width, int height) {
+        button.setBounds(x, y, width, height);
     }
 
     @Override

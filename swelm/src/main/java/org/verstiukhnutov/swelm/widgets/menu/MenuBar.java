@@ -7,7 +7,7 @@ import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class MenuBar extends Widget  {
 
-    JMenuBar bar;
+    private JMenuBar bar;
 
     public MenuBar(IWidgetCollection widgets, String widgetName) {
         super(widgets, widgetName);
@@ -16,9 +16,17 @@ public class MenuBar extends Widget  {
 
     public MenuBar menus(Menu[] menus) {
         for (Menu menu : menus) {
-            bar.add(menu.component());
+            addMenu(menu);
         }
         return this;
+    }
+
+    public void addMenu(Menu menu) {
+        bar.add(menu.component());
+    }
+
+    public void setVisible(boolean visible) {
+        bar.setVisible(visible);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class App<Msg> {
         }
     }
 
-    Window window;
+    private Window window;
 
     public App(ConstructWidget<Msg> appWidget) {
         window = new Window();

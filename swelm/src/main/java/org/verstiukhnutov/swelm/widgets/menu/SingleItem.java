@@ -8,7 +8,7 @@ import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 
 public class SingleItem extends MenuItem {
 
-    JMenuItem item;
+    private JMenuItem item;
 
 	public SingleItem(IWidgetCollection widgets, String widgetName) {
 		super(widgets, widgetName);
@@ -16,7 +16,7 @@ public class SingleItem extends MenuItem {
 	}
 
     public SingleItem text(String text) {
-        item.setText(text);
+        setText(text);
         return this;
     }
 
@@ -27,6 +27,10 @@ public class SingleItem extends MenuItem {
             }
         });
         return this;
+    }
+
+    public void setText(String text) {
+        item.setText(text);
     }
 
 	@Override

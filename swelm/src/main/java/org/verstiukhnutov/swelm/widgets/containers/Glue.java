@@ -14,7 +14,7 @@ public class Glue extends Widget {
         Vertical,
     };
 
-    Component glue;
+    private Component glue;
 
     public Glue(IWidgetCollection widgets, String widgetName, Orienation orienation) {
         super(widgets, widgetName);

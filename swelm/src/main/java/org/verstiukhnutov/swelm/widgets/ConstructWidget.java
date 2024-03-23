@@ -6,7 +6,7 @@ import org.verstiukhnutov.swelm.app.Widgets;
 
 public abstract class ConstructWidget<Msg> extends Widget implements IWidgetCollection {
 
-    Widgets widgets = new Widgets();
+    private Widgets widgets = new Widgets();
 
     public ConstructWidget() {
         super(new Widgets(), "application");
@@ -18,7 +18,9 @@ public abstract class ConstructWidget<Msg> extends Widget implements IWidgetColl
 
     public abstract Widget build();
 
-    public abstract void event(Msg msg);
+    public void init() {}
+
+    public void event(Msg msg) {}
 
     @Override
     public void addWidget(String widgetName, Widget widget) {
@@ -32,7 +34,9 @@ public abstract class ConstructWidget<Msg> extends Widget implements IWidgetColl
 
     @Override
     public Component component() {
-        return this.build().component();
+        Widget built = this.build();
+        init();
+        return built.component();
     }
 
 }

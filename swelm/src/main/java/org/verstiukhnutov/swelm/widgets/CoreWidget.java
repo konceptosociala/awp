@@ -8,12 +8,12 @@ import org.verstiukhnutov.swelm.app.IWidgetCollection;
 
 public class CoreWidget extends Widget {
 
-    Container container;
+    private Container container;
 
     public <Msg> CoreWidget(IWidgetCollection widgets, String widgetName, Widget child) {
         super(widgets, widgetName);
         container = new Container();
-        container.setLayout(new GridLayout());
+        container.setLayout(new GridLayout(1, 1));
         container.add(child.component());
     }
 

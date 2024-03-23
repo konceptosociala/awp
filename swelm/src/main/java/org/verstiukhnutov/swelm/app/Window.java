@@ -6,7 +6,8 @@ import javax.swing.WindowConstants;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class Window {
-    JFrame frame;
+    
+    private JFrame frame;
 
     public Window() {
         frame = new JFrame();

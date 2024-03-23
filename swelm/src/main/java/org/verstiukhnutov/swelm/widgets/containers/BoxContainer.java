@@ -13,7 +13,7 @@ public class BoxContainer extends Widget {
         Vertical,
     }
 
-    Box box;
+    private Box box;
 
     public <Msg> BoxContainer(IWidgetCollection widgets, String widgetName) {
         super(widgets, widgetName);
@@ -34,9 +34,13 @@ public class BoxContainer extends Widget {
 
     public BoxContainer children(Widget[] children) {
         for (Widget widget : children) {
-            box.add(widget.component());
+            addChild(widget);
         }
         return this;
+    }
+
+    public void addChild(Widget child) {
+        box.add(child.component());
     }
 
     @Override

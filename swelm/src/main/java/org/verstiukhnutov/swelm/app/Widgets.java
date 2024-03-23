@@ -5,7 +5,8 @@ import java.util.HashMap;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class Widgets implements IWidgetCollection {
-    HashMap<String, Widget> widgets;
+
+    private HashMap<String, Widget> widgets;
 
     public Widgets() {
         widgets = new HashMap<>();
@@ -20,4 +21,5 @@ public class Widgets implements IWidgetCollection {
     public Widget getWidget(String widgetName) {
         return widgets.get(widgetName);
     }
+    
 }

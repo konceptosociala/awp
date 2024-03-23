@@ -43,7 +43,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.verstiukhnutov.awp.AwpApp</mainClass>
+                            <mainClass>org.verstiukhnutov.awp.ui.AwpApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

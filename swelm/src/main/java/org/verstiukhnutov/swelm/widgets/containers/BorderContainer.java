@@ -9,7 +9,7 @@ import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class BorderContainer extends Widget {
 
-    Container container;
+    private Container container;
 
 	public BorderContainer(IWidgetCollection widgets, String widgetName) {
 		super(widgets, widgetName);
@@ -18,28 +18,48 @@ public class BorderContainer extends Widget {
 	}
 
     public BorderContainer north(Widget widget) {
-        container.add(widget.component(), BorderLayout.NORTH);
+        setNorth(widget);
         return this;
     }
 
     public BorderContainer south(Widget widget) {
-        container.add(widget.component(), BorderLayout.SOUTH);
+        setSouth(widget);
         return this;
     }
 
     public BorderContainer east(Widget widget) {
-        container.add(widget.component(), BorderLayout.EAST);
+        setEast(widget);
         return this;
     }
 
     public BorderContainer west(Widget widget) {
-        container.add(widget.component(), BorderLayout.WEST);
+        setWest(widget);
         return this;
     }
 
     public BorderContainer center(Widget widget) {
-        container.add(widget.component(), BorderLayout.CENTER);
+        setCenter(widget);
         return this;
+    }
+
+    public void setNorth(Widget widget) {
+        container.add(widget.component(), BorderLayout.NORTH);
+    }
+
+    public void setSouth(Widget widget) {
+        container.add(widget.component(), BorderLayout.SOUTH);
+    }
+
+    public void setEast(Widget widget) {
+        container.add(widget.component(), BorderLayout.EAST);
+    }
+
+    public void setWest(Widget widget) {
+        container.add(widget.component(), BorderLayout.WEST);
+    }
+
+    public void setCenter(Widget widget) {
+        container.add(widget.component(), BorderLayout.CENTER);
     }
 
 	@Override

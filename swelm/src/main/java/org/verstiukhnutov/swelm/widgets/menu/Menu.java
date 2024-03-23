@@ -8,7 +8,7 @@ import org.verstiukhnutov.swelm.app.IWidgetCollection;
 
 public class Menu extends MenuItem {
 
-    JMenu menu;
+    private JMenu menu;
 
 	public Menu(IWidgetCollection widgets, String widgetName) {
 		super(widgets, widgetName);
@@ -16,15 +16,23 @@ public class Menu extends MenuItem {
 	}
 
     public Menu text(String text) {
-        menu.setText(text);
+        setText(text);
         return this;
     }
 
     public Menu items(MenuItem[] items) {
         for (MenuItem item : items) {
-            menu.add(item.component());
+            addItem(item);
         }
         return this;
+    }
+
+    public void setText(String text) {
+        menu.setText(text);
+    }
+
+    public void addItem(MenuItem item) {
+        menu.add(item.component());
     }
 
 	@Override
