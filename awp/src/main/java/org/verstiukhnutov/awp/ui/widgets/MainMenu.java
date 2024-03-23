@@ -19,13 +19,13 @@ public class MainMenu extends ConstructWidget<AwpMsg> {
     }
 
     @Override
-	public void event(AwpMsg msg) {
+    public void event(AwpMsg msg) {
         app.event(msg);
     }
         
-	@Override
-	public Widget build() {
-		return new MenuBar(app, "menu").menus(new Menu[]{
+    @Override
+    public Widget build() {
+        return new MenuBar(app, "menu").menus(new Menu[]{
             new Menu(app, "menu_file").text("File").items(new MenuItem[]{
                 new SingleItem(app, "menu_new").text("New").clicked(app, new AwpMsg("New")),
                 new SingleItem(app, "menu_open").text("Open").clicked(app, new AwpMsg("Open")),
@@ -35,7 +35,7 @@ public class MainMenu extends ConstructWidget<AwpMsg> {
                 })
             })
         });
-	}
+    }
         
     public void setVisible(boolean visible) {
         ((MenuBar) app.getWidget("menu")).setVisible(visible);

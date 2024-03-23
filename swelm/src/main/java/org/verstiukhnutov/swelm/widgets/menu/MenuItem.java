@@ -5,8 +5,8 @@ import org.verstiukhnutov.swelm.widgets.Widget;
 
 public abstract class MenuItem extends Widget  {
 
-	public MenuItem(IWidgetCollection widgets, String widgetName) {
-		super(widgets, widgetName);
-	}
+    public MenuItem(IWidgetCollection widgets, String widgetName) {
+        super(widgets, widgetName);
+    }
     
 }

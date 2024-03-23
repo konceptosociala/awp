@@ -11,11 +11,11 @@ public class BorderContainer extends Widget {
 
     private Container container;
 
-	public BorderContainer(IWidgetCollection widgets, String widgetName) {
-		super(widgets, widgetName);
+    public BorderContainer(IWidgetCollection widgets, String widgetName) {
+        super(widgets, widgetName);
         container = new Container();
         container.setLayout(new BorderLayout());
-	}
+    }
 
     public BorderContainer north(Widget widget) {
         setNorth(widget);
@@ -62,9 +62,9 @@ public class BorderContainer extends Widget {
         container.add(widget.component(), BorderLayout.CENTER);
     }
 
-	@Override
-	public Component component() {
-		return container;
-	}
+    @Override
+    public Component component() {
+        return container;
+    }
     
 }

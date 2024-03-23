@@ -10,17 +10,17 @@ public class SingleItem extends MenuItem {
 
     private JMenuItem item;
 
-	public SingleItem(IWidgetCollection widgets, String widgetName) {
-		super(widgets, widgetName);
+    public SingleItem(IWidgetCollection widgets, String widgetName) {
+        super(widgets, widgetName);
         item = new JMenuItem();
-	}
+    }
 
     public SingleItem text(String text) {
         setText(text);
         return this;
     }
 
-	public <Msg> SingleItem clicked(ConstructWidget<Msg> app, Msg msg) {
+    public <Msg> SingleItem clicked(ConstructWidget<Msg> app, Msg msg) {
         item.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 app.event(msg);
@@ -33,9 +33,9 @@ public class SingleItem extends MenuItem {
         item.setText(text);
     }
 
-	@Override
-	public Component component() {
-		return item;
-	}
+    @Override
+    public Component component() {
+        return item;
+    }
     
 }

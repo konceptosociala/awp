@@ -10,10 +10,10 @@ public class Menu extends MenuItem {
 
     private JMenu menu;
 
-	public Menu(IWidgetCollection widgets, String widgetName) {
-		super(widgets, widgetName);
+    public Menu(IWidgetCollection widgets, String widgetName) {
+        super(widgets, widgetName);
         menu = new JMenu();
-	}
+    }
 
     public Menu text(String text) {
         setText(text);
@@ -35,9 +35,9 @@ public class Menu extends MenuItem {
         menu.add(item.component());
     }
 
-	@Override
-	public Component component() {
-		return menu;
-	}
+    @Override
+    public Component component() {
+        return menu;
+    }
     
 }

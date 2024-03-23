@@ -10,22 +10,22 @@ public class Panel extends Widget {
     private JPanel panel;
 
     public Panel(IWidgetCollection widgets, String widgetName, Widget child) {
-		super(widgets, widgetName);
+        super(widgets, widgetName);
         panel = new JPanel(new GridLayout(1, 1));
-		panel.add(child.component());
-	}
+        panel.add(child.component());
+    }
 
-	public Panel bounds(int x, int y, int width, int height) {
-		setBounds(x, y, width, height);
-		return this;
-	}
+    public Panel bounds(int x, int y, int width, int height) {
+        setBounds(x, y, width, height);
+        return this;
+    }
 
-	public void setBounds(int x, int y, int width, int height) {
-		panel.setBounds(x, y, width, height);
-	}
+    public void setBounds(int x, int y, int width, int height) {
+        panel.setBounds(x, y, width, height);
+    }
 
-	@Override
-	public Component component() {
-		return panel;
-	}
+    @Override
+    public Component component() {
+        return panel;
+    }
 }

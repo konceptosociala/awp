@@ -11,14 +11,14 @@ public class Notebook extends Widget {
     private JTabbedPane pane;
 
     public Notebook(IWidgetCollection widgets, String widgetName) {
-		super(widgets, widgetName);
+        super(widgets, widgetName);
         pane = new JTabbedPane();
-	}
+    }
 
-	public Notebook bounds(int x, int y, int width, int height) {
-		setBounds(x, y, width, height);
-		return this;
-	}
+    public Notebook bounds(int x, int y, int width, int height) {
+        setBounds(x, y, width, height);
+        return this;
+    }
 
     public Notebook tabs(Tab[] tabs) {
         for (Tab tab : tabs) {
@@ -27,12 +27,12 @@ public class Notebook extends Widget {
         return this;
     }
 
-	public void setBounds(int x, int y, int width, int height) {
-		pane.setBounds(x, y, width, height);
-	}
+    public void setBounds(int x, int y, int width, int height) {
+        pane.setBounds(x, y, width, height);
+    }
 
-	@Override
-	public Component component() {
-		return pane;
-	}
+    @Override
+    public Component component() {
+        return pane;
+    }
 }
