@@ -1,6 +1,8 @@
 package org.verstiukhnutov.swelm.widgets;
 
 import java.awt.Component;
+
+import org.verstiukhnutov.swelm.app.DumpMode;
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.app.Widgets;
 
@@ -21,6 +23,10 @@ public abstract class ConstructWidget<Msg> extends Widget implements IWidgetColl
     public void init() {}
 
     public void event(Msg msg) {}
+
+    public final void dumpWidgets(DumpMode mode) {
+        widgets.dumpWidgets(mode);
+    }
 
     @Override
     public void addWidget(String widgetName, Widget widget) {

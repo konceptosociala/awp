@@ -15,7 +15,7 @@ public class BoxContainer extends Widget {
 
     private Box box;
 
-    public <Msg> BoxContainer(IWidgetCollection widgets, String widgetName) {
+    public BoxContainer(IWidgetCollection widgets, String widgetName) {
         super(widgets, widgetName);
         box = new Box(BoxLayout.X_AXIS);
     }

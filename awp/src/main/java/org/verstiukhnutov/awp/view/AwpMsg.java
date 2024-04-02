@@ -1,4 +1,4 @@
-package org.verstiukhnutov.awp.ui;
+package org.verstiukhnutov.awp.view;
 
 public class AwpMsg {
     String msg = "";
