@@ -1,0 +1,14 @@
+[book]
+title = "awp & swelm"
+authors = ["Oleksandr Hnutov", "Myroslav Verstiuk"]
+description = "Documentation for Automated Workplace and Swelm Java UI framework"
+multilingual = false
+language = "en"
+
+[rust]
+edition = "2021"
+
+[build]
+build-dir = "../docs"
+create-missing = false
+use-default-preprocessors = true
