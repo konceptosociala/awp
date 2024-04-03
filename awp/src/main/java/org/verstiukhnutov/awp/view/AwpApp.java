@@ -1,6 +1,10 @@
 package org.verstiukhnutov.awp.view;
 
+import java.io.IOException;
 import org.verstiukhnutov.swelm.app.App;
+import org.verstiukhnutov.swelm.app.Splashcreen;
+import org.verstiukhnutov.swelm.utils.MsgBox;
+import org.verstiukhnutov.swelm.utils.ResourceImage;
 import org.verstiukhnutov.swelm.widgets.*;
 import org.verstiukhnutov.swelm.widgets.containers.*;
 import org.verstiukhnutov.awp.model.AwpModel;
@@ -12,6 +16,16 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
     @Override
     public void init() {
+        try {
+            new Splashcreen(
+                800, 450, 
+                new ResourceImage(getClass(), "/img/splash.png"), 
+                3000
+            ).show();
+        } catch (IOException e) {
+            MsgBox.error("I/O Error", e.getMessage());
+        }
+
         ((MainMenu) getWidget("main_menu")).setVisible(false);
     }
 
@@ -36,10 +50,10 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                         )),
                         new Tab("Products", new Panel(this, "products_panel",
                             new BorderContainer(this, "products_container")
-                            .north(new SearchBar(this, "products_search")
-                                .placeholder("Enter product name")
-                            )
-                            .center(new WrapContainer(this, "products"))
+                                .north(new SearchBar(this, "products_search")
+                                    .placeholder("Enter product name")
+                                )
+                                .center(new WrapContainer(this, "products"))
                         )),
                 }))
         );
@@ -49,6 +63,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
         new App<AwpMsg>(new AwpApp())
             .title("awp64 v0.1")
             .size(1152, 648)
+            .position(null)
             .run();
     }
 

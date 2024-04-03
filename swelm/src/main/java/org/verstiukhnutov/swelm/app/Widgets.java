@@ -1,9 +1,8 @@
 package org.verstiukhnutov.swelm.app;
 
 import java.util.HashMap;
-
-import javax.swing.JOptionPane;
-
+import org.verstiukhnutov.swelm.utils.DumpMode;
+import org.verstiukhnutov.swelm.utils.MsgBox;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class Widgets implements IWidgetCollection {
@@ -40,7 +39,7 @@ public class Widgets implements IWidgetCollection {
                 break;
         
             case GUI:
-                JOptionPane.showMessageDialog(null, dump, "Widgets dump", JOptionPane.INFORMATION_MESSAGE);
+                MsgBox.info("Widgets dump", dump);
                 break;
 
             default:

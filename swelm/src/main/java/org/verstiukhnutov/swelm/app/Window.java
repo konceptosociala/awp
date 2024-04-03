@@ -3,6 +3,7 @@ package org.verstiukhnutov.swelm.app;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+import org.verstiukhnutov.swelm.utils.Position;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class Window {
@@ -13,7 +14,6 @@ public class Window {
         frame = new JFrame();
         frame.setTitle("My app");
         frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
@@ -25,8 +25,11 @@ public class Window {
         frame.setSize(width, height);
     }
 
-    public void setPosition(int x, int y) {
-        frame.setLocation(x, y);
+    public void setPosition(Position position) {
+        if (position != null)
+            frame.setLocation(position.x, position.y);
+        else
+            frame.setLocationRelativeTo(null);
     }
 
     public void add(Widget widget) {

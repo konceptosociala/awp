@@ -11,8 +11,8 @@ import org.verstiukhnutov.swelm.widgets.menu.SingleItem;
 
 public class MainMenu extends ConstructWidget<AwpMsg> {
 
-    AwpApp app;
-    String widgetName;
+    private AwpApp app;
+    private String widgetName;
 
     public MainMenu(AwpApp app, String widgetName) {
         super(app, widgetName);

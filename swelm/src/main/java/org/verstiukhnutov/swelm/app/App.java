@@ -4,6 +4,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import io.materialtheme.darkstackoverflow.DarkStackOverflowTheme;
 import mdlaf.MaterialLookAndFeel;
+
+import org.verstiukhnutov.swelm.utils.Position;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 
 public class App<Msg> {
@@ -33,8 +35,8 @@ public class App<Msg> {
         return this;
     }
 
-    public App<Msg> position(int x, int y) {
-        window.setPosition(x, y);
+    public App<Msg> position(Position position) {
+        window.setPosition(position);
         return this;
     }
 

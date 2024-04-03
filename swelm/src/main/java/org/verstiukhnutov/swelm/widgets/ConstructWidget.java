@@ -2,9 +2,9 @@ package org.verstiukhnutov.swelm.widgets;
 
 import java.awt.Component;
 
-import org.verstiukhnutov.swelm.app.DumpMode;
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.app.Widgets;
+import org.verstiukhnutov.swelm.utils.DumpMode;
 
 public abstract class ConstructWidget<Msg> extends Widget implements IWidgetCollection {
 

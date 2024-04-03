@@ -2,7 +2,6 @@ package org.verstiukhnutov.awp.view.widgets;
 
 import org.verstiukhnutov.awp.view.AwpApp;
 import org.verstiukhnutov.awp.view.AwpMsg;
-import org.verstiukhnutov.swelm.app.DumpMode;
 import org.verstiukhnutov.swelm.widgets.Button;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 import org.verstiukhnutov.swelm.widgets.TextField;
@@ -11,9 +10,9 @@ import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
 
 public class SearchBar extends ConstructWidget<AwpMsg> {
 
-    AwpApp app;
-    String widgetName;
-    String placeholder;
+    private AwpApp app;
+    private String widgetName;
+    private String placeholder;
 
     public SearchBar(AwpApp app, String widgetName) {
         super(app, widgetName);

@@ -1,7 +1,7 @@
 package org.verstiukhnutov.awp.view;
 
 public class AwpMsg {
-    String msg = "";
+    private String msg = "";
 
     public AwpMsg(String msg) {
         this.msg = msg;

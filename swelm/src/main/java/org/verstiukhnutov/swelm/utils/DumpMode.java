@@ -1,4 +1,4 @@
-package org.verstiukhnutov.swelm.app;
+package org.verstiukhnutov.swelm.utils;
 
 public enum DumpMode {
     Console,
