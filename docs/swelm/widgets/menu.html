@@ -171,7 +171,107 @@
 
                 <div id="content" class="content">
                     <main>
-                        
+                        <h1 id="menu-system-widgets"><a class="header" href="#menu-system-widgets">Menu System Widgets</a></h1>
+<p>The menu system widgets in Swelm provide a way to create and manage menus and menu items within your application's user interface. These widgets allow you to organize and present functionality in a hierarchical manner, making it easy for users to navigate and interact with your application.</p>
+<h2 id="menubar"><a class="header" href="#menubar">MenuBar</a></h2>
+<p>The <code>MenuBar</code> widget represents a menu bar component, typically located at the top of the application window. It serves as the container for menus and provides a centralized location for accessing various functionalities offered by the application.</p>
+<pre><code class="language-java">public MenuBar(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the menu bar widget.</li>
+</ul>
+<h2 id="main-methods"><a class="header" href="#main-methods">Main methods</a></h2>
+<p><strong><code>menus(Menu[] menus)</code></strong></p>
+<p>Adds menus to the menu bar.</p>
+<pre><code class="language-java">public MenuBar menus(Menu[] menus)
+</code></pre>
+<ul>
+<li>menus: An array of Menu objects representing the menus to be added to the menu bar.</li>
+</ul>
+<p><strong><code>setVisible(boolean visible)</code></strong></p>
+<p>Sets the visibility of the menu bar.</p>
+<pre><code class="language-java">public void setVisible(boolean visible)
+</code></pre>
+<ul>
+<li>visible: A boolean value indicating whether the menu bar should be visible or not.</li>
+</ul>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p>To create a menu bar in your Swelm application, you can instantiate a <code>MenuBar</code> object and add menus to it using the <code>menus()</code> method. Here's an example:</p>
+<pre><code class="language-java">MenuBar menuBar = new MenuBar(thi, &quot;main_menu_bar&quot;)
+
+    .menus(new Menu[]{
+        new Menu(this, &quot;file_menu&quot;).text(&quot;File&quot;)
+            .items(new MenuItem[]{
+                new SingleItem(this, &quot;open_item&quot;).text(&quot;Open&quot;),
+                new SingleItem(this, &quot;save_item&quot;).text(&quot;Save&quot;)
+            }),
+
+        new Menu(this, &quot;edit_menu&quot;).text(&quot;Edit&quot;)
+            .items(new MenuItem[]{
+                new SingleItem(this, &quot;cut_item&quot;).text(&quot;Cut&quot;),
+                new SingleItem(this, &quot;copy_item&quot;).text(&quot;Copy&quot;),
+                new SingleItem(this, &quot;paste_item&quot;).text(&quot;Paste&quot;)
+            }),
+
+    });
+</code></pre>
+<h1 id="menuitem"><a class="header" href="#menuitem">MenuItem</a></h1>
+<p>The <code>MenuItem</code> class is an abstract class representing a single item within a menu. It serves as a base class for specific types of menu items.</p>
+<pre><code class="language-java">public MenuItem(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the menu item.</li>
+</ul>
+<h1 id="menu"><a class="header" href="#menu">Menu</a></h1>
+<p>The <code>Menu</code> class represents a menu component within the menu system. It contains a list of menu items and provides a dropdown interface for accessing them.</p>
+<pre><code class="language-java">public Menu(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the menu widget.</li>
+</ul>
+<h2 id="main-methods-1"><a class="header" href="#main-methods-1">Main methods</a></h2>
+<p><strong><code>text(String text)</code></strong></p>
+<p>Sets the text label for the menu.</p>
+<pre><code class="language-java">public Menu text(String text)
+</code></pre>
+<ul>
+<li>text: The text to be displayed on the menu.</li>
+</ul>
+<p><strong><code>items(MenuItem[] items)</code></strong></p>
+<p>Adds menu items to the menu.</p>
+<pre><code class="language-java">public Menu items(MenuItem[] items)
+</code></pre>
+<ul>
+<li>items: An array of MenuItem objects representing the menu items to be added to the menu.</li>
+</ul>
+<h1 id="singleitem"><a class="header" href="#singleitem">SingleItem</a></h1>
+<p>The <code>SingleItem</code> class represents a single item within a menu that triggers an action when clicked. It is a subclass of <code>MenuItem</code>.</p>
+<pre><code class="language-java">public SingleItem(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the menu item.</li>
+</ul>
+<h2 id="main-methods-2"><a class="header" href="#main-methods-2">Main methods</a></h2>
+<p><strong><code>text(String text)</code></strong></p>
+<p>Sets the text label for the menu item.</p>
+<pre><code class="language-java">public SingleItem text(String text)
+</code></pre>
+<ul>
+<li>text: The text to be displayed on the menu item.</li>
+</ul>
+<p><strong><code>clicked(ConstructWidget&lt;Msg&gt; app, Msg msg)</code></strong></p>
+<p>Registers an action listener to handle clicks on the menu item.</p>
+<pre><code class="language-java">public &lt;Msg&gt; SingleItem clicked(ConstructWidget&lt;Msg&gt; app, Msg msg)
+</code></pre>
+<ul>
+<li>app: An instance of ConstructWidget representing the application.</li>
+<li>msg: The message to be processed when the menu item is clicked.</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

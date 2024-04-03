@@ -171,7 +171,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        
+                        <h1 id="wrapcontainer"><a class="header" href="#wrapcontainer">WrapContainer</a></h1>
+<p>The <code>WrapContainer</code> class in Swelm is a widget that represents a container with components laid out in a wrap layout. It allows you to organize and manage the layout of your application's user interface by arranging components in rows and automatically wrapping them to the next row when necessary.</p>
+<pre><code class="language-java">public WrapContainer(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the widget.</li>
+</ul>
+<h2 id="main-methods"><a class="header" href="#main-methods">Main methods</a></h2>
+<p><strong><code>children(Widget[] children)</code></strong></p>
+<p>Adds child widgets to the wrap container.</p>
+<pre><code class="language-java">public WrapContainer children(Widget[] children)
+</code></pre>
+<ul>
+<li>children: An array of Widget objects representing the child widgets to be added to the wrap container.</li>
+</ul>
+<p>Usage</p>
+<p>To create a wrap container in your Swelm application, you can instantiate a <code>WrapContainer</code> object and add child widgets using the <code>children()</code> method. Here's an example:</p>
+<pre><code class="language-java">WrapContainer wrapContainer = new WrapContainer(widgets, &quot;my_wrap_container&quot;)
+    .children(new Widget[]{
+        new Button(widgets, &quot;button1&quot;).text(&quot;Button 1&quot;),
+        new Button(widgets, &quot;button2&quot;).text(&quot;Button 2&quot;),
+        new Button(widgets, &quot;button3&quot;).text(&quot;Button 3&quot;),
+        new Button(widgets, &quot;button4&quot;).text(&quot;Button 4&quot;),
+        // Add more widgets as needed
+    });
+</code></pre>
+<p>In this example, we create a wrap container named &quot;my_wrap_container&quot; and add several buttons to it. The wrap layout automatically arranges the buttons in rows and wraps them to the next row when necessary to fit within the container's width.</p>
+<h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
+<ul>
+<li>WrapContainer provides a convenient way to create responsive layouts with components automatically wrapping to accommodate varying screen sizes.</li>
+<li>It utilizes a Container with a WrapLayout manager to manage the layout of its child components.</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

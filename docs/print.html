@@ -213,9 +213,11 @@ in a structure we want it to be shown. Such an approach is called
 <a href="https://en.wikipedia.org/wiki/Declarative_programming">Declarative programming</a></li>
 </ul>
 <p>Let's add <a href="swelm/guide/../widgets/core-widget.html"><code>CoreWidget</code></a> to our build method. In a 
-constructor we pass our application instance, unique ID (which is usually its 
-underscored name) and an inner widget, whichin most cases is a container, where 
-other widgets will be stored:</p>
+constructor we pass our application instance (we can also pass other collection
+which implements <code>IWidgetCollection</code> interface, but it is not recomended; read
+more about it in <a href="swelm/guide/./accessing-widgets.html">Accessing widgets</a> chapter), 
+unique ID (which is usually its underscored name) and an inner widget, whichin 
+most cases is a container, where other widgets will be stored:</p>
 <pre><code class="language-java">@Override
 public Widget build() {
     return new CoreWidget(this, &quot;my_app&quot;,
@@ -294,7 +296,484 @@ For this purpose we'll use <a href="swelm/guide/../utilities/app.html"><code>App
 </code></pre>
 <p>So for now our application looks like this:</p>
 <p><img src="swelm/guide/../_img/img1.png" alt="img1.png" /></p>
-<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="corewidget"><a class="header" href="#corewidget">CoreWidget</a></h1>
+<p>The CoreWidget class in Swelm is a fundamental building block for constructing widgets within your application. It serves as a container for other widgets, allowing you to organize and manage the layout of your application's user interface.</p>
+<pre><code class="language-java">public CoreWidget(IWidgetCollection widgets, String widgetName, Widget child)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, which provides access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the widget.</li>
+<li><strong><code>child</code></strong>: The inner widget to be contained within the CoreWidget.</li>
+</ul>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p>To utilize the CoreWidget class, you can create an instance of it within your application's code and specify the inner widget to be contained. Here's an example of how to create a CoreWidget:</p>
+<pre><code class="language-java">@Override
+public Widget build() {
+    return new CoreWidget(this, &quot;my_core_widget&quot;,
+
+        new Button(this, &quot;button1&quot;)
+            .text(&quot;I am the only widget inside CoreWidget!&quot;),
+
+    );
+}
+</code></pre>
+<p>In this example, we create a new CoreWidget named &quot;my_core_widget&quot; and add a Button widget as its inner child;</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="button"><a class="header" href="#button">Button</a></h1>
+<p>The <code>Button</code> class in Swelm is a widget that represents a clickable button in your application's user interface.</p>
+<pre><code class="language-java">public Button(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, which provides access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the widget.</li>
+</ul>
+<h2 id="main-methods"><a class="header" href="#main-methods">Main methods</a></h2>
+<p><strong><code>text(String text)</code></strong></p>
+<p>Sets the text label for the button.</p>
+<pre><code class="language-java">public Button text(String text)
+</code></pre>
+<ul>
+<li>text: The text to be displayed on the button.</li>
+</ul>
+<p><strong><code>bounds(int x, int y, int width, int height)</code></strong></p>
+<p>Sets the position and size of the button within its parent container.</p>
+<pre><code class="language-java">public Button bounds(int x, int y, int width, int height)
+</code></pre>
+<ul>
+<li>x: The x-coordinate of the button's top-left corner.</li>
+<li>y: The y-coordinate of the button's top-left corner.</li>
+<li>width: The width of the button.</li>
+<li>height: The height of the button.</li>
+</ul>
+<p><strong><code>clicked(ConstructWidget&lt;Msg&gt; app, Msg msg)</code></strong></p>
+<p>Registers an action listener to handle button clicks.</p>
+<pre><code class="language-java">public &lt;Msg&gt; Button clicked(ConstructWidget&lt;Msg&gt; app, Msg msg)
+</code></pre>
+<ul>
+<li>app: An instance of ConstructWidget representing the application.</li>
+<li>msg: The message to be processed when the button is clicked.</li>
+</ul>
+<p><strong><code>setText(String text)</code></strong></p>
+<p>Sets the text label for the button.</p>
+<pre><code class="language-java">public void setText(String text)
+</code></pre>
+<ul>
+<li>text: The text to be displayed on the button.</li>
+</ul>
+<p><strong><code>setBounds(int x, int y, int width, int height)</code></strong></p>
+<p>Sets the position and size of the button within its parent container.</p>
+<pre><code class="language-java">public void setBounds(int x, int y, int width, int height)
+</code></pre>
+<ul>
+<li>x: The x-coordinate of the button's top-left corner.</li>
+<li>y: The y-coordinate of the button's top-left corner.</li>
+<li>width: The width of the button.</li>
+<li>height: The height of the button.</li>
+</ul>
+<p>Usage</p>
+<p>To create a button in your Swelm application, you can instantiate a <code>Button</code> object and customize its properties using the available methods. Here's an example:</p>
+<pre><code class="language-java">Button myButton = new Button(this, &quot;my_button&quot;)
+    .text(&quot;Click me&quot;)
+    .bounds(100, 100, 100, 50)
+    .clicked(this, new MyMsg(&quot;Button clicked&quot;));
+</code></pre>
+<p>In this example, we create a button with the text &quot;Click me&quot;, positioned at (100, 100) with a size of 100x50 pixels. We also register an action listener to handle button clicks and send a message <code>MyMsg(&quot;Button clicked&quot;)</code> to the application when clicked.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notebook"><a class="header" href="#notebook">Notebook</a></h1>
+<p>The <code>Notebook</code> class in Swelm is a widget that represents a notebook or tabbed pane in your application's user interface. It allows you to organize content into multiple tabs, with each tab containing a distinct set of components.</p>
+<pre><code class="language-java">public Notebook(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, which provides access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the widget.</li>
+</ul>
+<h2 id="main-methods-1"><a class="header" href="#main-methods-1">Main methods</a></h2>
+<p><strong><code>bounds(int x, int y, int width, int height)</code></strong></p>
+<p>Sets the position and size of the notebook within its parent container.</p>
+<pre><code class="language-java">public Notebook bounds(int x, int y, int width, int height)
+</code></pre>
+<ul>
+<li>x: The x-coordinate of the notebook's top-left corner.</li>
+<li>y: The y-coordinate of the notebook's top-left corner.</li>
+<li>width: The width of the notebook.</li>
+<li>height: The height of the notebook.</li>
+</ul>
+<p><strong><code>tabs(Tab[] tabs)</code></strong></p>
+<p>Adds tabs to the notebook.</p>
+<pre><code class="language-java">public Notebook tabs(Tab[] tabs)
+</code></pre>
+<ul>
+<li>tabs: An array of Tab objects representing the tabs to be added to the notebook.</li>
+</ul>
+<p><strong><code>setBounds(int x, int y, int width, int height)</code></strong></p>
+<p>Sets the position and size of the notebook within its parent container.</p>
+<pre><code class="language-java">public void setBounds(int x, int y, int width, int height)
+</code></pre>
+<ul>
+<li>x: The x-coordinate of the notebook's top-left corner.</li>
+<li>y: The y-coordinate of the notebook's top-left corner.</li>
+<li>width: The width of the notebook.</li>
+<li>height: The height of the notebook.</li>
+</ul>
+<h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
+<p>To create a notebook in your Swelm application, you can instantiate a <code>Notebook</code> object and add tabs to it using the <code>tabs()</code> method. Here's an example:</p>
+<pre><code class="language-java">Notebook myNotebook = new Notebook(this, &quot;my_notebook&quot;)
+    .bounds(100, 100, 300, 200)
+    .tabs(new Tab[]{
+        new Tab(&quot;Tab 1&quot;, new Panel(this, &quot;panel1&quot;, new Button(this, &quot;my_button&quot;).text(&quot;Click me&quot;))),
+        new Tab(&quot;Tab 2&quot;, new Panel(this, &quot;panel2&quot;, new Button(this, &quot;my_button&quot;).text(&quot;Click me&quot;)))
+    });
+</code></pre>
+<p>In this example, we create a notebook positioned at (100, 100) with a size of 300x200 pixels. We add two tabs to the notebook, each with a label (&quot;Tab 1&quot; and &quot;Tab 2&quot;) and a corresponding panel.</p>
+<h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
+<ul>
+<li>Notebook provides a convenient way to organize and present multiple sets of content within a single container.</li>
+<li>It utilizes a JTabbedPane from the Swing library to implement tabbed functionality.</li>
+</ul>
+<h1 id="tab"><a class="header" href="#tab">Tab</a></h1>
+<p>The <code>Tab</code> class in Swelm represents a single tab within a notebook or tabbed pane. Each tab consists of a label and an associated panel containing the tab's content.</p>
+<pre><code class="language-java">public Tab(String label, Panel panel)
+</code></pre>
+<ul>
+<li>label: The label or title of the tab.</li>
+<li>panel: An instance of the Panel class representing the content of the tab.</li>
+</ul>
+<p>Methods</p>
+<p><strong><code>getLabel()</code></strong></p>
+<p>Returns the label of the tab.</p>
+<pre><code class="language-java">public String getLabel()
+</code></pre>
+<ul>
+<li>Returns: The label of the tab.</li>
+</ul>
+<p><strong><code>getPanel()</code></strong></p>
+<p>Returns the panel associated with the tab.</p>
+<pre><code class="language-java">public Panel getPanel()
+</code></pre>
+<ul>
+<li>Returns: An instance of the Panel class representing the content of the tab.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="panel"><a class="header" href="#panel">Panel</a></h1>
+<p>The <code>Panel</code> class in Swelm is a widget that represents a graphical container for other components within your application's user interface. It provides a way to group and organize components together.</p>
+<pre><code class="language-java">public Panel(IWidgetCollection widgets, String widgetName, Widget child)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, which provides access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the widget.</li>
+<li><strong><code>child</code></strong>: The inner widget to be contained within the Panel.</li>
+</ul>
+<h2 id="main-methods-2"><a class="header" href="#main-methods-2">Main methods</a></h2>
+<p><strong><code>bounds(int x, int y, int width, int height)</code></strong></p>
+<p>Sets the position and size of the panel within its parent container.</p>
+<pre><code class="language-java">public Panel bounds(int x, int y, int width, int height)
+</code></pre>
+<ul>
+<li>x: The x-coordinate of the panel's top-left corner.</li>
+<li>y: The y-coordinate of the panel's top-left corner.</li>
+<li>width: The width of the panel.</li>
+<li>height: The height of the panel.</li>
+</ul>
+<p><strong><code>setBounds(int x, int y, int width, int height)</code></strong></p>
+<p>Sets the position and size of the panel within its parent container.</p>
+<pre><code class="language-java">public void setBounds(int x, int y, int width, int height)
+</code></pre>
+<ul>
+<li>x: The x-coordinate of the panel's top-left corner.</li>
+<li>y: The y-coordinate of the panel's top-left corner.</li>
+<li>width: The width of the panel.</li>
+<li>height: The height of the panel.</li>
+</ul>
+<h2 id="usage-2"><a class="header" href="#usage-2">Usage</a></h2>
+<p>To create a panel in your Swelm application, you can instantiate a <code>Panel</code> object and add child components to it. Here's an example:</p>
+<pre><code class="language-java">Panel myPanel = new Panel(this, &quot;my_panel&quot;, new Button(this, &quot;my_button&quot;).text(&quot;Click me&quot;));
+</code></pre>
+<p>In this example, we create a panel named &quot;my_panel&quot; and add a button as its child component.</p>
+<h2 id="notes-1"><a class="header" href="#notes-1">Notes</a></h2>
+<ul>
+<li>Panel provides a way to group and organize components within a container.</li>
+<li>It utilizes a JPanel from the Swing library to implement panel functionality.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="textfield"><a class="header" href="#textfield">TextField</a></h1>
+<p>The <code>TextField</code> class in Swelm is a widget that represents a text input field in your application's user interface. It allows users to enter and edit text.</p>
+<pre><code class="language-java">public TextField(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, which provides access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the widget.</li>
+</ul>
+<h2 id="main-methods-3"><a class="header" href="#main-methods-3">Main methods</a></h2>
+<p><strong><code>text(String text)</code></strong></p>
+<p>Sets the text content of the text field.</p>
+<pre><code class="language-java">public TextField text(String text)
+</code></pre>
+<ul>
+<li>text: The text to be displayed in the text field.</li>
+</ul>
+<p><strong><code>placeholder(String placeholder)</code></strong></p>
+<p>Sets the placeholder text for the text field.</p>
+<pre><code class="language-java">public TextField placeholder(String placeholder)
+</code></pre>
+<ul>
+<li>placeholder: The placeholder text to be displayed when the text field is empty.</li>
+</ul>
+<p><strong><code>setText(String text)</code></strong></p>
+<p>Sets the text content of the text field.</p>
+<pre><code class="language-java">public void setText(String text)
+</code></pre>
+<ul>
+<li>text: The text to be displayed in the text field.</li>
+</ul>
+<p><strong><code>setPlaceholder(String placeholder)</code></strong></p>
+<p>Sets the placeholder text for the text field.</p>
+<pre><code class="language-java">public void setPlaceholder(String placeholder)
+</code></pre>
+<ul>
+<li>placeholder: The placeholder text to be displayed when the text field is empty.</li>
+</ul>
+<h2 id="usage-3"><a class="header" href="#usage-3">Usage</a></h2>
+<p>To create a text field in your Swelm application, you can instantiate a <code>TextField</code> object and customize its properties using the available methods. Here's an example:</p>
+<pre><code class="language-java">TextField myTextField = new TextField(this, &quot;my_text_field&quot;)
+    .text(&quot;Enter text here&quot;)
+    .placeholder(&quot;Type something...&quot;);
+</code></pre>
+<p>In this example, we create a text field named &quot;my_text_field&quot; with the initial text &quot;Enter text here&quot; and a placeholder &quot;Type something...&quot;.</p>
+<h2 id="notes-2"><a class="header" href="#notes-2">Notes</a></h2>
+<ul>
+<li>TextField provides a way for users to input text into your application.</li>
+<li>It utilizes a custom JPlaceholderTextField component to implement text field functionality with support for placeholder text.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="menu-system-widgets"><a class="header" href="#menu-system-widgets">Menu System Widgets</a></h1>
+<p>The menu system widgets in Swelm provide a way to create and manage menus and menu items within your application's user interface. These widgets allow you to organize and present functionality in a hierarchical manner, making it easy for users to navigate and interact with your application.</p>
+<h2 id="menubar"><a class="header" href="#menubar">MenuBar</a></h2>
+<p>The <code>MenuBar</code> widget represents a menu bar component, typically located at the top of the application window. It serves as the container for menus and provides a centralized location for accessing various functionalities offered by the application.</p>
+<pre><code class="language-java">public MenuBar(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the menu bar widget.</li>
+</ul>
+<h2 id="main-methods-4"><a class="header" href="#main-methods-4">Main methods</a></h2>
+<p><strong><code>menus(Menu[] menus)</code></strong></p>
+<p>Adds menus to the menu bar.</p>
+<pre><code class="language-java">public MenuBar menus(Menu[] menus)
+</code></pre>
+<ul>
+<li>menus: An array of Menu objects representing the menus to be added to the menu bar.</li>
+</ul>
+<p><strong><code>setVisible(boolean visible)</code></strong></p>
+<p>Sets the visibility of the menu bar.</p>
+<pre><code class="language-java">public void setVisible(boolean visible)
+</code></pre>
+<ul>
+<li>visible: A boolean value indicating whether the menu bar should be visible or not.</li>
+</ul>
+<h2 id="usage-4"><a class="header" href="#usage-4">Usage</a></h2>
+<p>To create a menu bar in your Swelm application, you can instantiate a <code>MenuBar</code> object and add menus to it using the <code>menus()</code> method. Here's an example:</p>
+<pre><code class="language-java">MenuBar menuBar = new MenuBar(thi, &quot;main_menu_bar&quot;)
+
+    .menus(new Menu[]{
+        new Menu(this, &quot;file_menu&quot;).text(&quot;File&quot;)
+            .items(new MenuItem[]{
+                new SingleItem(this, &quot;open_item&quot;).text(&quot;Open&quot;),
+                new SingleItem(this, &quot;save_item&quot;).text(&quot;Save&quot;)
+            }),
+
+        new Menu(this, &quot;edit_menu&quot;).text(&quot;Edit&quot;)
+            .items(new MenuItem[]{
+                new SingleItem(this, &quot;cut_item&quot;).text(&quot;Cut&quot;),
+                new SingleItem(this, &quot;copy_item&quot;).text(&quot;Copy&quot;),
+                new SingleItem(this, &quot;paste_item&quot;).text(&quot;Paste&quot;)
+            }),
+
+    });
+</code></pre>
+<h1 id="menuitem"><a class="header" href="#menuitem">MenuItem</a></h1>
+<p>The <code>MenuItem</code> class is an abstract class representing a single item within a menu. It serves as a base class for specific types of menu items.</p>
+<pre><code class="language-java">public MenuItem(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the menu item.</li>
+</ul>
+<h1 id="menu"><a class="header" href="#menu">Menu</a></h1>
+<p>The <code>Menu</code> class represents a menu component within the menu system. It contains a list of menu items and provides a dropdown interface for accessing them.</p>
+<pre><code class="language-java">public Menu(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the menu widget.</li>
+</ul>
+<h2 id="main-methods-5"><a class="header" href="#main-methods-5">Main methods</a></h2>
+<p><strong><code>text(String text)</code></strong></p>
+<p>Sets the text label for the menu.</p>
+<pre><code class="language-java">public Menu text(String text)
+</code></pre>
+<ul>
+<li>text: The text to be displayed on the menu.</li>
+</ul>
+<p><strong><code>items(MenuItem[] items)</code></strong></p>
+<p>Adds menu items to the menu.</p>
+<pre><code class="language-java">public Menu items(MenuItem[] items)
+</code></pre>
+<ul>
+<li>items: An array of MenuItem objects representing the menu items to be added to the menu.</li>
+</ul>
+<h1 id="singleitem"><a class="header" href="#singleitem">SingleItem</a></h1>
+<p>The <code>SingleItem</code> class represents a single item within a menu that triggers an action when clicked. It is a subclass of <code>MenuItem</code>.</p>
+<pre><code class="language-java">public SingleItem(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the menu item.</li>
+</ul>
+<h2 id="main-methods-6"><a class="header" href="#main-methods-6">Main methods</a></h2>
+<p><strong><code>text(String text)</code></strong></p>
+<p>Sets the text label for the menu item.</p>
+<pre><code class="language-java">public SingleItem text(String text)
+</code></pre>
+<ul>
+<li>text: The text to be displayed on the menu item.</li>
+</ul>
+<p><strong><code>clicked(ConstructWidget&lt;Msg&gt; app, Msg msg)</code></strong></p>
+<p>Registers an action listener to handle clicks on the menu item.</p>
+<pre><code class="language-java">public &lt;Msg&gt; SingleItem clicked(ConstructWidget&lt;Msg&gt; app, Msg msg)
+</code></pre>
+<ul>
+<li>app: An instance of ConstructWidget representing the application.</li>
+<li>msg: The message to be processed when the menu item is clicked.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="containers"><a class="header" href="#containers">Containers</a></h1>
+<p>Containers in Swelm are components, which provide different ways of orginizing widgets in an application</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bordercontainer"><a class="header" href="#bordercontainer">BorderContainer</a></h1>
+<p>The <code>BorderContainer</code> class in Swelm is a widget that represents a container with regions laid out in a border layout. It allows you to organize and manage the layout of your application's user interface by specifying components for each of the five regions: north, south, east, west, and center.</p>
+<pre><code class="language-java">public BorderContainer(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, which provides access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the widget.</li>
+</ul>
+<h1 id="main-methods-7"><a class="header" href="#main-methods-7">Main methods</a></h1>
+<p><strong><code>north(Widget widget)</code></strong></p>
+<p>Sets the widget to be displayed in the north region of the container.</p>
+<pre><code class="language-java">public BorderContainer north(Widget widget)
+</code></pre>
+<ul>
+<li>widget: The widget to be displayed in the north region.</li>
+</ul>
+<p><strong><code>south(Widget widget)</code></strong></p>
+<p>Sets the widget to be displayed in the south region of the container.</p>
+<pre><code class="language-java">public BorderContainer south(Widget widget)
+</code></pre>
+<ul>
+<li>widget: The widget to be displayed in the south region.</li>
+</ul>
+<p><strong><code>east(Widget widget)</code></strong></p>
+<p>Sets the widget to be displayed in the east region of the container.</p>
+<pre><code class="language-java">public BorderContainer east(Widget widget)
+</code></pre>
+<ul>
+<li>widget: The widget to be displayed in the east region.</li>
+</ul>
+<p><strong><code>west(Widget widget)</code></strong></p>
+<p>Sets the widget to be displayed in the west region of the container.</p>
+<pre><code class="language-java">public BorderContainer west(Widget widget)
+</code></pre>
+<ul>
+<li>widget: The widget to be displayed in the west region.</li>
+</ul>
+<p><strong><code>center(Widget widget)</code></strong></p>
+<p>Sets the widget to be displayed in the center region of the container.</p>
+<pre><code class="language-java">public BorderContainer center(Widget widget)
+</code></pre>
+<ul>
+<li>widget: The widget to be displayed in the center region.</li>
+</ul>
+<h2 id="usage-5"><a class="header" href="#usage-5">Usage</a></h2>
+<p>To create a border container in your Swelm application, you can instantiate a <code>BorderContainer</code> object and specify the widgets for each region using the appropriate methods. Here's an example:</p>
+<pre><code class="language-java">BorderContainer borderContainer = new BorderContainer(this, &quot;my_border_container&quot;)
+    .north(new Button(this, &quot;north_button&quot;).text(&quot;North&quot;))
+    .south(new Button(this, &quot;south_button&quot;).text(&quot;South&quot;))
+    .east(new Button(this, &quot;east_button&quot;).text(&quot;East&quot;))
+    .west(new Button(this, &quot;west_button&quot;).text(&quot;West&quot;))
+    .center(new Button(this, &quot;center_button&quot;).text(&quot;Center&quot;));
+</code></pre>
+<p>In this example, we create a border container with buttons in each region, labeled accordingly.</p>
+<h2 id="notes-3"><a class="header" href="#notes-3">Notes</a></h2>
+<ul>
+<li>BorderContainer provides a flexible way to organize the layout of your application's user interface using a border layout.</li>
+<li>It utilizes a Container with a BorderLayout manager to manage the layout of its child components.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="boxcontainer--glue"><a class="header" href="#boxcontainer--glue">BoxContainer &amp; Glue</a></h1>
+<p>In Swelm, the <code>BoxContainer</code> widget is a versatile tool for organizing the layout of user interfaces. It allows developers to arrange components sequentially in either a horizontal or vertical box layout. Additionally, by incorporating <code>Glue</code> widgets within a <code>BoxContainer</code>, developers can control spacing and alignment between components more precisely.</p>
+<pre><code class="language-java">public BoxContainer(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the BoxContainer widget.</li>
+</ul>
+<h2 id="usage-6"><a class="header" href="#usage-6">Usage</a></h2>
+<h3 id="horizontal-layout-with-glue"><a class="header" href="#horizontal-layout-with-glue">Horizontal Layout with Glue</a></h3>
+<p>In a horizontal layout scenario, where components are arranged side by side, horizontal glue can be used to adjust the spacing between components.</p>
+<pre><code class="language-java">// Creating a BoxContainer with horizontal layout
+BoxContainer horizontalContainer = new BoxContainer(this, &quot;horizontal_container&quot;)
+    .align(BoxContainer.BoxAlign.Horizontal)
+    .children(new Widget[]{
+        new Button(this, &quot;button1&quot;).text(&quot;Button 1&quot;),
+        new Glue(this, &quot;horizontal_glue&quot;, Glue.Orientation.Horizontal), // Horizontal glue for spacing
+        new Button(this, &quot;button2&quot;).text(&quot;Button 2&quot;),
+        new Glue(this, &quot;horizontal_glue2&quot;, Glue.Orientation.Horizontal), // Additional horizontal glue
+        new Button(this, &quot;button3&quot;).text(&quot;Button 3&quot;)
+    });
+</code></pre>
+<p>In this example, the <code>Glue</code> widgets (<code>horizontal_glue</code> and <code>horizontal_glue2</code>) provide flexible spacing between the buttons (<code>button1</code>, <code>button2</code>, and <code>button3</code>) within the <code>horizontalContainer</code>.</p>
+<h3 id="vertical-layout-with-glue"><a class="header" href="#vertical-layout-with-glue">Vertical Layout with Glue</a></h3>
+<p>Similarly, in a vertical layout scenario where components are stacked vertically, vertical glue can be utilized to adjust spacing between components.</p>
+<pre><code class="language-java">// Creating a BoxContainer with vertical layout
+BoxContainer verticalContainer = new BoxContainer(this, &quot;vertical_container&quot;)
+    .align(BoxContainer.BoxAlign.Vertical)
+    .children(new Widget[]{
+        new Button(this, &quot;button1&quot;).text(&quot;Button 1&quot;),
+        new Glue(this, &quot;vertical_glue&quot;, Glue.Orientation.Vertical), // Vertical glue for spacing
+        new Button(this, &quot;button2&quot;).text(&quot;Button 2&quot;),
+        new Glue(this, &quot;vertical_glue2&quot;, Glue.Orientation.Vertical), // Additional vertical glue
+        new Button(this, &quot;button3&quot;).text(&quot;Button 3&quot;)
+    });
+</code></pre>
+<p>Here, the <code>Glue</code> widgets (<code>vertical_glue</code> and <code>vertical_glue2</code>) create flexible spacing between the buttons (<code>button1</code>, <code>button2</code>, and <code>button3</code>) within the <code>verticalContainer</code>.</p>
+<h2 id="customization-and-precision"><a class="header" href="#customization-and-precision">Customization and Precision</a></h2>
+<p>By incorporating <code>Glue</code> widgets within a <code>BoxContainer</code>, developers gain fine-grained control over the spacing and alignment of components. This approach allows for highly customizable user interfaces that adapt well to various screen sizes and resolutions.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="wrapcontainer"><a class="header" href="#wrapcontainer">WrapContainer</a></h1>
+<p>The <code>WrapContainer</code> class in Swelm is a widget that represents a container with components laid out in a wrap layout. It allows you to organize and manage the layout of your application's user interface by arranging components in rows and automatically wrapping them to the next row when necessary.</p>
+<pre><code class="language-java">public WrapContainer(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the widget.</li>
+</ul>
+<h2 id="main-methods-8"><a class="header" href="#main-methods-8">Main methods</a></h2>
+<p><strong><code>children(Widget[] children)</code></strong></p>
+<p>Adds child widgets to the wrap container.</p>
+<pre><code class="language-java">public WrapContainer children(Widget[] children)
+</code></pre>
+<ul>
+<li>children: An array of Widget objects representing the child widgets to be added to the wrap container.</li>
+</ul>
+<p>Usage</p>
+<p>To create a wrap container in your Swelm application, you can instantiate a <code>WrapContainer</code> object and add child widgets using the <code>children()</code> method. Here's an example:</p>
+<pre><code class="language-java">WrapContainer wrapContainer = new WrapContainer(widgets, &quot;my_wrap_container&quot;)
+    .children(new Widget[]{
+        new Button(widgets, &quot;button1&quot;).text(&quot;Button 1&quot;),
+        new Button(widgets, &quot;button2&quot;).text(&quot;Button 2&quot;),
+        new Button(widgets, &quot;button3&quot;).text(&quot;Button 3&quot;),
+        new Button(widgets, &quot;button4&quot;).text(&quot;Button 4&quot;),
+        // Add more widgets as needed
+    });
+</code></pre>
+<p>In this example, we create a wrap container named &quot;my_wrap_container&quot; and add several buttons to it. The wrap layout automatically arranges the buttons in rows and wraps them to the next row when necessary to fit within the container's width.</p>
+<h2 id="notes-4"><a class="header" href="#notes-4">Notes</a></h2>
+<ul>
+<li>WrapContainer provides a convenient way to create responsive layouts with components automatically wrapping to accommodate varying screen sizes.</li>
+<li>It utilizes a Container with a WrapLayout manager to manage the layout of its child components.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

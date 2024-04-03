@@ -171,7 +171,46 @@
 
                 <div id="content" class="content">
                     <main>
-                        
+                        <h1 id="boxcontainer--glue"><a class="header" href="#boxcontainer--glue">BoxContainer &amp; Glue</a></h1>
+<p>In Swelm, the <code>BoxContainer</code> widget is a versatile tool for organizing the layout of user interfaces. It allows developers to arrange components sequentially in either a horizontal or vertical box layout. Additionally, by incorporating <code>Glue</code> widgets within a <code>BoxContainer</code>, developers can control spacing and alignment between components more precisely.</p>
+<pre><code class="language-java">public BoxContainer(IWidgetCollection widgets, String widgetName)
+</code></pre>
+<ul>
+<li>widgets: An instance of IWidgetCollection interface, providing access to the collection of widgets within the application.</li>
+<li>widgetName: A unique identifier for the BoxContainer widget.</li>
+</ul>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<h3 id="horizontal-layout-with-glue"><a class="header" href="#horizontal-layout-with-glue">Horizontal Layout with Glue</a></h3>
+<p>In a horizontal layout scenario, where components are arranged side by side, horizontal glue can be used to adjust the spacing between components.</p>
+<pre><code class="language-java">// Creating a BoxContainer with horizontal layout
+BoxContainer horizontalContainer = new BoxContainer(this, &quot;horizontal_container&quot;)
+    .align(BoxContainer.BoxAlign.Horizontal)
+    .children(new Widget[]{
+        new Button(this, &quot;button1&quot;).text(&quot;Button 1&quot;),
+        new Glue(this, &quot;horizontal_glue&quot;, Glue.Orientation.Horizontal), // Horizontal glue for spacing
+        new Button(this, &quot;button2&quot;).text(&quot;Button 2&quot;),
+        new Glue(this, &quot;horizontal_glue2&quot;, Glue.Orientation.Horizontal), // Additional horizontal glue
+        new Button(this, &quot;button3&quot;).text(&quot;Button 3&quot;)
+    });
+</code></pre>
+<p>In this example, the <code>Glue</code> widgets (<code>horizontal_glue</code> and <code>horizontal_glue2</code>) provide flexible spacing between the buttons (<code>button1</code>, <code>button2</code>, and <code>button3</code>) within the <code>horizontalContainer</code>.</p>
+<h3 id="vertical-layout-with-glue"><a class="header" href="#vertical-layout-with-glue">Vertical Layout with Glue</a></h3>
+<p>Similarly, in a vertical layout scenario where components are stacked vertically, vertical glue can be utilized to adjust spacing between components.</p>
+<pre><code class="language-java">// Creating a BoxContainer with vertical layout
+BoxContainer verticalContainer = new BoxContainer(this, &quot;vertical_container&quot;)
+    .align(BoxContainer.BoxAlign.Vertical)
+    .children(new Widget[]{
+        new Button(this, &quot;button1&quot;).text(&quot;Button 1&quot;),
+        new Glue(this, &quot;vertical_glue&quot;, Glue.Orientation.Vertical), // Vertical glue for spacing
+        new Button(this, &quot;button2&quot;).text(&quot;Button 2&quot;),
+        new Glue(this, &quot;vertical_glue2&quot;, Glue.Orientation.Vertical), // Additional vertical glue
+        new Button(this, &quot;button3&quot;).text(&quot;Button 3&quot;)
+    });
+</code></pre>
+<p>Here, the <code>Glue</code> widgets (<code>vertical_glue</code> and <code>vertical_glue2</code>) create flexible spacing between the buttons (<code>button1</code>, <code>button2</code>, and <code>button3</code>) within the <code>verticalContainer</code>.</p>
+<h2 id="customization-and-precision"><a class="header" href="#customization-and-precision">Customization and Precision</a></h2>
+<p>By incorporating <code>Glue</code> widgets within a <code>BoxContainer</code>, developers gain fine-grained control over the spacing and alignment of components. This approach allows for highly customizable user interfaces that adapt well to various screen sizes and resolutions.</p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

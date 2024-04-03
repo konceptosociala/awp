@@ -38,9 +38,11 @@ Now let's figure out every component of our application:
     [Declarative programming](https://en.wikipedia.org/wiki/Declarative_programming)
 
 Let's add [`CoreWidget`](../widgets/core-widget.md) to our build method. In a 
-constructor we pass our application instance, unique ID (which is usually its 
-underscored name) and an inner widget, whichin most cases is a container, where 
-other widgets will be stored:
+constructor we pass our application instance (we can also pass other collection
+which implements `IWidgetCollection` interface, but it is not recomended; read
+more about it in [Accessing widgets](./accessing-widgets.md) chapter), 
+unique ID (which is usually its underscored name) and an inner widget, whichin 
+most cases is a container, where other widgets will be stored:
 
 ```java
 @Override

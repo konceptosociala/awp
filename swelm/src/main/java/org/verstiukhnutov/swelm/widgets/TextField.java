@@ -8,7 +8,7 @@ public class TextField extends Widget {
 
     private JPlaceholderTextField textField;
 
-    public <Msg> TextField(IWidgetCollection widgets, String widgetName){
+    public TextField(IWidgetCollection widgets, String widgetName){
         super(widgets, widgetName);
         textField = new JPlaceholderTextField();
     }

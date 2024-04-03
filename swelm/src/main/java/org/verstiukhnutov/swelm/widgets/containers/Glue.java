@@ -9,14 +9,14 @@ import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class Glue extends Widget {
 
-    public enum Orienation {
+    public enum Orientation {
         Horizontal,
         Vertical,
     };
 
     private Component glue;
 
-    public Glue(IWidgetCollection widgets, String widgetName, Orienation orienation) {
+    public Glue(IWidgetCollection widgets, String widgetName, Orientation orienation) {
         super(widgets, widgetName);
         switch (orienation) {
             case Horizontal:

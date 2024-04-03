@@ -10,7 +10,7 @@ public class CoreWidget extends Widget {
 
     private Container container;
 
-    public <Msg> CoreWidget(IWidgetCollection widgets, String widgetName, Widget child) {
+    public CoreWidget(IWidgetCollection widgets, String widgetName, Widget child) {
         super(widgets, widgetName);
         container = new Container();
         container.setLayout(new GridLayout(1, 1));

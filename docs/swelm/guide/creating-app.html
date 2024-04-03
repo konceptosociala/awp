@@ -207,9 +207,11 @@ in a structure we want it to be shown. Such an approach is called
 <a href="https://en.wikipedia.org/wiki/Declarative_programming">Declarative programming</a></li>
 </ul>
 <p>Let's add <a href="../widgets/core-widget.html"><code>CoreWidget</code></a> to our build method. In a 
-constructor we pass our application instance, unique ID (which is usually its 
-underscored name) and an inner widget, whichin most cases is a container, where 
-other widgets will be stored:</p>
+constructor we pass our application instance (we can also pass other collection
+which implements <code>IWidgetCollection</code> interface, but it is not recomended; read
+more about it in <a href="./accessing-widgets.html">Accessing widgets</a> chapter), 
+unique ID (which is usually its underscored name) and an inner widget, whichin 
+most cases is a container, where other widgets will be stored:</p>
 <pre><code class="language-java">@Override
 public Widget build() {
     return new CoreWidget(this, &quot;my_app&quot;,

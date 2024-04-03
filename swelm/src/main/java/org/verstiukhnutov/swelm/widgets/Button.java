@@ -12,7 +12,7 @@ public class Button extends Widget {
 
     private JButton button;
 
-    public <Msg> Button(IWidgetCollection widgets, String widgetName){
+    public Button(IWidgetCollection widgets, String widgetName){
         super(widgets, widgetName);
         button = new JButton();
     }
