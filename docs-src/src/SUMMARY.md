@@ -13,6 +13,7 @@
     - [Accessing widgets](swelm/guide/accessing-widgets.md)
     - [Events](swelm/guide/events.md)
     - [Creating own widget](swelm/guide/creating-own-widget.md)
+    - [Example: counter](swelm/guide/example-counter.md)
 - [Widgets](swelm/widgets.md)
     - [CoreWidget](swelm/widgets/core-widget.md)
     - [Button](swelm/widgets/button.md)

@@ -26,12 +26,12 @@ Usage
 To create a wrap container in your Swelm application, you can instantiate a `WrapContainer` object and add child widgets using the `children()` method. Here's an example:
 
 ```java
-WrapContainer wrapContainer = new WrapContainer(widgets, "my_wrap_container")
+WrapContainer wrapContainer = new WrapContainer(this, "my_wrap_container")
     .children(new Widget[]{
-        new Button(widgets, "button1").text("Button 1"),
-        new Button(widgets, "button2").text("Button 2"),
-        new Button(widgets, "button3").text("Button 3"),
-        new Button(widgets, "button4").text("Button 4"),
+        new Button(this, "button1").text("Button 1"),
+        new Button(this, "button2").text("Button 2"),
+        new Button(this, "button3").text("Button 3"),
+        new Button(this, "button4").text("Button 4"),
         // Add more widgets as needed
     });
 ```

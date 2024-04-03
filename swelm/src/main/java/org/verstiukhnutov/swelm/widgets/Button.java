@@ -44,6 +44,10 @@ public class Button extends Widget {
         button.setBounds(x, y, width, height);
     }
 
+    public void setVisible(boolean visible) {
+        button.setVisible(visible);
+    }
+
     @Override
     public Component component() {
         return button;
