@@ -4,6 +4,10 @@ import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
+import org.verstiukhnutov.swelm.utils.Color;
+import org.verstiukhnutov.swelm.utils.Pos;
+import org.verstiukhnutov.swelm.utils.Size;
+import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class BoxContainer extends Widget {
@@ -42,6 +46,28 @@ public class BoxContainer extends Widget {
     public void addChild(Widget child) {
         box.add(child.component());
     }
+
+    @Override
+    public void setVisible(boolean visible) {
+        box.setVisible(visible);
+    }
+
+    @Override
+    public BoxContainer visible(boolean visible) {
+        setVisible(visible);
+        return this;
+    }
+
+    @Override public void setSize(Size size) {}
+    @Override public void setPosition(Pos pos) {}
+    @Override public void setBackground(Color color) {}
+    @Override public void setForeground(Color color) {}
+    @Override public void setBorder(Border border) {}
+    @Override public BoxContainer size(Size size) {return this;}
+    @Override public BoxContainer position(Pos pos) {return this;}
+    @Override public BoxContainer background(Color color) {return this;}
+    @Override public BoxContainer foreground(Color color) {return this;}
+    @Override public BoxContainer border(Border border) {return this;}
 
     @Override
     public Component component() {

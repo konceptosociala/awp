@@ -21,19 +21,6 @@ public Button text(String text)
 
 - text: The text to be displayed on the button.
 
-**`bounds(int x, int y, int width, int height)`**
-
-Sets the position and size of the button within its parent container.
-
-```java
-public Button bounds(int x, int y, int width, int height)
-```
-
-- x: The x-coordinate of the button's top-left corner.
-- y: The y-coordinate of the button's top-left corner.
-- width: The width of the button.
-- height: The height of the button.
-
 **`clicked(ConstructWidget<Msg> app, Msg msg)`**
 
 Registers an action listener to handle button clicks.
@@ -55,27 +42,13 @@ public void setText(String text)
 
 - text: The text to be displayed on the button.
 
-**`setBounds(int x, int y, int width, int height)`**
-
-Sets the position and size of the button within its parent container.
-
-```java
-public void setBounds(int x, int y, int width, int height)
-```
-
-- x: The x-coordinate of the button's top-left corner.
-- y: The y-coordinate of the button's top-left corner.
-- width: The width of the button.
-- height: The height of the button.
-
-Usage
+## Usage
 
 To create a button in your Swelm application, you can instantiate a `Button` object and customize its properties using the available methods. Here's an example:
 
 ```java
 Button myButton = new Button(this, "my_button")
     .text("Click me")
-    .bounds(100, 100, 100, 50)
     .clicked(this, new MyMsg("Button clicked"));
 ```
 

@@ -1,0 +1,31 @@
+package org.verstiukhnutov.swelm.utils;
+
+import org.verstiukhnutov.swelm.utils.border.Border;
+
+public interface AdjustableWidget {
+    
+    public void setSize(Size size); 
+
+    public void setPosition(Pos pos);
+
+    public void setBackground(Color color);
+
+    public void setForeground(Color color);
+
+    public void setBorder(Border border);
+
+    public void setVisible(boolean visible);
+
+    public AdjustableWidget size(Size size); 
+
+    public AdjustableWidget position(Pos pos);
+
+    public AdjustableWidget background(Color color);
+
+    public AdjustableWidget foreground(Color color);
+
+    public AdjustableWidget border(Border border);
+
+    public AdjustableWidget visible(boolean visible);
+
+}

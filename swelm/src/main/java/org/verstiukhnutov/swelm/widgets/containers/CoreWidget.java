@@ -2,32 +2,23 @@ package org.verstiukhnutov.swelm.widgets.containers;
 
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.GridLayout;
+
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.Widget;
-import org.verstiukhnutov.swelm.widgets.swing.WrapLayout;
 
-public class WrapContainer extends Widget {
-    
+public class CoreWidget extends Widget {
+
     private Container container;
 
-    public WrapContainer(IWidgetCollection widgets, String widgetName) {
+    public CoreWidget(IWidgetCollection widgets, String widgetName, Widget child) {
         super(widgets, widgetName);
         container = new Container();
-        container.setLayout(new WrapLayout());
-    }
-
-    public WrapContainer children(Widget[] children) {
-        for (Widget widget : children) {
-            addChild(widget);
-        }
-        return this;
-    }
-
-    public void addChild(Widget child) {
+        container.setLayout(new GridLayout(1, 1));
         container.add(child.component());
     }
 
@@ -37,7 +28,7 @@ public class WrapContainer extends Widget {
     }
 
     @Override
-    public WrapContainer visible(boolean visible) {
+    public CoreWidget visible(boolean visible) {
         setVisible(visible);
         return this;
     }
@@ -47,11 +38,11 @@ public class WrapContainer extends Widget {
     @Override public void setBackground(Color color) {}
     @Override public void setForeground(Color color) {}
     @Override public void setBorder(Border border) {}
-    @Override public WrapContainer size(Size size) {return this;}
-    @Override public WrapContainer position(Pos pos) {return this;}
-    @Override public WrapContainer background(Color color) {return this;}
-    @Override public WrapContainer foreground(Color color) {return this;}
-    @Override public WrapContainer border(Border border) {return this;}
+    @Override public CoreWidget size(Size size) {return this;}
+    @Override public CoreWidget position(Pos pos) {return this;}
+    @Override public CoreWidget background(Color color) {return this;}
+    @Override public CoreWidget foreground(Color color) {return this;}
+    @Override public CoreWidget border(Border border) {return this;}
 
     @Override
     public Component component() {

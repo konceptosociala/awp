@@ -5,6 +5,10 @@ import java.awt.Component;
 import java.awt.Container;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
+import org.verstiukhnutov.swelm.utils.Color;
+import org.verstiukhnutov.swelm.utils.Pos;
+import org.verstiukhnutov.swelm.utils.Size;
+import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class BorderContainer extends Widget {
@@ -61,6 +65,28 @@ public class BorderContainer extends Widget {
     public void setCenter(Widget widget) {
         container.add(widget.component(), BorderLayout.CENTER);
     }
+
+    @Override
+    public void setVisible(boolean visible) {
+        container.setVisible(visible);
+    }
+
+    @Override
+    public BorderContainer visible(boolean visible) {
+        setVisible(visible);
+        return this;
+    }
+
+    @Override public void setSize(Size size) {}
+    @Override public void setPosition(Pos pos) {}
+    @Override public void setBackground(Color color) {}
+    @Override public void setForeground(Color color) {}
+    @Override public void setBorder(Border border) {}
+    @Override public BorderContainer size(Size size) {return this;}
+    @Override public BorderContainer position(Pos pos) {return this;}
+    @Override public BorderContainer background(Color color) {return this;}
+    @Override public BorderContainer foreground(Color color) {return this;}
+    @Override public BorderContainer border(Border border) {return this;}
 
     @Override
     public Component component() {

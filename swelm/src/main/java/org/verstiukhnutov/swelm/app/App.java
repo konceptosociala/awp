@@ -5,7 +5,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import io.materialtheme.darkstackoverflow.DarkStackOverflowTheme;
 import mdlaf.MaterialLookAndFeel;
 
-import org.verstiukhnutov.swelm.utils.Position;
+import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 
 public class App<Msg> {
@@ -35,7 +35,7 @@ public class App<Msg> {
         return this;
     }
 
-    public App<Msg> position(Position position) {
+    public App<Msg> position(Pos position) {
         window.setPosition(position);
         return this;
     }

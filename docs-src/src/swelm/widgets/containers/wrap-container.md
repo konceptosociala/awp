@@ -21,7 +21,7 @@ public WrapContainer children(Widget[] children)
 
 - children: An array of Widget objects representing the child widgets to be added to the wrap container.
 
-Usage
+## Usage
 
 To create a wrap container in your Swelm application, you can instantiate a `WrapContainer` object and add child widgets using the `children()` method. Here's an example:
 

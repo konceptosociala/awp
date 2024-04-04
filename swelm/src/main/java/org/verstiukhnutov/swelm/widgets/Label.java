@@ -5,6 +5,10 @@ import java.awt.Component;
 import javax.swing.JLabel;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
+import org.verstiukhnutov.swelm.utils.Color;
+import org.verstiukhnutov.swelm.utils.Pos;
+import org.verstiukhnutov.swelm.utils.Size;
+import org.verstiukhnutov.swelm.utils.border.Border;
 
 public class Label extends Widget {
 
@@ -26,32 +30,74 @@ public class Label extends Widget {
         return this;
     }
 
-    public Label align(TextAlign align) {
-        setAlign(align);
+    public void setText(String text) {
+        label.setText(text);
+    }
+
+    @Override
+    public void setSize(Size size) {
+        label.setSize(size.width, size.height);
+    }
+
+    @Override
+    public void setPosition(Pos pos) {
+        label.setLocation(pos.x, pos.y);
+    }
+
+    @Override
+    public void setBackground(Color color) {
+        label.setBackground(color);
+    }
+
+    @Override
+    public void setForeground(Color color) {
+        label.setForeground(color);
+    }
+
+    @Override
+    public void setBorder(Border border) {
+        label.setBorder(border.toSwingBorder());
+    }
+
+    @Override
+    public void setVisible(boolean visible) {
+        label.setVisible(visible);
+    }
+
+    @Override
+    public Label size(Size size) {
+        setSize(size);
         return this;
     }
 
-    public void setAlign(TextAlign align) {
-        switch (align) {
-            case Left:
-                label.setAlignmentX(JLabel.LEFT_ALIGNMENT);
-                break;
-        
-            case Right:
-                label.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
-                break;
-
-            case Center:
-                label.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-                break;
-
-            default:
-                break;
-        }
+    @Override
+    public Label position(Pos pos) {
+        setPosition(pos);
+        return this;
     }
 
-    public void setText(String text) {
-        label.setText(text);
+    @Override
+    public Label background(Color color) {
+        setBackground(color);
+        return this;
+    }
+
+    @Override
+    public Label foreground(Color color) {
+        setForeground(color);
+        return this;
+    }
+
+    @Override
+    public Label border(Border border) {
+        setBorder(border);
+        return this;
+    }
+
+    @Override
+    public Label visible(boolean visible) {
+        setVisible(visible);
+        return this;
     }
 
     @Override

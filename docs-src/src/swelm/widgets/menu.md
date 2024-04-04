@@ -25,16 +25,6 @@ public MenuBar menus(Menu[] menus)
 
 - menus: An array of Menu objects representing the menus to be added to the menu bar.
 
-**`setVisible(boolean visible)`**
-
-Sets the visibility of the menu bar.
-
-```java
-public void setVisible(boolean visible)
-```
-
-- visible: A boolean value indicating whether the menu bar should be visible or not.
-
 ## Usage
 
 To create a menu bar in your Swelm application, you can instantiate a `MenuBar` object and add menus to it using the `menus()` method. Here's an example:

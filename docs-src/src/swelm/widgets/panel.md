@@ -8,35 +8,7 @@ public Panel(IWidgetCollection widgets, String widgetName, Widget child)
 
 - widgets: An instance of IWidgetCollection interface, which provides access to the collection of widgets within the application.
 - widgetName: A unique identifier for the widget.
-- **`child`**: The inner widget to be contained within the Panel.
-
-## Main methods
-
-**`bounds(int x, int y, int width, int height)`**
-
-Sets the position and size of the panel within its parent container.
-
-```java
-public Panel bounds(int x, int y, int width, int height)
-```
-
-- x: The x-coordinate of the panel's top-left corner.
-- y: The y-coordinate of the panel's top-left corner.
-- width: The width of the panel.
-- height: The height of the panel.
-
-**`setBounds(int x, int y, int width, int height)`**
-
-Sets the position and size of the panel within its parent container.
-
-```java
-public void setBounds(int x, int y, int width, int height)
-```
-
-- x: The x-coordinate of the panel's top-left corner.
-- y: The y-coordinate of the panel's top-left corner.
-- width: The width of the panel.
-- height: The height of the panel.
+- child: The inner widget to be contained within the Panel.
 
 ## Usage
 

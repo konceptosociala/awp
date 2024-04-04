@@ -8,7 +8,7 @@ public CoreWidget(IWidgetCollection widgets, String widgetName, Widget child)
 
  * widgets: An instance of IWidgetCollection interface, which provides access to the collection of widgets within the application.
  * widgetName: A unique identifier for the widget.
- * **`child`**: The inner widget to be contained within the CoreWidget.
+ * child: The inner widget to be contained within the CoreWidget.
 
 ## Usage
 

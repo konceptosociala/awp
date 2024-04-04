@@ -27,6 +27,8 @@
         - [WrapContainer](swelm/widgets/containers/wrap-container.md)
 - [Utilities](swelm/utilities.md)
     - [App](swelm/utilities/app.md)
+    - [AdjustableWidget](swelm/utilities/adjustable-widget.md)
+    - [Borders](swelm/utilities/borders.md)
     - [Widget](swelm/utilities/widget.md)
     - [Widgets dump](swelm/utilities/dump.md)
     - [MsgBox](swelm/utilities/msgbox.md)

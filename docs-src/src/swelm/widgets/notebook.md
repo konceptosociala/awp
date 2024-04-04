@@ -11,19 +11,6 @@ public Notebook(IWidgetCollection widgets, String widgetName)
 
 ## Main methods
 
-**`bounds(int x, int y, int width, int height)`**
-
-Sets the position and size of the notebook within its parent container.
-
-```java
-public Notebook bounds(int x, int y, int width, int height)
-```
-
-- x: The x-coordinate of the notebook's top-left corner.
-- y: The y-coordinate of the notebook's top-left corner.
-- width: The width of the notebook.
-- height: The height of the notebook.
-
 **`tabs(Tab[] tabs)`**
 
 Adds tabs to the notebook.
@@ -33,19 +20,6 @@ public Notebook tabs(Tab[] tabs)
 ```
 
 - tabs: An array of Tab objects representing the tabs to be added to the notebook.
-
-**`setBounds(int x, int y, int width, int height)`**
-
-Sets the position and size of the notebook within its parent container.
-
-```java
-public void setBounds(int x, int y, int width, int height)
-```
-
-- x: The x-coordinate of the notebook's top-left corner.
-- y: The y-coordinate of the notebook's top-left corner.
-- width: The width of the notebook.
-- height: The height of the notebook.
 
 ## Usage
 

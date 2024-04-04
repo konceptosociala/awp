@@ -3,7 +3,7 @@ package org.verstiukhnutov.swelm.app;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import org.verstiukhnutov.swelm.utils.Position;
+import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class Window {
@@ -25,7 +25,7 @@ public class Window {
         frame.setSize(width, height);
     }
 
-    public void setPosition(Position position) {
+    public void setPosition(Pos position) {
         if (position != null)
             frame.setLocation(position.x, position.y);
         else
