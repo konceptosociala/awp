@@ -27,12 +27,21 @@ public class TextField extends Widget {
         return this;
     }
 
+    public TextField backgroundColor(Color color) {
+        setBackgroundColor(color);
+        return this;
+    }
+
     public void setText(String text) {
         textField.setText(text);
     }
 
     public void setPlaceholder(String placeholder) {
         textField.setPlaceholder(placeholder);
+    }
+
+    public void setBackgroundColor(Color color) {
+        textField.setBackground(color);
     }
 
     @Override
