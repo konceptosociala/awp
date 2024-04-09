@@ -3,9 +3,11 @@ package org.verstiukhnutov.awp.view;
 import java.io.IOException;
 import org.verstiukhnutov.swelm.app.App;
 import org.verstiukhnutov.swelm.app.Splashcreen;
+import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.MsgBox;
 import org.verstiukhnutov.swelm.utils.ResourceImage;
 import org.verstiukhnutov.swelm.widgets.*;
+import org.verstiukhnutov.swelm.widgets.Panel;
 import org.verstiukhnutov.swelm.widgets.containers.*;
 import org.verstiukhnutov.awp.model.AwpModel;
 import org.verstiukhnutov.awp.view.widgets.*;
@@ -40,6 +42,8 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             new BorderContainer(this, "my_border")
                 .north(new MainMenu(this, "main_menu"))
                 .center(new Notebook(this, "notebook")
+                        .background(Color.GRAY)
+                        .foreground(Color.WHITE)
                     .tabs(new Tab[]{
                         new Tab("Groups", new Panel(this, "groups_panel",
                             new BorderContainer(this, "groups_container")

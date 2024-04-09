@@ -1,6 +1,6 @@
 package org.verstiukhnutov.swelm.widgets;
 
-import java.awt.Component;
+import java.awt.*;
 
 import javax.swing.JTabbedPane;
 
@@ -9,14 +9,17 @@ import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.utils.border.Border;
+import org.verstiukhnutov.swelm.widgets.ui.SwelmTabbedPaneUI;
 
 public class Notebook extends Widget {
 
-    private JTabbedPane pane;
+    private final JTabbedPane pane;
 
     public Notebook(IWidgetCollection widgets, String widgetName) {
         super(widgets, widgetName);
+
         pane = new JTabbedPane();
+        pane.setUI(new SwelmTabbedPaneUI());
     }
 
     public Notebook tabs(Tab[] tabs) {
