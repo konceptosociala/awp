@@ -4,6 +4,7 @@ public class Color extends java.awt.Color {
     public static final Color GRAY = new Color(57, 57, 57);
     public static final Color LIGHT_GRAY = new Color(71, 71, 71);
     public static final Color BLUE = new Color(46, 138, 247);
+    public static final Color WHITE = new Color(255, 255, 255);
 
 
     public Color(int r, int g, int b) {
