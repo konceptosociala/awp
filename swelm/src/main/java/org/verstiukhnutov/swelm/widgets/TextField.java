@@ -1,20 +1,23 @@
 package org.verstiukhnutov.swelm.widgets;
 
 import java.awt.Component;
+
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.swing.JPlaceholderTextField;
+import org.verstiukhnutov.swelm.widgets.ui.SwelmTextFieldUI;
 
 public class TextField extends Widget {
 
-    private JPlaceholderTextField textField;
+    private final JPlaceholderTextField textField;
 
     public TextField(IWidgetCollection widgets, String widgetName){
         super(widgets, widgetName);
         textField = new JPlaceholderTextField();
+        textField.setUI(new SwelmTextFieldUI());
     }
 
     public TextField text(String text) {
