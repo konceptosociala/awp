@@ -10,6 +10,8 @@ import org.verstiukhnutov.swelm.widgets.TextField;
 import org.verstiukhnutov.swelm.widgets.Widget;
 import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
 
+import java.awt.*;
+
 public class LabeledTextField extends ConstructWidget<AwpMsg> {
     private AwpApp app;
     private String widgetName;
@@ -47,8 +49,14 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
                 .align(BoxContainer.BoxAlign.Vertical)
                 .filler(size.width, size.height)
                 .children(new Widget[]{
-                        new Label(app, widgetName + "_label").text(label).foreground(Color.WHITE),
-                        new TextField(app, widgetName + "_field").placeholder(placeholder).backgroundColor(Color.LIGHT_GRAY).size(size)
+                        new Label(app, widgetName + "_label").text(label)
+                                .foreground(Color.WHITE)
+                                .alignmentX(Component.LEFT_ALIGNMENT),
+                        new TextField(app, widgetName + "_field")
+                                .placeholder(placeholder)
+                                .backgroundColor(Color.LIGHT_GRAY)
+                                .size(size)
+                                .alignmentX(Component.LEFT_ALIGNMENT)
                 });
     }
 }

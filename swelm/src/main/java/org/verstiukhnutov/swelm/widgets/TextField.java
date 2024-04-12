@@ -73,6 +73,11 @@ public class TextField extends Widget {
     }
 
     @Override
+    public void setAlignmentX(float alignmentX) {
+        textField.setAlignmentX(alignmentX);
+    }
+
+    @Override
     public void setVisible(boolean visible) {
         textField.setVisible(visible);
     }
@@ -104,6 +109,12 @@ public class TextField extends Widget {
     @Override
     public TextField border(Border border) {
         setBorder(border);
+        return this;
+    }
+
+    @Override
+    public TextField alignmentX(float alignmentX) {
+        setAlignmentX(alignmentX);
         return this;
     }
 

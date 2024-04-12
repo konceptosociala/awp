@@ -30,6 +30,11 @@ public class Label extends Widget {
         return this;
     }
 
+    public Label alignmentX(float alignmentX) {
+        setAlignmentX(alignmentX);
+        return this;
+    }
+
     public Label text(String text) {
         setText(text);
         return this;
@@ -37,6 +42,10 @@ public class Label extends Widget {
 
     public void setBold(boolean bold) {
         label.setFont(label.getFont().deriveFont(bold ? java.awt.Font.BOLD : java.awt.Font.PLAIN));
+    }
+
+    public void setAlignmentX(float alignmentX) {
+        label.setAlignmentX(alignmentX);
     }
 
     public void setText(String text) {
