@@ -1,6 +1,6 @@
 package org.verstiukhnutov.swelm.widgets.containers;
 
-import java.awt.Component;
+import java.awt.*;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
@@ -58,12 +58,24 @@ public class BoxContainer extends Widget {
         return this;
     }
 
-    @Override public void setSize(Size size) {}
+    public void setFiller(int width, int height) {
+        box.add(Box.createRigidArea(new Dimension(width, height)));
+    }
+    @Override public void setSize(Size size) {
+        box.setSize(size.width, size.height);
+    }
     @Override public void setPosition(Pos pos) {}
     @Override public void setBackground(Color color) {}
     @Override public void setForeground(Color color) {}
     @Override public void setBorder(Border border) {}
-    @Override public BoxContainer size(Size size) {return this;}
+    public BoxContainer filler(int width, int height) {
+        setFiller(width, height);
+        return this;
+    }
+    @Override public BoxContainer size(Size size) {
+        setSize(size);
+        return this;
+    }
     @Override public BoxContainer position(Pos pos) {return this;}
     @Override public BoxContainer background(Color color) {return this;}
     @Override public BoxContainer foreground(Color color) {return this;}

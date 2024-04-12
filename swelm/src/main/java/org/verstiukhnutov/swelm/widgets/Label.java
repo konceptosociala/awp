@@ -25,9 +25,18 @@ public class Label extends Widget {
         label = new JLabel();
     }
 
+    public Label bold(boolean bold) {
+        setBold(bold);
+        return this;
+    }
+
     public Label text(String text) {
         setText(text);
         return this;
+    }
+
+    public void setBold(boolean bold) {
+        label.setFont(label.getFont().deriveFont(bold ? java.awt.Font.BOLD : java.awt.Font.PLAIN));
     }
 
     public void setText(String text) {

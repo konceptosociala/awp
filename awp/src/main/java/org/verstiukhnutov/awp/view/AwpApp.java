@@ -54,27 +54,11 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                                 .center(
                                         new WrapContainer(this, "groups")
                                                 .size(new Size(1152, 648))
-                                                .children(new Card[]{new Card(this, "group1", new Label(this, "group1_label").text("Group 1")),
-                                                        new Card(this, "group2", new Label(this, "group2_label").text("Group 2")),
-                                                        new Card(this, "group3", new Label(this, "group3_label").text("Group 3")),
-                                                        new Card(this, "group4", new Label(this, "group4_label").text("Group 4")),
-                                                        new Card(this, "group5", new Label(this, "group5_label").text("Group 5")),
-                                                        new Card(this, "group6", new Label(this, "group6_label").text("Group 6")),
-                                                        new Card(this, "group7", new Label(this, "group7_label").text("Group 7")),
-                                                        new Card(this, "group8", new Label(this, "group8_label").text("Group 8")),
-                                                        new Card(this, "group9", new Label(this, "group9_label").text("Group 9")),
-                                                        new Card(this, "group10", new Label(this, "group10_label").text("Group 10")),
-                                                        new Card(this, "group11", new Label(this, "group11_label").text("Group 11")),
-                                                        new Card(this, "group12", new Label(this, "group12_label").text("Group 12")),
-                                                        new Card(this, "group13", new Label(this, "group13_label").text("Group 13")),
-                                                        new Card(this, "group14", new Label(this, "group14_label").text("Group 14")),
-                                                        new Card(this, "group15", new Label(this, "group15_label").text("Group 15")),
-                                                        new Card(this, "group16", new Label(this, "group16_label").text("Group 16")),
-                                                        new Card(this, "group17", new Label(this, "group17_label").text("Group 17")),
-                                                        new Card(this, "group18", new Label(this, "group18_label").text("Group 18")),
-                                                        new Card(this, "group19", new Label(this, "group19_label").text("Group 19")),
-                                                        new Card(this, "group20", new Label(this, "group20_label").text("Group 20")),
-                                                        new Card(this, "group21", new Label(this, "group21_label").text("Group 21")),
+                                                .children(new Widget[]{new Card(this, "group1", new Label(this, "group1_label").text("Group 1")),
+                                                        new LabeledTextField(this, "new_group")
+                                                                .label("New group")
+                                                                .placeholder("Enter group name")
+                                                                .size(new Size(504, 243))
                                                 })
                                 )
                         ).background(Color.GRAY)),

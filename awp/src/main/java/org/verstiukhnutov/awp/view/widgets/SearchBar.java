@@ -2,6 +2,7 @@ package org.verstiukhnutov.awp.view.widgets;
 
 import org.verstiukhnutov.awp.view.AwpApp;
 import org.verstiukhnutov.awp.view.AwpMsg;
+import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.widgets.Button;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 import org.verstiukhnutov.swelm.widgets.TextField;
@@ -30,14 +31,15 @@ public class SearchBar extends ConstructWidget<AwpMsg> {
     public void event(AwpMsg msg) {
         app.event(msg);
     }
-        
+
     @Override
     public Widget build() {
-        return new BoxContainer(app, widgetName+"_search_bar").children(new Widget[]{
-            new TextField(app, widgetName+"_search_field")
-                .placeholder(placeholder),
-            new Button(app, widgetName+"_search_button")
-                .text("Search") 
+        return new BoxContainer(app, widgetName + "_search_bar").children(new Widget[]{
+                new TextField(app, widgetName + "_search_field")
+                        .placeholder(placeholder)
+                        .backgroundColor(Color.LIGHT_GRAY),
+                new Button(app, widgetName + "_search_button")
+                        .text("Search")
         });
     }
 
