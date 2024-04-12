@@ -77,11 +77,6 @@ public class BorderContainer extends Widget {
         return this;
     }
 
-    @Override public void setSize(Size size) {}
-    @Override public void setPosition(Pos pos) {}
-    @Override public void setBackground(Color color) {}
-    @Override public void setForeground(Color color) {}
-    @Override public void setBorder(Border border) {}
     @Override public BorderContainer size(Size size) {return this;}
     @Override public BorderContainer position(Pos pos) {return this;}
     @Override public BorderContainer background(Color color) {return this;}

@@ -42,11 +42,6 @@ public class WrapContainer extends Widget {
         return this;
     }
 
-    @Override public void setSize(Size size) {}
-    @Override public void setPosition(Pos pos) {}
-    @Override public void setBackground(Color color) {}
-    @Override public void setForeground(Color color) {}
-    @Override public void setBorder(Border border) {}
     @Override public WrapContainer size(Size size) {return this;}
     @Override public WrapContainer position(Pos pos) {return this;}
     @Override public WrapContainer background(Color color) {return this;}

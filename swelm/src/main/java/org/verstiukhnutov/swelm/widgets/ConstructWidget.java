@@ -49,12 +49,6 @@ public abstract class ConstructWidget<Msg> extends Widget implements IWidgetColl
         return built.component();
     }
 
-    @Override public void setSize(Size size) {}
-    @Override public void setPosition(Pos pos) {}
-    @Override public void setBackground(Color color) {}
-    @Override public void setForeground(Color color) {}
-    @Override public void setBorder(Border border) {}
-    @Override public void setVisible(boolean visible) {}
     @Override public ConstructWidget<Msg> size(Size size) {return this;}
     @Override public ConstructWidget<Msg> position(Pos pos) {return this;}
     @Override public ConstructWidget<Msg> background(Color color) {return this;}

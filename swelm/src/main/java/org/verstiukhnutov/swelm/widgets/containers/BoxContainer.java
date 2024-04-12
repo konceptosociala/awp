@@ -25,7 +25,7 @@ public class BoxContainer extends Widget {
     }
 
     public BoxContainer align(BoxAlign align) {
-        switch (align) {        
+        switch (align) {
             default:
                 break;
 
@@ -64,10 +64,7 @@ public class BoxContainer extends Widget {
     @Override public void setSize(Size size) {
         box.setSize(size.width, size.height);
     }
-    @Override public void setPosition(Pos pos) {}
-    @Override public void setBackground(Color color) {}
-    @Override public void setForeground(Color color) {}
-    @Override public void setBorder(Border border) {}
+
     public BoxContainer filler(int width, int height) {
         setFiller(width, height);
         return this;
