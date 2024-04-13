@@ -21,13 +21,21 @@ public class DisplayGroup extends ConstructWidget<AwpMsg> {
         this.widgetName = widgetName;
     }
 
-    public DisplayGroup title(String title) {
+    public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public DisplayGroup title(String title) {
+        this.setTitle(title);
         return this;
     }
 
     public DisplayGroup description(String description) {
-        this.description = description;
+        this.setDescription(description);
         return this;
     }
 
@@ -52,11 +60,11 @@ public class DisplayGroup extends ConstructWidget<AwpMsg> {
                                                 new Icon(app, widgetName + "_edit")
                                                         .type(Icon.IconType.Pen)
                                                         .size(new Size(20, 20))
-                                                        .clicked(app, new AwpMsg("Edit")),
+                                                        .clicked(app, new AwpMsg("Edit group", widgetName)),
                                                 new Icon(app, widgetName + "_delete")
                                                         .type(Icon.IconType.Trash)
                                                         .size(new Size(17, 20))
-                                                        .clicked(app, new AwpMsg("Delete")),
+                                                        .clicked(app, new AwpMsg("Delete group", widgetName)),
                                         }),
                                 new TextPane(app, widgetName + "_description").text(description).alignmentX(Component.LEFT_ALIGNMENT),
                                 new Button(app, widgetName + "_button")

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import org.verstiukhnutov.awp.model.error.InvalidGroupNameException;
 
 public class GroupName {
-    private static final Pattern GROUP_NAME_REGEX = Pattern.compile("[A-ZА-ЯҐІЇЄ][a-zа-яґіїє\\-]*[ A-ZА-ЯҐІЇЄa-zа-яґіїє\\-]*");
+    private static final Pattern GROUP_NAME_REGEX = Pattern.compile("[A-ZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯҐІЇЄ][a-zабвгдеёжзийклмнопрстуфхцчшщъыьэюяґіїє\\-]*[ A-ZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯҐІЇЄa-zабвгдеёжзийклмнопрстуфхцчшщъыьэюяґіїє\\-]*");
     private String name;
 
     public GroupName(String name) throws InvalidGroupNameException {

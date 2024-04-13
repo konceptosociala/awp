@@ -17,6 +17,7 @@ public class WrapContainer extends Widget {
     }
 
     public WrapContainer children(Widget[] children) {
+        container.removeAll();
         for (Widget widget : children) {
             addChild(widget);
         }

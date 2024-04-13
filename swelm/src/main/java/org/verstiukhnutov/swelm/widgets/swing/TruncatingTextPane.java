@@ -5,6 +5,7 @@ import javax.swing.text.*;
 
 public class TruncatingTextPane extends JTextPane {
     private int maxLines = 1;
+    private String text;
 
     public TruncatingTextPane() {
         this.setEditable(false);
@@ -15,7 +16,13 @@ public class TruncatingTextPane extends JTextPane {
     @Override
     public void setText(String text) {
         super.setText(text);
+        this.text = text;
         truncateText();
+    }
+
+    @Override
+    public String getText() {
+        return text;
     }
 
     public void setMaxLines(int maxLines) {

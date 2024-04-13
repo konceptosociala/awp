@@ -29,6 +29,16 @@ public class CoreWidget extends Widget {
         return this;
     }
 
+    public void setChild(Widget child) {
+        container.removeAll();
+        container.add(child.component());
+    }
+
+    public CoreWidget child(Widget child) {
+        setChild(child);
+        return this;
+    }
+
     @Override
     public Component component() {
         return container;

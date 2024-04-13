@@ -43,7 +43,7 @@ public class TextPane extends Widget {
     }
 
     @Override
-    public Component component() {
+    public TruncatingTextPane component() {
         return textPane;
     }
 }

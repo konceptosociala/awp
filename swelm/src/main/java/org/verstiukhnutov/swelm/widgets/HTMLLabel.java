@@ -44,7 +44,7 @@ public class HTMLLabel extends Widget {
     }
 
     @Override
-    public Component component() {
+    public HTMLJLabel component() {
         return label;
     }
 }

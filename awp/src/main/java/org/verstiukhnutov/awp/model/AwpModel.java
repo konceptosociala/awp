@@ -1,5 +1,6 @@
 package org.verstiukhnutov.awp.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import org.verstiukhnutov.awp.model.search.SearchPattern;
@@ -9,6 +10,31 @@ public class AwpModel {
 
     public AwpModel() {
         groups = new HashSet<>();
+    }
+
+    public ArrayList<Group> getGroups() {
+        return new ArrayList<>(groups);
+    }
+
+    public void addGroup(Group group) {
+        groups.add(group);
+    }
+
+    public void removeGroup(Group group) {
+        groups.remove(group);
+    }
+
+    public void editGroup(Group group, GroupName name, String description) {
+        group.setName(name);
+        group.setDescription(description);
+    }
+
+    public Group findGroup(GroupName name) {
+        return groups
+            .stream()
+            .filter(g -> g.getName().toString().equals(name.toString()))
+            .findFirst()
+            .orElse(null);
     }
 
     public Group[] findGroups(SearchPattern pattern) {

@@ -5,6 +5,7 @@ import java.awt.Font;
 
 public class HTMLJLabel extends JLabel {
     boolean wrapText = false;
+    String text;
 
     public HTMLJLabel(String text) {
         super(text);
@@ -12,6 +13,7 @@ public class HTMLJLabel extends JLabel {
     }
 
     private void updateTextWithHTML(String text) {
+        this.text = text;
         String htmlText = "<html><body style='" + getStyle() + "'>" + text + "</body></html>";
         super.setText(htmlText);
     }
@@ -43,6 +45,11 @@ public class HTMLJLabel extends JLabel {
     public void setFont(Font font) {
         super.setFont(font);
         setText(getText());
+    }
+
+    @Override
+    public String getText() {
+        return text;
     }
 
     public void setWrapText(boolean wrapText) {
