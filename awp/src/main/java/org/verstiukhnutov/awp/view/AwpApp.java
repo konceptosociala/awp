@@ -57,7 +57,10 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                                                         new LabeledTextField(this, "new_group")
                                                                 .label("New group")
                                                                 .placeholder("Enter group name")
-                                                                .size(new Size(504, 243))
+                                                                .size(new Size(504, 243)),
+                                                        new Icon(this, "add_group")
+                                                                .type(Icon.IconType.Cross)
+                                                                .size(new Size(18, 20))
                                                 })
                                 )
                         ).background(Color.GRAY)),
