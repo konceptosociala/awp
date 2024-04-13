@@ -52,13 +52,16 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
                 .children(new Widget[]{
                         new Label(app, widgetName + "_label").text(label)
                                 .foreground(Color.WHITE)
-                                .alignmentX(Component.LEFT_ALIGNMENT),
-//                                .border(new EmptyBorder(0, 5, 0, 0)),
+                                .fontSize(12)
+                                .bold(true)
+                                .alignmentX(Component.LEFT_ALIGNMENT)
+                                .border(new EmptyBorder(0, 5, 0, 0)),
                         new TextField(app, widgetName + "_field")
                                 .placeholder(placeholder)
                                 .backgroundColor(Color.LIGHT_GRAY)
-                                .size(size)
                                 .alignmentX(Component.LEFT_ALIGNMENT)
+                                .minimumSize(new Size(0, size.height - 12))
+                                .size(new Size(size.width, size.height - 12))
                 });
     }
 }

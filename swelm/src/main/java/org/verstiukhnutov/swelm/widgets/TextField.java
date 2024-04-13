@@ -1,6 +1,6 @@
 package org.verstiukhnutov.swelm.widgets;
 
-import java.awt.Component;
+import java.awt.*;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
@@ -36,6 +36,11 @@ public class TextField extends Widget {
         return this;
     }
 
+    public TextField minimumSize(Size size) {
+        setMinimumSize(size);
+        return this;
+    }
+
     public void setText(String text) {
         textField.setText(text);
     }
@@ -48,9 +53,14 @@ public class TextField extends Widget {
         textField.setBackground(color);
     }
 
+    public void setMinimumSize(Size size) {
+        textField.setMinimumSize(new Dimension(size.width, size.height));
+    }
+
     @Override
     public void setSize(Size size) {
         textField.setSize(size.width, size.height);
+        textField.setMaximumSize(new Dimension(size.width, size.height));
     }
 
     @Override
