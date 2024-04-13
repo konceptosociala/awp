@@ -15,6 +15,7 @@ public class BoxContainer extends Widget {
     }
 
     private Box box;
+    private int componentMargin = 0;
 
     public BoxContainer(IWidgetCollection widgets, String widgetName) {
         super(widgets, widgetName);
@@ -41,6 +42,9 @@ public class BoxContainer extends Widget {
     }
 
     public void addChild(Widget child) {
+        if (componentMargin > 0 && box.getComponentCount() > 0) {
+            box.add(Box.createRigidArea(new Dimension(componentMargin, componentMargin)));
+        }
         box.add(child.component());
     }
 
@@ -68,6 +72,21 @@ public class BoxContainer extends Widget {
     }
     @Override public BoxContainer size(Size size) {
         setSize(size);
+        return this;
+    }
+
+    @Override
+    public BoxContainer alignmentX(float alignmentX) {
+        box.setAlignmentX(alignmentX);
+        return this;
+    }
+
+    public void setComponentMargin(int margin) {
+        componentMargin = margin;
+    }
+
+    public BoxContainer componentMargin(int margin) {
+        setComponentMargin(margin);
         return this;
     }
 

@@ -23,7 +23,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             new Splashcreen(
                 800, 450, 
                 new ResourceImage(getClass(), "/img/splash.png"), 
-                3000
+                100
             ).show();
         } catch (IOException e) {
             MsgBox.error("I/O Error", e.getMessage());
@@ -34,6 +34,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
     @Override
     public void event(AwpMsg msg) {
+        System.out.println("event: " + msg);
         // process msg
     }
 
@@ -48,20 +49,18 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                     .tabs(new Tab[]{
                         new Tab("Groups", new ScrollablePanel(this, "groups_panel",
                             new BorderContainer(this, "groups_container")
-                                .north(new LabeledTextField(this, "new_group")
-                                        .label("New group")
-                                        .placeholder("Enter group name")
-                                )
                                 .center(
                                         new WrapContainer(this, "groups")
-                                                .children(new Widget[]{new Card(this, "group1", new Label(this, "group1_label").text("Group 1")),
-                                                        new LabeledTextField(this, "new_group")
-                                                                .label("New group")
-                                                                .placeholder("Enter group name")
-                                                                .size(new Size(504, 243)),
+                                                .children(new Widget[]{
                                                         new DisplayGroup(this, "group1")
-                                                                .title("Group 1")
-                                                                .description("Description of group 1"),
+                                                                .title("A really really long title for testing how it will look like when it doesn't wrap to the next line.")
+                                                                .description("Description of group 1, it should be very long to test the wrapping of the text in the description field."),
+                                                        new DisplayGroup(this, "group2")
+                                                                .title("Group 2")
+                                                                .description("Description of group 2, it should be very long to test the wrapping of the text in the description field."),
+                                                        new DisplayGroup(this, "group3")
+                                                                .title("Group 3")
+                                                                .description("Description of group 3, it should be very long to test the wrapping of the text in the description field. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
                                                 })
                                 )
                         ).background(Color.GRAY)),

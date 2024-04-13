@@ -18,10 +18,13 @@ public class Icon extends ConstructWidget<AwpMsg> {
         Cross
     }
 
-    private AwpApp app;
-    private String widgetName;
+    private final AwpApp app;
+    private final String widgetName;
     private IconType iconType;
     private Size size;
+    private ConstructWidget<AwpMsg> clickedApp;
+    private AwpMsg clickedMsg;
+
 
     public Icon(AwpApp app, String widgetName) {
         super(app, widgetName);
@@ -32,6 +35,12 @@ public class Icon extends ConstructWidget<AwpMsg> {
 
     public Icon type(IconType iconType) {
         this.iconType = iconType;
+        return this;
+    }
+
+    public Icon clicked(ConstructWidget<AwpMsg> app, AwpMsg msg) {
+        this.clickedApp = app;
+        this.clickedMsg = msg;
         return this;
     }
 
@@ -52,13 +61,13 @@ public class Icon extends ConstructWidget<AwpMsg> {
                 default:
                 case Pen:
                     return new Image(app, widgetName+"_pen", new ResourceImage(getClass(), "/img/pen.png"))
-                            .size(size);
+                            .size(size).clicked(clickedApp, clickedMsg);
                 case Trash:
                     return new Image(app, widgetName+"_trash", new ResourceImage(getClass(), "/img/trash.png"))
-                            .size(size);
+                            .size(size).clicked(clickedApp, clickedMsg);
                 case Cross:
                     return new Image(app, widgetName+"_cross", new ResourceImage(getClass(), "/img/cross.png"))
-                            .size(size);
+                            .size(size).clicked(clickedApp, clickedMsg);
             }
         } catch (IOException e) {
             System.err.println("Error loading image: " + e.getMessage());

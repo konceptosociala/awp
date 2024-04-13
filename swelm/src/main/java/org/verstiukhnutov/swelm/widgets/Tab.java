@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Tab {
 
-    private String label;
+    private final String label;
     private Panel panel;
     private ScrollablePanel scrollablePanel;
 

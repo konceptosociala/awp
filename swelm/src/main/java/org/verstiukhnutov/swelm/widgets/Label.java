@@ -1,10 +1,11 @@
 package org.verstiukhnutov.swelm.widgets;
 
-import java.awt.Component;
+import java.awt.*;
 
 import javax.swing.JLabel;
 import javax.swing.border.Border;
 
+import mdlaf.components.label.MaterialLabelUI;
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
@@ -60,10 +61,13 @@ public class Label extends Widget {
     public void setText(String text) {
         label.setText(text);
     }
-
     @Override
     public void setSize(Size size) {
         label.setSize(size.width, size.height);
+    }
+
+    public void setMaximumSize(Size size) {
+        label.setMaximumSize(new Dimension(size.width, size.height));
     }
 
     @Override
@@ -94,6 +98,11 @@ public class Label extends Widget {
     @Override
     public Label size(Size size) {
         setSize(size);
+        return this;
+    }
+
+    public Label maximumSize(Size size) {
+        setMaximumSize(size);
         return this;
     }
 

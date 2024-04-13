@@ -6,14 +6,28 @@ import org.verstiukhnutov.swelm.utils.Size;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 public class Image extends Widget {
     private ImageIcon image;
+    private JLabel iconContainer;
 
     public Image(IWidgetCollection widgets, String widgetName, ResourceImage resourceImage) {
         super(widgets, widgetName);
         this.image = resourceImage.toIcon();
+        this.iconContainer = new JLabel(image);
+    }
+
+    public <Msg> Image clicked(ConstructWidget<Msg> app, Msg msg) {
+        iconContainer.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                app.event(msg);
+            }
+        });
+        return this;
     }
 
     public void setImage(ImageIcon image) {
@@ -41,6 +55,6 @@ public class Image extends Widget {
 
     @Override
     public Component component() {
-        return new JLabel(image);
+        return iconContainer;
     }
 }

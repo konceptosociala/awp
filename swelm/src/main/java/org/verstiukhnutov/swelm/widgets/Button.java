@@ -70,6 +70,11 @@ public class Button extends Widget {
     }
 
     @Override
+    public void setAlignmentX(float alignmentX) {
+        button.setAlignmentX(alignmentX);
+    }
+
+    @Override
     public Button size(Size size) {
         setSize(size);
         return this;
@@ -102,6 +107,12 @@ public class Button extends Widget {
     @Override
     public Button visible(boolean visible) {
         setVisible(visible);
+        return this;
+    }
+
+    @Override
+    public Button alignmentX(float alignmentX) {
+        setAlignmentX(alignmentX);
         return this;
     }
 
