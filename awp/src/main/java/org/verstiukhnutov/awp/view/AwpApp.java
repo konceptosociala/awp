@@ -48,8 +48,9 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                     .tabs(new Tab[]{
                         new Tab("Groups", new ScrollablePanel(this, "groups_panel",
                             new BorderContainer(this, "groups_container")
-                                .north(new SearchBar(this, "groups_search")
-                                    .placeholder("Enter product group name")
+                                .north(new LabeledTextField(this, "new_group")
+                                        .label("New group")
+                                        .placeholder("Enter group name")
                                 )
                                 .center(
                                         new WrapContainer(this, "groups")
@@ -58,9 +59,9 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                                                                 .label("New group")
                                                                 .placeholder("Enter group name")
                                                                 .size(new Size(504, 243)),
-                                                        new Icon(this, "add_group")
-                                                                .type(Icon.IconType.Cross)
-                                                                .size(new Size(18, 20))
+                                                        new DisplayGroup(this, "group1")
+                                                                .title("Group 1")
+                                                                .description("Description of group 1"),
                                                 })
                                 )
                         ).background(Color.GRAY)),
