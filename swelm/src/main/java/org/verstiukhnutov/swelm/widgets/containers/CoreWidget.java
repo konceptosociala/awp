@@ -5,10 +5,6 @@ import java.awt.Container;
 import java.awt.GridLayout;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
-import org.verstiukhnutov.swelm.utils.Color;
-import org.verstiukhnutov.swelm.utils.Pos;
-import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class CoreWidget extends Widget {
@@ -32,12 +28,6 @@ public class CoreWidget extends Widget {
         setVisible(visible);
         return this;
     }
-
-    @Override public CoreWidget size(Size size) {return this;}
-    @Override public CoreWidget position(Pos pos) {return this;}
-    @Override public CoreWidget background(Color color) {return this;}
-    @Override public CoreWidget foreground(Color color) {return this;}
-    @Override public CoreWidget border(Border border) {return this;}
 
     @Override
     public Component component() {

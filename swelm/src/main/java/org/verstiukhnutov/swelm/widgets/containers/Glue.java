@@ -5,10 +5,6 @@ import java.awt.Component;
 import javax.swing.Box;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
-import org.verstiukhnutov.swelm.utils.Color;
-import org.verstiukhnutov.swelm.utils.Pos;
-import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class Glue extends Widget {
@@ -43,12 +39,6 @@ public class Glue extends Widget {
         setVisible(visible);
         return this;
     }
-
-    @Override public Glue size(Size size) {return this;}
-    @Override public Glue position(Pos pos) {return this;}
-    @Override public Glue background(Color color) {return this;}
-    @Override public Glue foreground(Color color) {return this;}
-    @Override public Glue border(Border border) {return this;}
 
     @Override
     public Component component() {

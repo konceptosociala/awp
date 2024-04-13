@@ -2,11 +2,12 @@ package org.verstiukhnutov.swelm.widgets.menu;
 
 import java.awt.Component;
 import javax.swing.JMenuBar;
+import javax.swing.border.Border;
+
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
 public class MenuBar extends Widget {
@@ -51,7 +52,7 @@ public class MenuBar extends Widget {
 
     @Override
     public void setBorder(Border border) {
-        bar.setBorder(border.toSwingBorder());
+        bar.setBorder(border);
     }
 
     @Override

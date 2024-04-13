@@ -1,14 +1,13 @@
 package org.verstiukhnutov.swelm.widgets;
 
 import java.awt.Component;
+import javax.swing.border.Border;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.AdjustableWidget;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
-import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
 
 public abstract class Widget implements AdjustableWidget {
 

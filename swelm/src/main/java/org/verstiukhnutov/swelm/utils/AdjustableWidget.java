@@ -1,6 +1,6 @@
 package org.verstiukhnutov.swelm.utils;
 
-import org.verstiukhnutov.swelm.utils.border.Border;
+import javax.swing.border.Border;
 
 public interface AdjustableWidget {
     

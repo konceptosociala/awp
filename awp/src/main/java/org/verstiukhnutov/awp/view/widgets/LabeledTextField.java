@@ -10,6 +10,7 @@ import org.verstiukhnutov.swelm.widgets.TextField;
 import org.verstiukhnutov.swelm.widgets.Widget;
 import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
 
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class LabeledTextField extends ConstructWidget<AwpMsg> {
@@ -52,6 +53,7 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
                         new Label(app, widgetName + "_label").text(label)
                                 .foreground(Color.WHITE)
                                 .alignmentX(Component.LEFT_ALIGNMENT),
+//                                .border(new EmptyBorder(0, 5, 0, 0)),
                         new TextField(app, widgetName + "_field")
                                 .placeholder(placeholder)
                                 .backgroundColor(Color.LIGHT_GRAY)

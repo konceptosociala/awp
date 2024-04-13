@@ -3,12 +3,12 @@ package org.verstiukhnutov.swelm.widgets;
 import java.awt.Component;
 
 import javax.swing.JLabel;
+import javax.swing.border.Border;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 
 public class Label extends Widget {
 
@@ -74,7 +74,7 @@ public class Label extends Widget {
 
     @Override
     public void setBorder(Border border) {
-        label.setBorder(border.toSwingBorder());
+        label.setBorder(border);
     }
 
     @Override

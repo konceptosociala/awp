@@ -2,12 +2,12 @@ package org.verstiukhnutov.swelm.widgets;
 
 import java.awt.*;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 
 public class Panel extends Widget {
 
@@ -42,7 +42,7 @@ public class Panel extends Widget {
 
     @Override
     public void setBorder(Border border) {
-        panel.setBorder(border.toSwingBorder());
+        panel.setBorder(border);
     }
 
     @Override

@@ -6,9 +6,10 @@ import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.swing.JPlaceholderTextField;
 import org.verstiukhnutov.swelm.widgets.ui.SwelmTextFieldUI;
+
+import javax.swing.border.Border;
 
 public class TextField extends Widget {
 
@@ -69,7 +70,7 @@ public class TextField extends Widget {
 
     @Override
     public void setBorder(Border border) {
-        textField.setBorder(border.toSwingBorder());
+        textField.setBorder(border);
     }
 
     @Override

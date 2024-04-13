@@ -3,12 +3,12 @@ package org.verstiukhnutov.swelm.widgets;
 import java.awt.*;
 
 import javax.swing.JTabbedPane;
+import javax.swing.border.Border;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 import org.verstiukhnutov.swelm.widgets.ui.SwelmTabbedPaneUI;
 
 public class Notebook extends Widget {
@@ -51,7 +51,7 @@ public class Notebook extends Widget {
 
     @Override
     public void setBorder(Border border) {
-        pane.setBorder(border.toSwingBorder());
+        pane.setBorder(border);
     }
 
     @Override

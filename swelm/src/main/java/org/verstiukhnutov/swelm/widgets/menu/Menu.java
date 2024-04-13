@@ -3,12 +3,12 @@ package org.verstiukhnutov.swelm.widgets.menu;
 import java.awt.Component;
 
 import javax.swing.JMenu;
+import javax.swing.border.Border;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 
 public class Menu extends MenuItem {
 
@@ -66,7 +66,7 @@ public class Menu extends MenuItem {
 
     @Override
     public void setBorder(Border border) {
-        menu.setBorder(border.toSwingBorder());
+        menu.setBorder(border);
     }
 
     @Override

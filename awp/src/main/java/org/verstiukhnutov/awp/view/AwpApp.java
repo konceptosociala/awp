@@ -53,7 +53,6 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                                 )
                                 .center(
                                         new WrapContainer(this, "groups")
-                                                .size(new Size(1152, 648))
                                                 .children(new Widget[]{new Card(this, "group1", new Label(this, "group1_label").text("Group 1")),
                                                         new LabeledTextField(this, "new_group")
                                                                 .label("New group")

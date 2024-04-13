@@ -4,7 +4,6 @@ import org.verstiukhnutov.awp.view.AwpApp;
 import org.verstiukhnutov.awp.view.AwpMsg;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Rounded;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 import org.verstiukhnutov.swelm.widgets.Panel;
 import org.verstiukhnutov.swelm.widgets.Widget;

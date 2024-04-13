@@ -5,12 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.border.Border;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;
 import org.verstiukhnutov.swelm.utils.Size;
-import org.verstiukhnutov.swelm.utils.border.Border;
 
 public class Button extends Widget {
 
@@ -61,7 +61,7 @@ public class Button extends Widget {
 
     @Override
     public void setBorder(Border border) {
-        button.setBorder(border.toSwingBorder());
+        button.setBorder(border);
     }
 
     @Override
