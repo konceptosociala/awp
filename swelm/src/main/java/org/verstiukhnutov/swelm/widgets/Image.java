@@ -49,6 +49,9 @@ public class Image extends Widget {
 
     @Override
     public Image size(Size size) {
+        if (size == null) {
+            return this;
+        }
         setSize(size);
         return this;
     }

@@ -15,7 +15,8 @@ public class Icon extends ConstructWidget<AwpMsg> {
     public enum IconType {
         Pen,
         Trash,
-        Cross
+        Cross,
+        Plus
     }
 
     private final AwpApp app;
@@ -31,6 +32,7 @@ public class Icon extends ConstructWidget<AwpMsg> {
         this.app = app;
         this.widgetName = widgetName;
         this.iconType = IconType.Pen;
+        this.size = null;
     }
 
     public Icon type(IconType iconType) {
@@ -67,6 +69,9 @@ public class Icon extends ConstructWidget<AwpMsg> {
                             .size(size).clicked(clickedApp, clickedMsg);
                 case Cross:
                     return new Image(app, widgetName+"_cross", new ResourceImage(getClass(), "/img/cross.png"))
+                            .size(size).clicked(clickedApp, clickedMsg);
+                case Plus:
+                    return new Image(app, widgetName+"_plus", new ResourceImage(getClass(), "/img/plus.png"))
                             .size(size).clicked(clickedApp, clickedMsg);
             }
         } catch (IOException e) {
