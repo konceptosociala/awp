@@ -1,7 +1,7 @@
 package org.verstiukhnutov.awp.view.widgets;
 
+import org.verstiukhnutov.awp.msg.AwpMsg;
 import org.verstiukhnutov.awp.view.AwpApp;
-import org.verstiukhnutov.awp.view.AwpMsg;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;

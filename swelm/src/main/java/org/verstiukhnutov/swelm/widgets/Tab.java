@@ -1,7 +1,5 @@
 package org.verstiukhnutov.swelm.widgets;
 
-import java.awt.*;
-
 public class Tab {
 
     private final String label;

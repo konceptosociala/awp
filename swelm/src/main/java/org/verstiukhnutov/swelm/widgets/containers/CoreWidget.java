@@ -32,11 +32,8 @@ public class CoreWidget extends Widget {
     public void setChild(Widget child) {
         container.removeAll();
         container.add(child.component());
-    }
-
-    public CoreWidget child(Widget child) {
-        setChild(child);
-        return this;
+        container.revalidate();
+        container.repaint();
     }
 
     @Override

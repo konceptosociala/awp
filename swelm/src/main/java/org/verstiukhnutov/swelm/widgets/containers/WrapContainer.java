@@ -2,6 +2,8 @@ package org.verstiukhnutov.swelm.widgets.containers;
 
 import java.awt.Component;
 import java.awt.Container;
+import java.util.Arrays;
+
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.widgets.Widget;
 import org.verstiukhnutov.swelm.widgets.swing.WrapLayout;
@@ -26,6 +28,18 @@ public class WrapContainer extends Widget {
 
     public void addChild(Widget child) {
         container.add(child.component());
+        container.revalidate();
+        container.repaint();
+    }
+
+    public void addFirst(Widget child) {
+        Component[] comps = container.getComponents();
+        container.removeAll();
+        container.add(child.component());
+        Arrays.stream(comps).forEach((c) -> container.add(c));
+
+        container.revalidate();
+        container.repaint();
     }
 
     @Override

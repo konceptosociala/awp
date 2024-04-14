@@ -13,23 +13,39 @@ public class HTMLLabel extends Widget {
         label = new HTMLJLabel("");
     }
 
-    public HTMLLabel fontSize(int size) {
+    public void setFontSize(int size) {
         label.setFont(label.getFont().deriveFont((float) size));
+    }
+
+    public HTMLLabel fontSize(int size) {
+        setFontSize(size);
         return this;
+    }
+
+    public void setBold(boolean bold) {
+        label.setFont(label.getFont().deriveFont(bold ? Font.BOLD : Font.PLAIN));
     }
 
     public HTMLLabel bold(boolean bold) {
-        label.setFont(label.getFont().deriveFont(bold ? Font.BOLD : Font.PLAIN));
+        setBold(bold);
         return this;
+    }
+
+    public void setAlignmentX(float alignmentX) {
+        label.setAlignmentX(alignmentX);
     }
 
     public HTMLLabel alignmentX(float alignmentX) {
-        label.setAlignmentX(alignmentX);
+        setAlignmentX(alignmentX);
         return this;
     }
 
-    public HTMLLabel text(String text) {
+    public void setText(String text) {
         label.setText(text);
+    }
+
+    public HTMLLabel text(String text) {
+        setText(text);
         return this;
     }
 
@@ -41,6 +57,10 @@ public class HTMLLabel extends Widget {
     public HTMLLabel wrap(boolean wrap) {
         label.setWrapText(wrap);
         return this;
+    }
+
+    public String getText() {
+        return label.getText();
     }
 
     @Override

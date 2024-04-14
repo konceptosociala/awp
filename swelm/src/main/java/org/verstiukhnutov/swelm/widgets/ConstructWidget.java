@@ -15,6 +15,8 @@ public abstract class ConstructWidget<Msg> extends Widget implements IWidgetColl
 
     private Widgets widgets = new Widgets();
 
+    private Widget built = null;
+
     public ConstructWidget() {
         super(new Widgets(), "application");
     }
@@ -33,6 +35,10 @@ public abstract class ConstructWidget<Msg> extends Widget implements IWidgetColl
         widgets.dumpWidgets(mode);
     }
 
+    protected final void rebuild() {
+        built = this.build();
+    }
+
     @Override
     public void addWidget(String widgetName, Widget widget) {
         widgets.addWidget(widgetName, widget);
@@ -45,8 +51,12 @@ public abstract class ConstructWidget<Msg> extends Widget implements IWidgetColl
 
     @Override
     public Component component() {
-        Widget built = this.build();
+        if (built == null){
+            rebuild();
+        }
+
         init();
+        
         return built.component();
     }
 

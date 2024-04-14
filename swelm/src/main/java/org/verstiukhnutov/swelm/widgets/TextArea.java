@@ -5,9 +5,6 @@ import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.swing.JPlaceholderTextArea;
 import org.verstiukhnutov.swelm.widgets.ui.SwelmTextAreaUI;
-import org.verstiukhnutov.swelm.widgets.ui.SwelmTextFieldUI;
-
-import javax.swing.*;
 import java.awt.*;
 
 public class TextArea extends Widget {
@@ -23,6 +20,10 @@ public class TextArea extends Widget {
     public TextArea text(String text) {
         textArea.setText(text);
         return this;
+    }
+
+    public String getText() {
+        return textArea.getText();
     }
 
     @Override

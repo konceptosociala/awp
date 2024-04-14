@@ -1,14 +1,12 @@
 package org.verstiukhnutov.awp.view.widgets;
 
+import org.verstiukhnutov.awp.msg.AwpMsg;
 import org.verstiukhnutov.awp.view.AwpApp;
-import org.verstiukhnutov.awp.view.AwpMsg;
 import org.verstiukhnutov.swelm.utils.ResourceImage;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 import org.verstiukhnutov.swelm.widgets.Image;
 import org.verstiukhnutov.swelm.widgets.Widget;
-
-import javax.swing.*;
 import java.io.IOException;
 
 public class Icon extends ConstructWidget<AwpMsg> {

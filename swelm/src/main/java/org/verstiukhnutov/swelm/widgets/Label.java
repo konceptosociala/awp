@@ -5,7 +5,6 @@ import java.awt.*;
 import javax.swing.JLabel;
 import javax.swing.border.Border;
 
-import mdlaf.components.label.MaterialLabelUI;
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Pos;

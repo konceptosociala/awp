@@ -3,9 +3,6 @@ package org.verstiukhnutov.swelm.widgets;
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.widgets.swing.TruncatingTextPane;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class TextPane extends Widget {
     private final TruncatingTextPane textPane;
 
@@ -30,6 +27,10 @@ public class TextPane extends Widget {
     public TextPane text(String text) {
         setText(text);
         return this;
+    }
+
+    public String getText() {
+        return textPane.getText();
     }
 
     @Override

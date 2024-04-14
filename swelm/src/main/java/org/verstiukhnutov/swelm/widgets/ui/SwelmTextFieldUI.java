@@ -1,8 +1,6 @@
 package org.verstiukhnutov.swelm.widgets.ui;
 
 import mdlaf.components.textfield.MaterialTextFieldUI;
-import org.verstiukhnutov.swelm.widgets.TextField;
-import org.verstiukhnutov.swelm.widgets.swing.JPlaceholderTextField;
 
 import javax.swing.*;
 import java.awt.*;

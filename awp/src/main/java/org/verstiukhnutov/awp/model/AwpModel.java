@@ -24,11 +24,6 @@ public class AwpModel {
         groups.remove(group);
     }
 
-    public void editGroup(Group group, GroupName name, String description) {
-        group.setName(name);
-        group.setDescription(description);
-    }
-
     public Group findGroup(GroupName name) {
         return groups
             .stream()
