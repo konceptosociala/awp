@@ -41,6 +41,14 @@ public class ViewGroupScreen extends Screen {
         return this;
     }
 
+    private String truncateDescription(String description, int length) {
+        if (description.length() <= length) {
+            return description;
+        } else {
+            return description.substring(0, length)+"...";
+        }
+    }
+
     @Override
     public void init() {
         rebuild();
@@ -70,7 +78,6 @@ public class ViewGroupScreen extends Screen {
                 .center(
                         new BoxContainer(app, "view_group_box")
                                 .align(BoxContainer.BoxAlign.Vertical)
-                                .padding(10)
                                 .children(new Widget[]{
                                         new HTMLLabel(app, "group_name_label")
                                                 .text(group.getName().toString())
@@ -79,10 +86,11 @@ public class ViewGroupScreen extends Screen {
 
                                         new TextPane(app, "group_description_label")
                                                 .size(new Size(1100, 200))
-                                                .text(group.getDescription())
+                                                .maximumSize(new Size(1100, 200))
+                                                .text(truncateDescription(group.getDescription(), 1000))
                                                 .fontSize(16),
 
-                                        new DisplayProducts(app, "display_group_products", model).disableControls()
+                                        new DisplayProducts(app, "display_group_products", model).size(new Size(1152, 400)).disableControls().groupFilter(group)
                                 })
                 );
     }

@@ -1,6 +1,7 @@
 package org.verstiukhnutov.awp.view.widgets;
 
 import org.verstiukhnutov.awp.model.AwpModel;
+import org.verstiukhnutov.awp.model.Group;
 import org.verstiukhnutov.awp.model.Product;
 import org.verstiukhnutov.awp.msg.AddProductMsg;
 import org.verstiukhnutov.awp.msg.AwpMsg;
@@ -21,6 +22,8 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     private final String widgetName;
     private AwpModel model;
     private boolean disableControls;
+    private Size size;
+    private Group groupFilter;
 
     public DisplayProducts(AwpApp app, String widgetName, AwpModel model) {
         super(app, widgetName);
@@ -31,6 +34,16 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
 
     public DisplayProducts disableControls() {
         this.disableControls = true;
+        return this;
+    }
+
+    public DisplayProducts size(Size size) {
+        this.size = size;
+        return this;
+    }
+
+    public DisplayProducts groupFilter(Group group) {
+        this.groupFilter = group;
         return this;
     }
 
@@ -63,8 +76,11 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     private ArrayList<Widget> getProducts() {
         AtomicInteger index = new AtomicInteger(0);
         ArrayList<Widget> products = new ArrayList<>();
+        Product[] productsList = groupFilter == null ?
+                model.getProducts().toArray(new Product[0]) :
+                groupFilter.getProducts().toArray(new Product[0]);
 
-        for (Product product : model.getProducts()) {
+        for (Product product : productsList) {
             products.add(new DisplayItem(app, widgetName + "_display_item_" + product.getName(), product, index.getAndIncrement()).disableControls(disableControls));
         }
 
@@ -82,6 +98,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
                 .north(disableControls ? new BoxContainer(app, "empty") : new SearchBar(app, widgetName + "_search_bar").placeholder("Search products..."))
                 .center(
                         new BoxContainer(app, widgetName + "_main_box")
+                                .size(size)
                                 .align(BoxContainer.BoxAlign.Vertical)
                                 .children(new Widget[]{
                                         getLabelsRow(),

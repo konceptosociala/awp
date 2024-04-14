@@ -77,7 +77,6 @@ public class DisplayGroup extends ConstructWidget<AwpMsg> {
                         }),
 
                         new TextPane(app, widgetName + "_description")
-                                .maxLines(6)
                                 .text(truncateDescription(group.getDescription(), 400))
                                 .size(new Size(504, 120))
                                 .maximumSize(new Size(504, 120))
