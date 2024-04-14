@@ -60,7 +60,6 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     private ArrayList<Widget> getProducts() {
         AtomicInteger index = new AtomicInteger(0);
         ArrayList<Widget> products = new ArrayList<>();
-        products.add(getLabelsRow());
 
         for (Product product : model.getProducts()) {
             products.add(new DisplayItem(app, widgetName + "_display_item_" + product.getName(), product, index.getAndIncrement()));
@@ -78,13 +77,20 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     public Widget build() {
         return new BorderContainer(app, widgetName+"_container")
                 .north(new SearchBar(app, widgetName + "_search_bar").placeholder("Search products..."))
-                .center(new ScrollablePanel(app, widgetName + "_scrollable_panel",
-                        new BoxContainer(app, widgetName + "_box")
+                .center(
+                        new BoxContainer(app, widgetName + "_main_box")
                                 .align(BoxContainer.BoxAlign.Vertical)
-                                .children(getProducts().toArray(new Widget[0]))
-                )
-                        .background(Color.GRAY)
-                        .disableHorizontalScrollBar())
+                                .children(new Widget[]{
+                                        getLabelsRow(),
+                                        new ScrollablePanel(app, widgetName + "_scrollable_panel",
+                                                new BoxContainer(app, widgetName + "_box")
+                                                        .align(BoxContainer.BoxAlign.Vertical)
+                                                        .children(getProducts().toArray(new Widget[0]))
+                                        )
+                                                .background(Color.GRAY)
+                                                .disableHorizontalScrollBar()
+                                })
+                        )
                 .south(
                         new Button(app, widgetName + "_add_product_button")
                                 .text("Add Product")

@@ -2,9 +2,11 @@ package org.verstiukhnutov.awp.view;
 
 import java.io.IOException;
 
-import org.verstiukhnutov.awp.model.Group;
-import org.verstiukhnutov.awp.model.GroupName;
+import org.verstiukhnutov.awp.model.*;
 import org.verstiukhnutov.awp.model.error.InvalidGroupNameException;
+import org.verstiukhnutov.awp.model.error.InvalidManufacturerNameException;
+import org.verstiukhnutov.awp.model.error.InvalidProductNameException;
+import org.verstiukhnutov.awp.model.error.NoSuchGroupException;
 import org.verstiukhnutov.awp.msg.*;
 import org.verstiukhnutov.swelm.app.App;
 import org.verstiukhnutov.swelm.app.Splashcreen;
@@ -12,7 +14,6 @@ import org.verstiukhnutov.swelm.utils.MsgBox;
 import org.verstiukhnutov.swelm.utils.ResourceImage;
 import org.verstiukhnutov.swelm.widgets.*;
 import org.verstiukhnutov.swelm.widgets.containers.*;
-import org.verstiukhnutov.awp.model.AwpModel;
 import org.verstiukhnutov.awp.view.screens.EditGroupScreen;
 import org.verstiukhnutov.awp.view.screens.MainScreen;
 import org.verstiukhnutov.awp.view.screens.Screen;
@@ -24,7 +25,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
     AwpModel model = new AwpModel();
     
     // Screens
-    MainScreen mainScreen = new MainScreen(this);
+    MainScreen mainScreen = new MainScreen(this, model);
     EditGroupScreen editGroupScreen = new EditGroupScreen(this);
 
     public static void main(String[] args) {
@@ -101,6 +102,29 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
             ((WrapContainer) getWidget("groups")).removeChild(getWidget(msgDelete.widgetName));
             return;
+        }
+
+        if (msg instanceof AddProductMsg) {
+            Product testProduct;
+            try {
+                testProduct = new Product(
+                        new ProductName("Test Product"),
+                        new Manufacturer(Manufacturer.ManufacturerType.Pp, new ManufacturerName("Test Manufacturer")),
+                        "Test Description",
+                        10,
+                        100,
+                        new Group(new GroupName("Test Group"), "Test Description")
+                );
+            } catch (InvalidProductNameException | InvalidGroupNameException | InvalidManufacturerNameException e) {
+                throw new RuntimeException(e);
+            }
+
+            try {
+                model.addProduct(testProduct);
+                ((DisplayProducts) getWidget("display_products")).update();
+            } catch (NoSuchGroupException e) {
+                MsgBox.error("No such group", e.getMessage());
+            }
         }
     }
 
