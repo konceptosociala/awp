@@ -47,6 +47,12 @@ public class BoxContainer extends Widget {
             box.add(Box.createRigidArea(new Dimension(componentMargin, componentMargin)));
         }
         box.add(child.component());
+        box.revalidate();
+        box.repaint();
+    }
+
+    public void removeChildren() {
+        box.removeAll();
     }
 
     @Override

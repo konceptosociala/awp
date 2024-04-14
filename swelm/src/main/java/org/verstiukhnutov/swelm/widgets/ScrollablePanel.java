@@ -91,6 +91,11 @@ public class ScrollablePanel extends Widget {
         return this;
     }
 
+    public ScrollablePanel disableHorizontalScrollBar() {
+        panel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        return this;
+    }
+
     @Override
     public Component component() {
         return panel;

@@ -30,6 +30,10 @@ public class Group {
         this.description = description;
     }
 
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
     public HashSet<Product> getProducts() {
         return products;
     }
