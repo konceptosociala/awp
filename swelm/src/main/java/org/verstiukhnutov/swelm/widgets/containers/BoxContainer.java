@@ -2,6 +2,7 @@ package org.verstiukhnutov.swelm.widgets.containers;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
 import org.verstiukhnutov.swelm.utils.Color;
@@ -119,6 +120,12 @@ public class BoxContainer extends Widget {
     @Override
     public BoxContainer background(Color color) {
         setBackground(color);
+        return this;
+    }
+
+    @Override
+    public BoxContainer border(Border border) {
+        box.setBorder(border);
         return this;
     }
 

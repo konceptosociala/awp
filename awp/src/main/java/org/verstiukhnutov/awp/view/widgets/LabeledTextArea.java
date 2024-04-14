@@ -7,7 +7,6 @@ import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 import org.verstiukhnutov.swelm.widgets.Label;
 import org.verstiukhnutov.swelm.widgets.TextArea;
-import org.verstiukhnutov.swelm.widgets.TextField;
 import org.verstiukhnutov.swelm.widgets.Widget;
 import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
 
@@ -32,7 +31,7 @@ public class LabeledTextArea extends ConstructWidget<AwpMsg> {
     }
 
     public LabeledTextArea label(String label) {
-        this.label = label;
+        this.label = label+" ";
         return this;
     }
 
@@ -54,22 +53,22 @@ public class LabeledTextArea extends ConstructWidget<AwpMsg> {
     @Override
     public Widget build() {
         return new BoxContainer(app, widgetName)
-                .align(BoxContainer.BoxAlign.Vertical)
-                .size(size)
-                .children(new Widget[]{
-                        new Label(app, widgetName + "_label")
-                                .foreground(Color.WHITE)
-                                .fontSize(12)
-                                .bold(true)
-                                .alignmentX(Component.LEFT_ALIGNMENT)
-                                .border(new EmptyBorder(0, 5, 0, 0))
-                                .text(label),
-                        new TextArea(app, widgetName + "_area")
-                                .placeholder(placeholder)
-                                .background(Color.LIGHT_GRAY)
-                                .alignmentX(Component.LEFT_ALIGNMENT)
-                                .size(new Size(size.width, size.height - 24))
-                                .text(text)
-                });
+            .align(BoxContainer.BoxAlign.Vertical)
+            .size(size)
+            .children(new Widget[]{
+                new Label(app, widgetName + "_label")
+                    .foreground(Color.WHITE)
+                    .fontSize(14)
+                    .bold(true)
+                    .alignmentX(Component.LEFT_ALIGNMENT)
+                    .border(new EmptyBorder(0, 5, 0, 0))
+                    .text(label),
+
+                new TextArea(app, widgetName + "_area")
+                    .placeholder(placeholder)
+                    .background(Color.LIGHT_GRAY)
+                    .alignmentX(Component.LEFT_ALIGNMENT)
+                    .text(text)
+            });
     }
 }

@@ -1,5 +1,6 @@
 package org.verstiukhnutov.awp.view.screens;
 
+import java.awt.*;
 import org.verstiukhnutov.awp.msg.AddGroupMsg;
 import org.verstiukhnutov.awp.msg.AwpMsg;
 import org.verstiukhnutov.awp.view.AwpApp;
@@ -9,10 +10,7 @@ import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.*;
 import org.verstiukhnutov.swelm.widgets.Button;
-import org.verstiukhnutov.swelm.widgets.TextArea;
 import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
-
-import java.awt.*;
 
 public class EditGroupScreen extends Screen {
     AwpApp app;
@@ -52,33 +50,33 @@ public class EditGroupScreen extends Screen {
     @Override
     public Widget build() {
         return new BoxContainer(app, "edit_group_box")
-                .align(BoxContainer.BoxAlign.Vertical)
-                .padding(10)
-                .children(new Widget[]{
-                        new LabeledTextField(app, "group_name")
-                                .label("Group Name")
-                                .placeholder("Enter group name")
-                                .text(name)
-                                .size(new Size(700, 60))
-                                .alignmentX(Component.LEFT_ALIGNMENT),
+            .align(BoxContainer.BoxAlign.Vertical)
+            .padding(10)
+            .children(new Widget[]{
+                new LabeledTextField(app, "group_name")
+                    .label("Group Name")
+                    .placeholder("Enter group name")
+                    .size(new Size(Integer.MAX_VALUE, 75))
+                    .text(name),
 
-                        new ScrollablePanel(app, "group_description_panel",
-                                new LabeledTextArea(app, "group_description")
-                                        .label("Group Description")
-                                        .placeholder("Enter group description")
-                                        .text(description)
-                                        .size(new Size(450, 100))
-                                        .alignmentX(Component.LEFT_ALIGNMENT))
-                                .background(Color.GRAY)
-                                .alignmentX(Component.LEFT_ALIGNMENT)
-                                .size(new Size(700, 100)),
+                new ScrollablePanel(app, "group_description_panel",
+                    new LabeledTextArea(app, "group_description")
+                        .label("Group Description")
+                        .placeholder("Enter group description")
+                        .text(description)
+                        .size(new Size(1, 1))
+                        .alignmentX(Component.LEFT_ALIGNMENT))
+                    .background(Color.GRAY)
+                    .alignmentX(Component.LEFT_ALIGNMENT),
 
-                        new Button(app, "create_group")
-                                .text("Save")
-                                .size(new Size(700, 30))
-                                .alignmentX(Component.LEFT_ALIGNMENT)
-                                .clicked(this, onSave)
-                });
+                new BoxContainer(app, "create_group_padding").size(new Size(0, 10)),
+
+                new Button(app, "create_group")
+                    .text("Save")
+                    .size(new Size(700, 30))
+                    .alignmentX(Component.LEFT_ALIGNMENT)
+                    .clicked(this, onSave)
+            });
     }
 
 }
