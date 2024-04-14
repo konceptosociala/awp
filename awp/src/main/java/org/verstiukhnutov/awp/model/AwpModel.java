@@ -130,4 +130,12 @@ public class AwpModel {
             .findFirst()
             .ifPresent(g -> g.getProducts().remove(product));
     }
+
+    public int getProductsTotalCost() {
+        return groups
+            .stream()
+            .flatMap(g -> g.getProducts().stream())
+            .mapToInt((product) -> (int) (product.getPrice() * product.getAmount()))
+            .sum();
+    }
 }
