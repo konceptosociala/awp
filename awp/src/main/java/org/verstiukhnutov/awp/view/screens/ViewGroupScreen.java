@@ -2,6 +2,7 @@ package org.verstiukhnutov.awp.view.screens;
 
 import org.verstiukhnutov.awp.model.AwpModel;
 import org.verstiukhnutov.awp.model.Group;
+import org.verstiukhnutov.awp.model.Product;
 import org.verstiukhnutov.awp.msg.AwpMsg;
 import org.verstiukhnutov.awp.msg.SwitchToMainScreen;
 import org.verstiukhnutov.awp.view.AwpApp;
@@ -49,6 +50,10 @@ public class ViewGroupScreen extends Screen {
         }
     }
 
+    private int getProductsTotalCost() {
+        return group.getProducts().stream().mapToInt((product) -> product.getAmount()*product.getPrice()).sum();
+    }
+
     @Override
     public void init() {
         rebuild();
@@ -80,6 +85,8 @@ public class ViewGroupScreen extends Screen {
                                 .align(BoxContainer.BoxAlign.Vertical)
                                 .children(new Widget[]{
                                         new HTMLLabel(app, "group_name_label")
+                                                .alignmentX(0.4f)
+                                                .size(1152, 50)
                                                 .text(group.getName().toString())
                                                 .fontSize(24)
                                                 .bold(true),
@@ -89,6 +96,13 @@ public class ViewGroupScreen extends Screen {
                                                 .maximumSize(new Size(1100, 200))
                                                 .text(truncateDescription(group.getDescription(), 1000))
                                                 .fontSize(16),
+
+                                        new HTMLLabel(app, "group_products_label")
+                                                .alignmentX(0.4f)
+                                                .size(1152, 50)
+                                                .text("Total cost of products: " + getProductsTotalCost())
+                                                .fontSize(18)
+                                                .bold(true),
 
                                         new DisplayProducts(app, "display_group_products", model).size(new Size(1152, 400)).disableControls().groupFilter(group)
                                 })

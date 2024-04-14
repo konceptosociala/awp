@@ -32,6 +32,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
     EditGroupScreen editGroupScreen = new EditGroupScreen(this);
     EditProductScreen editProductScreen = new EditProductScreen(this, model);
     ViewGroupScreen viewGroupScreen = new ViewGroupScreen(this, model);
+    ViewProductScreen viewProductScreen = new ViewProductScreen(this);
 
     public static void main(String[] args) {
         new App<AwpMsg>(new AwpApp())
@@ -225,6 +226,12 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
         if (msg instanceof SwitchToMainScreen) {
             setScreen(mainScreen);
+            return;
+        }
+
+        if (msg instanceof OpenProductMsg) {
+            OpenProductMsg openProductMsg = (OpenProductMsg) msg;
+            setScreen(viewProductScreen.with(((DisplayItem) getWidget(openProductMsg.widgetName)).getProduct()));
             return;
         }
     }
