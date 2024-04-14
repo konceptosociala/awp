@@ -7,6 +7,14 @@ public class ManufacturerName {
     public static final Pattern MANUFACTURER_NAME_REGEX = Pattern.compile("[A-ZА-ЯҐІЇЄa-zа-яґіїє][ A-ZА-ЯҐІЇЄa-zа-яґіїє\\-]*");
     private String name;
 
+    public String getName() {
+        return name;
+    }
+
+    public ManufacturerName() {
+        this.name = "Manufacturer";
+    }
+
     public ManufacturerName(String name) throws InvalidManufacturerNameException {
         if (MANUFACTURER_NAME_REGEX.matcher(name).matches())
             this.name = name.toUpperCase();

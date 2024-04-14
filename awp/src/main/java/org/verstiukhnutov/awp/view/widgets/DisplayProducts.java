@@ -42,9 +42,6 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
                         new Label(app, widgetName + "_name_label").text("Name")
                                 .bold(true)
                                 .border(new MatteBorder(0, 0, 2, 0, Color.WHITE)),
-                        new Label(app, widgetName + "_group_label").text("Group")
-                                .bold(true)
-                                .border(new MatteBorder(0, 0, 2, 0, Color.WHITE)),
                         new Label(app, widgetName + "_description_label").text("Description")
                                 .bold(true)
                                 .border(new MatteBorder(0, 0, 2, 0, Color.WHITE)),

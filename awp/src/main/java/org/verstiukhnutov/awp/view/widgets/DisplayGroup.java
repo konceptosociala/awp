@@ -31,7 +31,15 @@ public class DisplayGroup extends ConstructWidget<AwpMsg> {
         getGroup().setDescription(description);
 
         ((HTMLLabel) app.getWidget(widgetName + "_title")).setText(name.toString());
-        ((TextPane) app.getWidget(widgetName + "_description")).setText(description);
+        ((TextPane) app.getWidget(widgetName + "_description")).setText(truncateDescription(description, 400));
+    }
+
+    private String truncateDescription(String description, int length) {
+        if (description.length() <= length) {
+            return description;
+        } else {
+            return description.substring(0, length)+"...";
+        }
     }
 
     public Group getGroup() {
@@ -69,7 +77,8 @@ public class DisplayGroup extends ConstructWidget<AwpMsg> {
                         }),
 
                         new TextPane(app, widgetName + "_description")
-                                .text(group.getDescription())
+                                .maxLines(6)
+                                .text(truncateDescription(group.getDescription(), 400))
                                 .size(new Size(504, 120))
                                 .maximumSize(new Size(504, 120))
                                 .alignmentX(Component.LEFT_ALIGNMENT),
