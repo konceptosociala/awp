@@ -22,7 +22,8 @@ import org.verstiukhnutov.awp.view.widgets.*;
 public class AwpApp extends ConstructWidget<AwpMsg> {
 
     // Model
-    AwpModel model = new AwpModel();
+    AwpModel model = AwpModel.fromJson();
+    boolean saved = true;
     
     // Screens
     MainScreen mainScreen = new MainScreen(this, model);
@@ -38,6 +39,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
     @Override
     public void init() {
+        loadGroups();
         splashcreen();
     }
 
@@ -145,6 +147,13 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
     private void setScreen(Screen screen) {
         ((CoreWidget) getWidget("my_app")).setChild(screen);
+    }
+
+    private void loadGroups() {
+        WrapContainer groups = ((WrapContainer) getWidget("groups"));
+
+        model.getGroups()
+            .forEach(g -> groups.addFirst(new DisplayGroup(this, g)));
     }
 
     private void splashcreen() {
