@@ -1,12 +1,17 @@
 package org.verstiukhnutov.awp.view;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.verstiukhnutov.awp.model.*;
 import org.verstiukhnutov.awp.model.Manufacturer.ManufacturerType;
 import org.verstiukhnutov.awp.model.error.InvalidGroupNameException;
 import org.verstiukhnutov.awp.model.error.InvalidManufacturerNameException;
 import org.verstiukhnutov.awp.model.error.InvalidProductNameException;
+import org.verstiukhnutov.awp.model.error.InvalidSearchPromptException;
+import org.verstiukhnutov.awp.model.search.SearchPattern;
 import org.verstiukhnutov.awp.msg.*;
 import org.verstiukhnutov.awp.view.screens.EditProductScreen;
 import org.verstiukhnutov.swelm.app.App;
@@ -46,6 +51,29 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
     @Override
     public void event(AwpMsg msg) {
+        if (msg instanceof SearchMsg) {
+            String prompt = ((SearchMsg) msg).getPrompt();
+            if (prompt.equals("")) return;
+
+            SearchPattern searchPattern;
+
+            try {
+                searchPattern = new SearchPattern(prompt);
+            } catch (InvalidSearchPromptException e) {
+                MsgBox.error("Search error", e.getMessage());
+                return;
+            }
+
+            AtomicInteger index = new AtomicInteger(0);
+            ArrayList<Widget> products = new ArrayList<>();
+
+            for (Product product : model.findProducts(searchPattern)) {
+                products.add(new DisplayItem(this, "display_products_display_item_"+product.getName(), product, index.getAndIncrement()));
+            }
+
+            ((DisplayProducts) getWidget("display_products")).update(products.toArray(new Widget[0]));
+        }
+
         if (msg instanceof NewGroupMsg) {
             setScreen(editGroupScreen.empty());
             return;

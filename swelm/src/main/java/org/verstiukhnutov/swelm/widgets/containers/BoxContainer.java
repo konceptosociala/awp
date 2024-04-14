@@ -40,6 +40,8 @@ public class BoxContainer extends Widget {
         for (Widget widget : children) {
             addChild(widget);
         }
+        box.revalidate();
+        box.repaint();
         return this;
     }
 
@@ -54,6 +56,8 @@ public class BoxContainer extends Widget {
 
     public void removeChildren() {
         box.removeAll();
+        box.revalidate();
+        box.repaint();
     }
 
     @Override

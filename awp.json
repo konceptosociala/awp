@@ -1,4 +1,62 @@
 {
-  "groups" : [ ],
-  "products" : [ ]
+  "groups" : [ {
+    "name" : {
+      "name" : "My Group"
+    },
+    "description" : "",
+    "products" : [ {
+      "name" : {
+        "name" : "BFG-300"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "KDALSKD"
+        }
+      },
+      "description" : "sfsdfsdfsdf",
+      "amount" : 32423,
+      "price" : 1232
+    }, {
+      "name" : {
+        "name" : "Молоко Mleczna Dolina 3,2 в коробці"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "ОЛЛІОЛОВЛІОВ"
+        }
+      },
+      "description" : "вфівфів",
+      "amount" : 1,
+      "price" : 1
+    } ]
+  } ],
+  "products" : [ {
+    "name" : {
+      "name" : "BFG-300"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "KDALSKD"
+      }
+    },
+    "description" : "sfsdfsdfsdf",
+    "amount" : 32423,
+    "price" : 1232
+  }, {
+    "name" : {
+      "name" : "Молоко Mleczna Dolina 3,2 в коробці"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "ОЛЛІОЛОВЛІОВ"
+      }
+    },
+    "description" : "вфівфів",
+    "amount" : 1,
+    "price" : 1
+  } ]
 }

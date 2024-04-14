@@ -66,8 +66,12 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     }
 
     public void update() {
+        update(getProducts().toArray(new Widget[0]));
+    }
+
+    public void update(Widget[] items) {
         ((BoxContainer) app.getWidget(widgetName + "_box")).removeChildren();
-        ((BoxContainer) app.getWidget(widgetName + "_box")).children(getProducts().toArray(new Widget[0]));
+        ((BoxContainer) app.getWidget(widgetName + "_box")).children(items);
     }
 
     @Override
