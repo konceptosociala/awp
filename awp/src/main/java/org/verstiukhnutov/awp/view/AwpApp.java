@@ -5,11 +5,7 @@ import java.io.IOException;
 import org.verstiukhnutov.awp.model.Group;
 import org.verstiukhnutov.awp.model.GroupName;
 import org.verstiukhnutov.awp.model.error.InvalidGroupNameException;
-import org.verstiukhnutov.awp.msg.AddGroupMsg;
-import org.verstiukhnutov.awp.msg.AwpMsg;
-import org.verstiukhnutov.awp.msg.EditGroupMsg;
-import org.verstiukhnutov.awp.msg.NewGroupMsg;
-import org.verstiukhnutov.awp.msg.SaveGroupMsg;
+import org.verstiukhnutov.awp.msg.*;
 import org.verstiukhnutov.swelm.app.App;
 import org.verstiukhnutov.swelm.app.Splashcreen;
 import org.verstiukhnutov.swelm.utils.MsgBox;
@@ -95,6 +91,15 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             }
 
             setScreen(mainScreen);
+            return;
+        }
+
+        if (msg instanceof DeleteGroupMsg) {
+            DeleteGroupMsg msgDelete = (DeleteGroupMsg) msg;
+            Group group = ((DisplayGroup) getWidget(msgDelete.widgetName)).getGroup();
+            model.removeGroup(group);
+
+            ((WrapContainer) getWidget("groups")).removeChild(getWidget(msgDelete.widgetName));
             return;
         }
     }

@@ -42,6 +42,12 @@ public class WrapContainer extends Widget {
         container.repaint();
     }
 
+    public void removeChild(Widget child) {
+        container.remove(child.component());
+        container.revalidate();
+        container.repaint();
+    }
+
     @Override
     public void setVisible(boolean visible) {
         container.setVisible(visible);
