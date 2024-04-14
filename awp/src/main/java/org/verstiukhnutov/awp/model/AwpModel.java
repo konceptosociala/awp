@@ -122,4 +122,12 @@ public class AwpModel {
             .filter(p -> pattern.pertains(p.getName().toString()))
             .toArray(Product[]::new);
     }
+
+    public void removeProduct(Product product) {
+        groups
+            .stream()
+            .filter(g -> g.getProducts().contains(product))
+            .findFirst()
+            .ifPresent(g -> g.getProducts().remove(product));
+    }
 }

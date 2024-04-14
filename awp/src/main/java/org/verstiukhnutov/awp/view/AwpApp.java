@@ -234,6 +234,16 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             setScreen(viewProductScreen.with(((DisplayItem) getWidget(openProductMsg.widgetName)).getProduct()));
             return;
         }
+
+        if (msg instanceof DeleteProductMsg) {
+            DeleteProductMsg deleteProductMsg = (DeleteProductMsg) msg;
+            DisplayItem displayProduct = (DisplayItem) getWidget(deleteProductMsg.widgetName);
+            model.removeProduct(displayProduct.getProduct());
+
+            ((DisplayProducts) getWidget("display_products")).update();
+            model.toJson();
+            return;
+        }
     }
 
     @Override
