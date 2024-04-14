@@ -1,7 +1,10 @@
 package org.verstiukhnutov.swelm.widgets;
 
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
+import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.swing.TruncatingTextPane;
+
+import java.awt.*;
 
 public class TextPane extends Widget {
     private final TruncatingTextPane textPane;
@@ -38,8 +41,29 @@ public class TextPane extends Widget {
         textPane.setAlignmentX(alignmentX);
     }
 
+    @Override
     public TextPane alignmentX(float alignmentX) {
         setAlignmentX(alignmentX);
+        return this;
+    }
+
+    @Override
+    public void setSize(Size size) {
+        textPane.setSize(size.width, size.height);
+    }
+
+    @Override
+    public TextPane size(Size size) {
+        setSize(size);
+        return this;
+    }
+
+    public void setMaximumSize(Size size) {
+        textPane.setMaximumSize(new Dimension(size.width, size.height));
+    }
+
+    public TextPane maximumSize(Size size) {
+        setMaximumSize(size);
         return this;
     }
 

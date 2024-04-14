@@ -1,6 +1,6 @@
 package org.verstiukhnutov.swelm.widgets;
 
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,6 +42,7 @@ public class Button extends Widget {
     @Override
     public void setSize(Size size) {
         button.setSize(size.width, size.height);
+        button.setPreferredSize(new Dimension(size.width, size.height));
     }
 
     @Override

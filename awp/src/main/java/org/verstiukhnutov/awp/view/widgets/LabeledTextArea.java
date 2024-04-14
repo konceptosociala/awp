@@ -6,6 +6,7 @@ import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 import org.verstiukhnutov.swelm.widgets.Label;
+import org.verstiukhnutov.swelm.widgets.TextArea;
 import org.verstiukhnutov.swelm.widgets.TextField;
 import org.verstiukhnutov.swelm.widgets.Widget;
 import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
@@ -13,7 +14,7 @@ import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class LabeledTextField extends ConstructWidget<AwpMsg> {
+public class LabeledTextArea extends ConstructWidget<AwpMsg> {
     private AwpApp app;
     private String widgetName;
     private String label;
@@ -21,7 +22,7 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
     private Size size;
     private String text;
 
-    public LabeledTextField(AwpApp app, String widgetName) {
+    public LabeledTextArea(AwpApp app, String widgetName) {
         super(app, widgetName);
         this.app = app;
         this.widgetName = widgetName;
@@ -30,22 +31,22 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
         this.size = new Size(0, 0);
     }
 
-    public LabeledTextField label(String label) {
+    public LabeledTextArea label(String label) {
         this.label = label;
         return this;
     }
 
-    public LabeledTextField placeholder(String placeholder) {
+    public LabeledTextArea placeholder(String placeholder) {
         this.placeholder = placeholder;
         return this;
     }
 
-    public LabeledTextField size(Size size) {
+    public LabeledTextArea size(Size size) {
         this.size = size;
         return this;
     }
 
-    public LabeledTextField text(String text) {
+    public LabeledTextArea text(String text) {
         this.text = text;
         return this;
     }
@@ -63,9 +64,9 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
                                 .alignmentX(Component.LEFT_ALIGNMENT)
                                 .border(new EmptyBorder(0, 5, 0, 0))
                                 .text(label),
-                        new TextField(app, widgetName + "_field")
+                        new TextArea(app, widgetName + "_area")
                                 .placeholder(placeholder)
-                                .backgroundColor(Color.LIGHT_GRAY)
+                                .background(Color.LIGHT_GRAY)
                                 .alignmentX(Component.LEFT_ALIGNMENT)
                                 .size(new Size(size.width, size.height - 24))
                                 .text(text)

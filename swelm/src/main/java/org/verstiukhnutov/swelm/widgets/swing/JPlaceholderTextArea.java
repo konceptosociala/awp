@@ -14,20 +14,6 @@ public class JPlaceholderTextArea extends JTextArea {
         this.placeholder = null;
     }
 
-    /**
-     * Gets text, returns placeholder if nothing specified
-     */
-    @Override
-    public String getText() {
-        String text = super.getText();
-
-        if (text.trim().isEmpty() && placeholder != null) {
-            text = placeholder;
-        }
-
-        return text;
-    }
-
     public void setPlaceholder(String placeholder) {
         this.placeholder = placeholder;
     }

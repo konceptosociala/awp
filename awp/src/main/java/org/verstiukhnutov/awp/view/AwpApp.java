@@ -52,8 +52,8 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
         }
         
         if (msg instanceof AddGroupMsg) {
-            String groupName = ((TextField) getWidget("group_name")).getText();
-            String description = ((TextArea) getWidget("group_description")).getText();
+            String groupName = ((TextField) getWidget("group_name_field")).getText();
+            String description = ((TextArea) getWidget("group_description_area")).getText();
             Group group = null;
 
             try {
@@ -84,8 +84,8 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
         if (msg instanceof SaveGroupMsg) {
             SaveGroupMsg msgSave = (SaveGroupMsg) msg;
-            String name = ((TextField) getWidget("group_name")).getText();
-            String description = ((TextArea) getWidget("group_description")).getText();
+            String name = ((TextField) getWidget("group_name_field")).getText();
+            String description = ((TextArea) getWidget("group_description_area")).getText();
 
             try {
                 msgSave.displayGroup.update(new GroupName(name), description);

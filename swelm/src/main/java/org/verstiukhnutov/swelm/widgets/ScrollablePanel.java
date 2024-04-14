@@ -24,6 +24,7 @@ public class ScrollablePanel extends Widget {
     public void setSize(Size size) {
         panel.setMinimumSize(new Dimension(size.width, size.height));
         panel.setPreferredSize(new Dimension(size.width, size.height));
+        panel.setMaximumSize(new Dimension(size.width, size.height));
         panel.setSize(size.width, size.height);
     }
 

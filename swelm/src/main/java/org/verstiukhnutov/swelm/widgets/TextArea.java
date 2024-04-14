@@ -48,6 +48,17 @@ public class TextArea extends Widget {
         return this;
     }
 
+    @Override
+    public void setAlignmentX(float alignmentX) {
+        textArea.setAlignmentX(alignmentX);
+    }
+
+    @Override
+    public TextArea alignmentX(float alignmentX) {
+        setAlignmentX(alignmentX);
+        return this;
+    }
+
     public void setPlaceholder(String placeholder) {
         textArea.setPlaceholder(placeholder);
     }

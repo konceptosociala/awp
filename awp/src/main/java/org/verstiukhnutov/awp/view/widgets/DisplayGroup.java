@@ -68,7 +68,12 @@ public class DisplayGroup extends ConstructWidget<AwpMsg> {
                                 .clicked(app, new DeleteGroupMsg(widgetName)),
                         }),
 
-                        new TextPane(app, widgetName + "_description").text(group.getDescription()).alignmentX(Component.LEFT_ALIGNMENT),
+                        new TextPane(app, widgetName + "_description")
+                                .maxLines(6)
+                                .text(group.getDescription())
+                                .size(new Size(504, 120))
+                                .maximumSize(new Size(504, 120))
+                                .alignmentX(Component.LEFT_ALIGNMENT),
                         
                         new Button(app, widgetName + "_button")
                             .text("Open")

@@ -1,9 +1,10 @@
 package org.verstiukhnutov.swelm.widgets.containers;
 
 import java.awt.*;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
+import javax.swing.*;
+
 import org.verstiukhnutov.swelm.app.IWidgetCollection;
+import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.Widget;
 
@@ -64,12 +65,26 @@ public class BoxContainer extends Widget {
     }
     @Override public void setSize(Size size) {
         box.setSize(size.width, size.height);
+        Dimension dSize = new Dimension(size.width, size.height);
+        box.setPreferredSize(dSize);
+        box.setMinimumSize(dSize);
+        box.setMaximumSize(dSize);
     }
 
     public BoxContainer filler(int width, int height) {
         setFiller(width, height);
         return this;
     }
+
+    public void setPadding(int padding) {
+        box.setBorder(BorderFactory.createEmptyBorder(padding, padding, padding, padding));
+    }
+
+    public BoxContainer padding(int padding) {
+        setPadding(padding);
+        return this;
+    }
+
     @Override public BoxContainer size(Size size) {
         setSize(size);
         return this;
@@ -87,6 +102,17 @@ public class BoxContainer extends Widget {
 
     public BoxContainer componentMargin(int margin) {
         setComponentMargin(margin);
+        return this;
+    }
+
+    @Override
+    public void setBackground(Color color) {
+        box.setBackground(color);
+    }
+
+    @Override
+    public BoxContainer background(Color color) {
+        setBackground(color);
         return this;
     }
 
