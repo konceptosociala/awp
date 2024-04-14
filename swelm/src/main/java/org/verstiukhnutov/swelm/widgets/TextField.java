@@ -64,8 +64,8 @@ public class TextField extends Widget {
     @Override
     public void setSize(Size size) {
         textField.setSize(size.width, size.height);
-        textField.setMaximumSize(new Dimension(size.width, size.height));
         textField.setPreferredSize(new Dimension(size.width, size.height));
+        textField.setMaximumSize(new Dimension(size.width, size.height));
     }
 
     @Override

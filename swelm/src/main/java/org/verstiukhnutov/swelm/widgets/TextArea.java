@@ -68,6 +68,7 @@ public class TextArea extends Widget {
         return this;
     }
 
+    @Override
     public void setSize(Size size) {
         textArea.setSize(size.width, size.height);
         textArea.setPreferredSize(new Dimension(size.width, size.height));

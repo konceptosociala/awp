@@ -31,7 +31,7 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
     }
 
     public LabeledTextField label(String label) {
-        this.label = label;
+        this.label = label+" ";
         return this;
     }
 
@@ -53,22 +53,22 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
     @Override
     public Widget build() {
         return new BoxContainer(app, widgetName)
-                .align(BoxContainer.BoxAlign.Vertical)
-                .size(size)
-                .children(new Widget[]{
-                        new Label(app, widgetName + "_label")
-                                .foreground(Color.WHITE)
-                                .fontSize(12)
-                                .bold(true)
-                                .alignmentX(Component.LEFT_ALIGNMENT)
-                                .border(new EmptyBorder(0, 5, 0, 0))
-                                .text(label),
-                        new TextField(app, widgetName + "_field")
-                                .placeholder(placeholder)
-                                .backgroundColor(Color.LIGHT_GRAY)
-                                .alignmentX(Component.LEFT_ALIGNMENT)
-                                .size(new Size(size.width, size.height - 24))
-                                .text(text)
-                });
+            .align(BoxContainer.BoxAlign.Vertical)
+            .size(size)
+            .children(new Widget[]{
+                new Label(app, widgetName + "_label")
+                    .foreground(Color.WHITE)
+                    .fontSize(14)
+                    .bold(true)
+                    .alignmentX(Component.LEFT_ALIGNMENT)
+                    .border(new EmptyBorder(0, 5, 0, 0))
+                    .text(label),
+
+                new TextField(app, widgetName + "_field")
+                    .placeholder(placeholder)
+                    .backgroundColor(Color.LIGHT_GRAY)
+                    .alignmentX(Component.LEFT_ALIGNMENT)
+                    .text(text)
+            });
     }
 }
