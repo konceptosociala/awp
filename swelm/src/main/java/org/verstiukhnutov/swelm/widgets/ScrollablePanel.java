@@ -91,6 +91,12 @@ public class ScrollablePanel extends Widget {
         return this;
     }
 
+    @Override
+    public ScrollablePanel alignmentX(float alignmentX) {
+        panel.setAlignmentX(alignmentX);
+        return this;
+    }
+
     public ScrollablePanel disableHorizontalScrollBar() {
         panel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         return this;

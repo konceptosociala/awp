@@ -8,6 +8,7 @@ import org.verstiukhnutov.awp.model.error.InvalidManufacturerNameException;
 import org.verstiukhnutov.awp.model.error.InvalidProductNameException;
 import org.verstiukhnutov.awp.model.error.NoSuchGroupException;
 import org.verstiukhnutov.awp.msg.*;
+import org.verstiukhnutov.awp.view.screens.EditProductScreen;
 import org.verstiukhnutov.swelm.app.App;
 import org.verstiukhnutov.swelm.app.Splashcreen;
 import org.verstiukhnutov.swelm.utils.MsgBox;
@@ -27,6 +28,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
     // Screens
     MainScreen mainScreen = new MainScreen(this, model);
     EditGroupScreen editGroupScreen = new EditGroupScreen(this);
+    EditProductScreen editProductScreen = new EditProductScreen(this, model);
 
     public static void main(String[] args) {
         new App<AwpMsg>(new AwpApp())
@@ -44,7 +46,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
     @Override
     public void event(AwpMsg msg) {
         if (msg instanceof NewGroupMsg) {
-            setScreen(editGroupScreen);
+            setScreen(editGroupScreen.empty());
             return;
         }
         
@@ -105,26 +107,73 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
         }
 
         if (msg instanceof AddProductMsg) {
-            Product testProduct;
-            try {
-                testProduct = new Product(
-                        new ProductName("Test Product"),
-                        new Manufacturer(Manufacturer.ManufacturerType.Pp, new ManufacturerName("Test Manufacturer")),
-                        "Test Description",
-                        10,
-                        100,
-                        new Group(new GroupName("Test Group"), "Test Description")
-                );
-            } catch (InvalidProductNameException | InvalidGroupNameException | InvalidManufacturerNameException e) {
-                throw new RuntimeException(e);
+            if (model.getGroups().isEmpty()) {
+                MsgBox.error("No groups", "Please create a group first");
+                return;
             }
+            setScreen(editProductScreen.empty());
+            return;
+        }
+
+        if (msg instanceof EditProductMsg) {
+            EditProductMsg msgEdit = (EditProductMsg) msg;
+            DisplayItem displayProduct = ((DisplayItem) getWidget(msgEdit.widgetName));
+
+            setScreen(editProductScreen.with(
+                displayProduct.getProduct(),
+                new SaveProductMsg(displayProduct)
+            ));
+            return;
+        }
+
+        if (msg instanceof SaveProductMsg) {
+            SaveProductMsg msgSave = (SaveProductMsg) msg;
+            DisplayItem displayProduct = msgSave.getDisplayItem();
+            Product product;
+            boolean isNew = false;
+            if (displayProduct == null) {
+                isNew = true;
+                product = new Product();
+            } else {
+                product = displayProduct.getProduct();
+            }
+            String name = ((TextField) getWidget("product_name_field")).getText();
+            String description = ((TextArea) getWidget("product_description_area")).getText();
+            Manufacturer.ManufacturerType manufacturerType = (Manufacturer.ManufacturerType) ((ComboBox) getWidget("manufacturer_type")).getSelectedItem();
+            String manufacturerName = ((TextField) getWidget("manufacturer_name_field")).getText();
+            int amount = 0;
+            int price = 0;
+            try {
+                amount = Integer.parseInt(((TextField) getWidget("product_amount_field")).getText());
+                price = Integer.parseInt(((TextField) getWidget("product_price_field")).getText());
+            } catch (NumberFormatException e) {
+                MsgBox.error("Invalid product data", "Amount and price must be integers");
+                return;
+            }
+            Group group = (Group) ((ComboBox) getWidget("product_group")).getSelectedItem();
 
             try {
-                model.addProduct(testProduct);
-                ((DisplayProducts) getWidget("display_products")).update();
-            } catch (NoSuchGroupException e) {
-                MsgBox.error("No such group", e.getMessage());
+                product.setName(new ProductName(name));
+                product.setManufacturer(new Manufacturer(manufacturerType, new ManufacturerName(manufacturerName)));
+                product.setDescription(description);
+                product.setAmount(amount);
+                product.setPrice(price);
+                product.setGroup(group);
+            } catch (InvalidProductNameException | InvalidManufacturerNameException e) {
+                MsgBox.error("Invalid product data", e.getMessage());
+                return;
             }
+
+            if (isNew) {
+                try {
+                    model.addProduct(product);
+                } catch (NoSuchGroupException e) {
+                    MsgBox.error("Invalid group", e.getMessage());
+                }
+            }
+
+            ((DisplayProducts) getWidget("display_products")).update();
+            setScreen(mainScreen);
         }
     }
 
