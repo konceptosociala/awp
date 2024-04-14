@@ -45,10 +45,6 @@ public class DisplayItem extends ConstructWidget<AwpMsg> {
                                         .border(new EmptyBorder(10, 10, 10, 10))
                                         .text(product.getName().toString()))
                                 .background(backgroundColor),
-                        new Panel(app, widgetName + "_group_panel",
-                                new Label(app, widgetName + "_group")
-                                        .text(product.getGroup().getName().toString()))
-                                .background(backgroundColor),
                         new Panel(app, widgetName + "_description_panel",
                                 new Label(app, widgetName + "_description")
                                         .text(product.getDescription()))

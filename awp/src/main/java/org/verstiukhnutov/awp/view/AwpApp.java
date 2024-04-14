@@ -3,10 +3,10 @@ package org.verstiukhnutov.awp.view;
 import java.io.IOException;
 
 import org.verstiukhnutov.awp.model.*;
+import org.verstiukhnutov.awp.model.Manufacturer.ManufacturerType;
 import org.verstiukhnutov.awp.model.error.InvalidGroupNameException;
 import org.verstiukhnutov.awp.model.error.InvalidManufacturerNameException;
 import org.verstiukhnutov.awp.model.error.InvalidProductNameException;
-import org.verstiukhnutov.awp.model.error.NoSuchGroupException;
 import org.verstiukhnutov.awp.msg.*;
 import org.verstiukhnutov.awp.view.screens.EditProductScreen;
 import org.verstiukhnutov.swelm.app.App;
@@ -24,8 +24,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
     // Model
     AwpModel model = AwpModel.fromJson();
-    boolean saved = true;
-    
+
     // Screens
     MainScreen mainScreen = new MainScreen(this, model);
     EditGroupScreen editGroupScreen = new EditGroupScreen(this);
@@ -72,6 +71,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
             ((WrapContainer) getWidget("groups")).addFirst(new DisplayGroup(this, group));
 
+            model.toJson();
             setScreen(mainScreen);
             return;
         }
@@ -105,6 +105,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                 return;
             }
 
+            model.toJson();
             setScreen(mainScreen);
             return;
         }
@@ -115,6 +116,8 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             model.removeGroup(group);
 
             ((WrapContainer) getWidget("groups")).removeChild(getWidget(msgDelete.widgetName));
+            ((DisplayProducts) getWidget("display_products")).update();
+            model.toJson();
             return;
         }
 
@@ -124,6 +127,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                 return;
             }
             setScreen(editProductScreen.empty());
+            model.toJson();
             return;
         }
 
@@ -135,6 +139,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                 displayProduct.getProduct(),
                 new SaveProductMsg(displayProduct)
             ));
+            model.toJson();
             return;
         }
 
@@ -143,15 +148,17 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             DisplayItem displayProduct = msgSave.getDisplayItem();
             Product product;
             boolean isNew = false;
+
             if (displayProduct == null) {
                 isNew = true;
                 product = new Product();
             } else {
                 product = displayProduct.getProduct();
             }
+
             String name = ((TextField) getWidget("product_name_field")).getText();
             String description = ((TextArea) getWidget("product_description_area")).getText();
-            Manufacturer.ManufacturerType manufacturerType = (Manufacturer.ManufacturerType) ((ComboBox) getWidget("manufacturer_type")).getSelectedItem();
+            ManufacturerType manufacturerType = (ManufacturerType)((ComboBox) getWidget("manufacturer_type")).getSelectedItem();
             String manufacturerName = ((TextField) getWidget("manufacturer_name_field")).getText();
             int amount = 0;
             int price = 0;
@@ -170,22 +177,19 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                 product.setDescription(description);
                 product.setAmount(amount);
                 product.setPrice(price);
-                product.setGroup(group);
             } catch (InvalidProductNameException | InvalidManufacturerNameException e) {
                 MsgBox.error("Invalid product data", e.getMessage());
                 return;
             }
 
             if (isNew) {
-                try {
-                    model.addProduct(product);
-                } catch (NoSuchGroupException e) {
-                    MsgBox.error("Invalid group", e.getMessage());
-                }
+                group.addProduct(product);
             }
 
             ((DisplayProducts) getWidget("display_products")).update();
             setScreen(mainScreen);
+            model.toJson();
+            return;
         }
     }
 

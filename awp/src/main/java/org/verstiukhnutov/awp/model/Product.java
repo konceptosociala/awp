@@ -7,25 +7,27 @@ public class Product {
     private int amount;
     private int price;
 
-    private Group group;
+    public Product() {
+        this.name = new ProductName();
+        this.manufacturer = new Manufacturer();
+        this.description = "";
+        this.amount = 0;
+        this.price = 0;
+    }
 
     public Product(
         ProductName name, 
         Manufacturer manufacturer, 
         String description, 
         int amount, 
-        int price,
-        Group group
+        int price
     ){
         this.name = name;
         this.manufacturer = manufacturer;
         this.description = description;
         this.amount = amount;
         this.price = price;
-        this.group = group;
     }
-
-    public Product() {}
     
     public ProductName getName() {
         return name;
@@ -65,13 +67,5 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 }

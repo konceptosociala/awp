@@ -29,6 +29,11 @@ public class Manufacturer {
     private ManufacturerType type;
     private ManufacturerName name;
 
+    public Manufacturer() {
+        this.name = new ManufacturerName();
+        this.type = ManufacturerType.Tov;
+    }
+
     public Manufacturer(ManufacturerType type, ManufacturerName name) throws InvalidManufacturerNameException {
         this.name = name;
         this.type = type;

@@ -8,6 +8,14 @@ public class GroupName {
     private static final Pattern GROUP_NAME_REGEX = Pattern.compile("[A-ZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯҐІЇЄ][a-zабвгдеёжзийклмнопрстуфхцчшщъыьэюяґіїє\\-]*[ A-ZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯҐІЇЄa-zабвгдеёжзийклмнопрстуфхцчшщъыьэюяґіїє\\-]*");
     private String name;
 
+    public String getName() {
+        return name;
+    }
+
+    public GroupName() {
+        name = "Group Name";
+    }
+
     public GroupName(String name) throws InvalidGroupNameException {
         if (GROUP_NAME_REGEX.matcher(name).matches())
             this.name = name;
