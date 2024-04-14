@@ -21,6 +21,12 @@ public class AwpModel {
         groups.add(group);
     }
 
+    public boolean containsGroup(String name) {
+        return groups
+            .stream()
+            .anyMatch(g -> g.getName().toString().equals(name));
+    }
+
     public void removeGroup(Group group) {
         groups.remove(group);
     }

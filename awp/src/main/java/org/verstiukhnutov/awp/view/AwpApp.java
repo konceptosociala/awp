@@ -44,7 +44,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
     @Override
     public void event(AwpMsg msg) {
         if (msg instanceof NewGroupMsg) {
-            setScreen(editGroupScreen);
+            setScreen(editGroupScreen.with("", "", new AddGroupMsg()));
             return;
         }
         
@@ -54,10 +54,15 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             Group group = null;
 
             try {
+                if (model.containsGroup(groupName)) {
+                    MsgBox.error("Group error", "Group with such name already exists");
+                    return;
+                }
+
                 group = new Group(new GroupName(groupName), description);
                 model.addGroup(group);
             } catch (InvalidGroupNameException e) {
-                MsgBox.error("Invalid group name:\n", e.getMessage());
+                MsgBox.error("Group error", e.getMessage());
                 return;
             }
 
@@ -83,6 +88,11 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             SaveGroupMsg msgSave = (SaveGroupMsg) msg;
             String name = ((TextField) getWidget("group_name_field")).getText();
             String description = ((TextArea) getWidget("group_description_area")).getText();
+
+            if (model.containsGroup(name) && !msgSave.displayGroup.getGroup().getName().toString().equals(name)) {
+                MsgBox.error("Group error", "Group with such name already exists");
+                return;
+            }
 
             try {
                 msgSave.displayGroup.update(new GroupName(name), description);
