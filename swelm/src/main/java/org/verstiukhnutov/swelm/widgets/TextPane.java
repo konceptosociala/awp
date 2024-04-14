@@ -23,6 +23,19 @@ public class TextPane extends Widget {
         return this;
     }
 
+
+    public TextPane bold(boolean bold) {
+        textPane.setFont(textPane.getFont().deriveFont(bold ? Font.BOLD : Font.PLAIN));
+        return this;
+    }
+
+    public TextPane fontSize(int size) {
+        textPane.setFont(textPane.getFont().deriveFont((float) size));
+        return this;
+    }
+
+
+
     public void setText(String text) {
         textPane.setText(text);
     }

@@ -20,12 +20,18 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     private final AwpApp app;
     private final String widgetName;
     private AwpModel model;
+    private boolean disableControls;
 
     public DisplayProducts(AwpApp app, String widgetName, AwpModel model) {
         super(app, widgetName);
         this.app = app;
         this.widgetName = widgetName;
         this.model = model;
+    }
+
+    public DisplayProducts disableControls() {
+        this.disableControls = true;
+        return this;
     }
 
     private Widget getLabelsRow() {
@@ -51,7 +57,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
                         new Label(app, widgetName + "_price_label").text("Price")
                                 .bold(true)
                                 .border(new MatteBorder(0, 0, 2, 0, Color.WHITE)),
-                        new Label(app, widgetName + "_actions_label").text("Actions")
+                        new Label(app, widgetName + "_actions_label").text(disableControls ? "" : "Actions")
                                 .bold(true)
                                 .border(new MatteBorder(0, 0, 2, 0, Color.WHITE))
                 });
@@ -62,7 +68,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
         ArrayList<Widget> products = new ArrayList<>();
 
         for (Product product : model.getProducts()) {
-            products.add(new DisplayItem(app, widgetName + "_display_item_" + product.getName(), product, index.getAndIncrement()));
+            products.add(new DisplayItem(app, widgetName + "_display_item_" + product.getName(), product, index.getAndIncrement()).disableControls(disableControls));
         }
 
         return products;
@@ -76,7 +82,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     @Override
     public Widget build() {
         return new BorderContainer(app, widgetName+"_container")
-                .north(new SearchBar(app, widgetName + "_search_bar").placeholder("Search products..."))
+                .north(disableControls ? new BoxContainer(app, "empty") : new SearchBar(app, widgetName + "_search_bar").placeholder("Search products..."))
                 .center(
                         new BoxContainer(app, widgetName + "_main_box")
                                 .align(BoxContainer.BoxAlign.Vertical)
@@ -92,6 +98,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
                                 })
                         )
                 .south(
+                        disableControls ? new BoxContainer(app, "empty") :
                         new Button(app, widgetName + "_add_product_button")
                                 .text("Add Product")
                                 .clicked(app, new AddProductMsg())

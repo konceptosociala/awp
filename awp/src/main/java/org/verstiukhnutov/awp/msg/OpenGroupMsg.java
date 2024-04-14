@@ -1,5 +1,15 @@
 package org.verstiukhnutov.awp.msg;
 
+import org.verstiukhnutov.awp.model.Group;
+
 public class OpenGroupMsg extends AwpMsg {
-    // TODO: Open group msg
+    private Group group;
+
+    public OpenGroupMsg(Group group) {
+        this.group = group;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
 }

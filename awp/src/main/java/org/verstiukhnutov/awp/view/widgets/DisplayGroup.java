@@ -69,7 +69,6 @@ public class DisplayGroup extends ConstructWidget<AwpMsg> {
                         }),
 
                         new TextPane(app, widgetName + "_description")
-                                .maxLines(6)
                                 .text(group.getDescription())
                                 .size(new Size(504, 120))
                                 .maximumSize(new Size(504, 120))
@@ -79,7 +78,7 @@ public class DisplayGroup extends ConstructWidget<AwpMsg> {
                             .text("Open")
                             .size(new Size(100, 30))
                             .alignmentX(Component.LEFT_ALIGNMENT)
-                            .clicked(app, new OpenGroupMsg()),
+                            .clicked(app, new OpenGroupMsg(group)),
                 })
         );
     }

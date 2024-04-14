@@ -19,6 +19,7 @@ public class DisplayItem extends ConstructWidget<AwpMsg> {
     private String widgetName;
     private Product product;
     private int index;
+    private boolean disableControls;
 
     public DisplayItem(AwpApp app, String widgetName, Product product, int index) {
         super(app, widgetName);
@@ -30,6 +31,11 @@ public class DisplayItem extends ConstructWidget<AwpMsg> {
 
     public Product getProduct() {
         return product;
+    }
+
+    public DisplayItem disableControls(boolean disable) {
+        this.disableControls = disable;
+        return this;
     }
 
     @Override
@@ -68,7 +74,7 @@ public class DisplayItem extends ConstructWidget<AwpMsg> {
                         new Panel(app, widgetName + "_controls_panel",
                                 new BoxContainer(app, widgetName + "_controls_box")
                                         .componentMargin(20)
-                                        .children(new Widget[]{
+                                        .children(disableControls ? new Widget[]{} : new Widget[]{
                                                 new Button(app, widgetName + "_details_button")
                                                         .size(new Size(50, 30))
                                                         .text("Open")

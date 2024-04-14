@@ -56,6 +56,12 @@ public class Image extends Widget {
     }
 
     @Override
+    public Image alignmentX(float alignmentX) {
+        iconContainer.setAlignmentX(alignmentX);
+        return this;
+    }
+
+    @Override
     public Component component() {
         return iconContainer;
     }

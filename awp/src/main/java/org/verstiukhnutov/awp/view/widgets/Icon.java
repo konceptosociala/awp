@@ -7,6 +7,8 @@ import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 import org.verstiukhnutov.swelm.widgets.Image;
 import org.verstiukhnutov.swelm.widgets.Widget;
+
+import javax.swing.border.Border;
 import java.io.IOException;
 
 public class Icon extends ConstructWidget<AwpMsg> {
@@ -21,6 +23,7 @@ public class Icon extends ConstructWidget<AwpMsg> {
     private final String widgetName;
     private IconType iconType;
     private Size size;
+    private float alignmentX;
     private ConstructWidget<AwpMsg> clickedApp;
     private AwpMsg clickedMsg;
 
@@ -44,6 +47,11 @@ public class Icon extends ConstructWidget<AwpMsg> {
         return this;
     }
 
+    public Icon alignmentX(float alignmentX) {
+        this.alignmentX = alignmentX;
+        return this;
+    }
+
     @Override
     public void setSize(Size size) {
         this.size = size;
@@ -61,16 +69,16 @@ public class Icon extends ConstructWidget<AwpMsg> {
                 default:
                 case Pen:
                     return new Image(app, widgetName+"_pen", new ResourceImage(getClass(), "/img/pen.png"))
-                            .size(size).clicked(clickedApp, clickedMsg);
+                            .size(size).alignmentX(alignmentX).clicked(clickedApp, clickedMsg);
                 case Trash:
                     return new Image(app, widgetName+"_trash", new ResourceImage(getClass(), "/img/trash.png"))
-                            .size(size).clicked(clickedApp, clickedMsg);
+                            .size(size).alignmentX(alignmentX).clicked(clickedApp, clickedMsg);
                 case Cross:
                     return new Image(app, widgetName+"_cross", new ResourceImage(getClass(), "/img/cross.png"))
-                            .size(size).clicked(clickedApp, clickedMsg);
+                            .size(size).alignmentX(alignmentX).clicked(clickedApp, clickedMsg);
                 case Plus:
                     return new Image(app, widgetName+"_plus", new ResourceImage(getClass(), "/img/plus.png"))
-                            .size(size).clicked(clickedApp, clickedMsg);
+                            .size(size).alignmentX(alignmentX).clicked(clickedApp, clickedMsg);
             }
         } catch (IOException e) {
             System.err.println("Error loading image: " + e.getMessage());
