@@ -37,4 +37,9 @@ public class Group {
     public HashSet<Product> getProducts() {
         return products;
     }
+
+    @Override
+    public String toString() {
+        return name.toString();
+    }
 }

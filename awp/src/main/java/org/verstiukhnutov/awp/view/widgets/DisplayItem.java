@@ -28,11 +28,15 @@ public class DisplayItem extends ConstructWidget<AwpMsg> {
         this.index = index;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
     @Override
     public Widget build() {
         Color backgroundColor = index % 2 == 0 ? Color.GRAY : Color.LIGHT_GRAY;
 
-        return new GridContainer(app, widgetName, 1, 7)
+        return new GridContainer(app, widgetName+"_grid", 1, 7)
                 .size(new Size(1152, 50))
                 .maxSize(new Size(Integer.MAX_VALUE, 50))
                 .children(new Widget[]{

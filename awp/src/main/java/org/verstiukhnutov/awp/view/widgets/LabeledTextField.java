@@ -54,6 +54,7 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
     public Widget build() {
         return new BoxContainer(app, widgetName)
             .align(BoxContainer.BoxAlign.Vertical)
+            .alignmentX(Component.LEFT_ALIGNMENT)
             .size(size)
             .children(new Widget[]{
                 new Label(app, widgetName + "_label")

@@ -24,6 +24,8 @@ public class Product {
         this.price = price;
         this.group = group;
     }
+
+    public Product() {}
     
     public ProductName getName() {
         return name;

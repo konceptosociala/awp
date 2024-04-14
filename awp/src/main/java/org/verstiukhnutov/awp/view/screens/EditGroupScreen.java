@@ -42,6 +42,11 @@ public class EditGroupScreen extends Screen {
         return this;
     }
 
+
+    public EditGroupScreen empty() {
+        return with("", "", new AddGroupMsg());
+    }
+
     @Override
     public void event(AwpMsg event) {
         app.event(event);
@@ -78,5 +83,4 @@ public class EditGroupScreen extends Screen {
                     .clicked(this, onSave)
             });
     }
-
 }
