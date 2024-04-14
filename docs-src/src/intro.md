@@ -1,5 +1,8 @@
-# Introduction
+### National University "Kyiv-Mohyla Academy"
 
-[**Swelm**](swelm/guide.md) is a Swing-based Java UI framework inspired by [flutter](https://flutter.dev/) and [relm](https://crates.io/crates/relm) projects.
+## LABORATORY WORK #2
 
-[**AWP64**](awp64/guide.md) (Automated workplace) is a utility for automating work of a small enterprise in working with a warehouse, created using Swelm.
+### The work was performed by:
+
+* Hnutov Oleksandr Volodymyrovych
+* Verstiuk Myroslav Oleksandrovych

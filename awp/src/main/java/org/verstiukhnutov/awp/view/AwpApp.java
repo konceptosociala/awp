@@ -2,7 +2,6 @@ package org.verstiukhnutov.awp.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.verstiukhnutov.awp.model.*;
