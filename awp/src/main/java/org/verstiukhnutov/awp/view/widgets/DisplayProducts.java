@@ -1,6 +1,7 @@
 package org.verstiukhnutov.awp.view.widgets;
 
 import org.verstiukhnutov.awp.model.AwpModel;
+import org.verstiukhnutov.awp.model.Group;
 import org.verstiukhnutov.awp.model.Product;
 import org.verstiukhnutov.awp.msg.AddProductMsg;
 import org.verstiukhnutov.awp.msg.AwpMsg;
@@ -20,12 +21,30 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     private final AwpApp app;
     private final String widgetName;
     private AwpModel model;
+    private boolean disableControls;
+    private Size size;
+    private Group groupFilter;
 
     public DisplayProducts(AwpApp app, String widgetName, AwpModel model) {
         super(app, widgetName);
         this.app = app;
         this.widgetName = widgetName;
         this.model = model;
+    }
+
+    public DisplayProducts disableControls() {
+        this.disableControls = true;
+        return this;
+    }
+
+    public DisplayProducts size(Size size) {
+        this.size = size;
+        return this;
+    }
+
+    public DisplayProducts groupFilter(Group group) {
+        this.groupFilter = group;
+        return this;
     }
 
     private Widget getLabelsRow() {
@@ -48,7 +67,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
                         new Label(app, widgetName + "_price_label").text("Price")
                                 .bold(true)
                                 .border(new MatteBorder(0, 0, 2, 0, Color.WHITE)),
-                        new Label(app, widgetName + "_actions_label").text("Actions")
+                        new Label(app, widgetName + "_actions_label").text(disableControls ? "" : "Actions")
                                 .bold(true)
                                 .border(new MatteBorder(0, 0, 2, 0, Color.WHITE))
                 });
@@ -57,9 +76,12 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     private ArrayList<Widget> getProducts() {
         AtomicInteger index = new AtomicInteger(0);
         ArrayList<Widget> products = new ArrayList<>();
+        Product[] productsList = groupFilter == null ?
+                model.getProducts().toArray(new Product[0]) :
+                groupFilter.getProducts().toArray(new Product[0]);
 
-        for (Product product : model.getProducts()) {
-            products.add(new DisplayItem(app, widgetName + "_display_item_" + product.getName(), product, index.getAndIncrement()));
+        for (Product product : productsList) {
+            products.add(new DisplayItem(app, widgetName + "_display_item_" + product.getName(), product, index.getAndIncrement()).disableControls(disableControls));
         }
 
         return products;
@@ -72,14 +94,20 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     public void update(Widget[] items) {
         ((BoxContainer) app.getWidget(widgetName + "_box")).removeChildren();
         ((BoxContainer) app.getWidget(widgetName + "_box")).children(items);
+        ((Label) app.getWidget(widgetName + "_search_results_label")).setText("Total products cost: " + model.getProductsTotalCost());
     }
 
     @Override
     public Widget build() {
         return new BorderContainer(app, widgetName+"_container")
-                .north(new SearchBar(app, widgetName + "_search_bar").placeholder("Search products..."))
+                .north(disableControls ? new BoxContainer(app, "empty") :
+                        new BorderContainer(app, widgetName + "_search_container")
+                                .north(new SearchBar(app, widgetName + "_search_bar").placeholder("Search products..."))
+                                .south(new Label(app, widgetName + "_search_results_label").text("Total products cost: " + model.getProductsTotalCost()))
+                )
                 .center(
                         new BoxContainer(app, widgetName + "_main_box")
+                                .size(size)
                                 .align(BoxContainer.BoxAlign.Vertical)
                                 .children(new Widget[]{
                                         getLabelsRow(),
@@ -93,6 +121,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
                                 })
                         )
                 .south(
+                        disableControls ? new BoxContainer(app, "empty") :
                         new Button(app, widgetName + "_add_product_button")
                                 .text("Add Product")
                                 .clicked(app, new AddProductMsg())

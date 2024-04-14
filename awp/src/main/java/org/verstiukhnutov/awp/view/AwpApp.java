@@ -12,16 +12,13 @@ import org.verstiukhnutov.awp.model.error.InvalidProductNameException;
 import org.verstiukhnutov.awp.model.error.InvalidSearchPromptException;
 import org.verstiukhnutov.awp.model.search.SearchPattern;
 import org.verstiukhnutov.awp.msg.*;
-import org.verstiukhnutov.awp.view.screens.EditProductScreen;
+import org.verstiukhnutov.awp.view.screens.*;
 import org.verstiukhnutov.swelm.app.App;
 import org.verstiukhnutov.swelm.app.Splashcreen;
 import org.verstiukhnutov.swelm.utils.MsgBox;
 import org.verstiukhnutov.swelm.utils.ResourceImage;
 import org.verstiukhnutov.swelm.widgets.*;
 import org.verstiukhnutov.swelm.widgets.containers.*;
-import org.verstiukhnutov.awp.view.screens.EditGroupScreen;
-import org.verstiukhnutov.awp.view.screens.MainScreen;
-import org.verstiukhnutov.awp.view.screens.Screen;
 import org.verstiukhnutov.awp.view.widgets.*;
 
 public class AwpApp extends ConstructWidget<AwpMsg> {
@@ -33,6 +30,8 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
     MainScreen mainScreen = new MainScreen(this, model);
     EditGroupScreen editGroupScreen = new EditGroupScreen(this);
     EditProductScreen editProductScreen = new EditProductScreen(this, model);
+    ViewGroupScreen viewGroupScreen = new ViewGroupScreen(this, model);
+    ViewProductScreen viewProductScreen = new ViewProductScreen(this);
 
     public static void main(String[] args) {
         new App<AwpMsg>(new AwpApp())
@@ -218,6 +217,32 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             model.toJson();
             return;
         }
+
+        if (msg instanceof OpenGroupMsg) {
+            setScreen(viewGroupScreen.with(((OpenGroupMsg) msg).getGroup()));
+            return;
+        }
+
+        if (msg instanceof SwitchToMainScreen) {
+            setScreen(mainScreen);
+            return;
+        }
+
+        if (msg instanceof OpenProductMsg) {
+            OpenProductMsg openProductMsg = (OpenProductMsg) msg;
+            setScreen(viewProductScreen.with(((DisplayItem) getWidget(openProductMsg.widgetName)).getProduct()));
+            return;
+        }
+
+        if (msg instanceof DeleteProductMsg) {
+            DeleteProductMsg deleteProductMsg = (DeleteProductMsg) msg;
+            DisplayItem displayProduct = (DisplayItem) getWidget(deleteProductMsg.widgetName);
+            model.removeProduct(displayProduct.getProduct());
+
+            ((DisplayProducts) getWidget("display_products")).update();
+            model.toJson();
+            return;
+        }
     }
 
     @Override
@@ -241,7 +266,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             new Splashcreen(
                 800, 450,
                 new ResourceImage(getClass(), "/img/splash.png"),
-                100
+                2000
             ).show();
         } catch (IOException e) {
             MsgBox.error("I/O Error", e.getMessage());

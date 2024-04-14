@@ -75,6 +75,9 @@ public class BoxContainer extends Widget {
         box.add(Box.createRigidArea(new Dimension(width, height)));
     }
     @Override public void setSize(Size size) {
+        if (size == null) {
+            return;
+        }
         box.setSize(size.width, size.height);
         Dimension dSize = new Dimension(size.width, size.height);
         box.setPreferredSize(dSize);

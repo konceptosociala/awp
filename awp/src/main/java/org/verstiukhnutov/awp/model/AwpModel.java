@@ -122,4 +122,20 @@ public class AwpModel {
             .filter(p -> pattern.pertains(p.getName().toString()))
             .toArray(Product[]::new);
     }
+
+    public void removeProduct(Product product) {
+        groups
+            .stream()
+            .filter(g -> g.getProducts().contains(product))
+            .findFirst()
+            .ifPresent(g -> g.getProducts().remove(product));
+    }
+
+    public int getProductsTotalCost() {
+        return groups
+            .stream()
+            .flatMap(g -> g.getProducts().stream())
+            .mapToInt((product) -> (int) (product.getPrice() * product.getAmount()))
+            .sum();
+    }
 }

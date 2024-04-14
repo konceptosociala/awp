@@ -17,13 +17,12 @@ public class TruncatingTextPane extends JTextPane {
     public void setText(String text) {
         super.setText(text);
         this.text = text;
-        truncateText();
     }
 
-    @Override
-    public String getText() {
-        return text;
-    }
+//    @Override
+//    public String getText() {
+//        return text;
+//    }
 
     public void setMaxLines(int maxLines) {
         this.maxLines = maxLines;

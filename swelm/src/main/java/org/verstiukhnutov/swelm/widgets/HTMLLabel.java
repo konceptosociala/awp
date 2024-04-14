@@ -50,6 +50,7 @@ public class HTMLLabel extends Widget {
     }
 
     public HTMLLabel size(int width, int height) {
+        label.setSize(new Dimension(width, height));
         label.setPreferredSize(new Dimension(width, height));
         return this;
     }
