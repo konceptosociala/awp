@@ -22,7 +22,7 @@ public class AddGroup extends ConstructWidget<AwpMsg> {
         return new Card(app, widgetName + "_card",
                 new Icon(app, widgetName + "_icon")
                         .type(Icon.IconType.Plus)
-                        .size(new Size(180, 200))
+                        .size(new Size(90, 100))
                         .clicked(app, new NewGroupMsg())
         ).build();
     }
