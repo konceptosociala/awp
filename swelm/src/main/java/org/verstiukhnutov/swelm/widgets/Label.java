@@ -58,7 +58,7 @@ public class Label extends Widget {
     }
 
     public void setText(String text) {
-        label.setText(text);
+        label.setText(text+" ");
     }
     @Override
     public void setSize(Size size) {

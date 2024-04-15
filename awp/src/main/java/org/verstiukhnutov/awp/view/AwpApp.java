@@ -153,7 +153,6 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                 return;
             }
             setScreen(editProductScreen.empty());
-            model.toJson();
             return;
         }
 
@@ -183,6 +182,19 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             }
 
             String name = ((TextField) getWidget("product_name_field")).getText();
+
+            if (isNew) {
+                if (model.containsProduct(name)) {
+                    MsgBox.error("Product error", "Product with such name already exists");
+                    return;
+                }
+            } else {
+                if (model.containsProduct(name) && !displayProduct.getProduct().getName().toString().equals(name)) {
+                    MsgBox.error("Product error", "Product with such name already exists");
+                    return;
+                }
+            }
+
             String description = ((TextArea) getWidget("product_description_area")).getText();
             ManufacturerType manufacturerType = (ManufacturerType)((ComboBox) getWidget("manufacturer_type")).getSelectedItem();
             String manufacturerName = ((TextField) getWidget("manufacturer_name_field")).getText();
@@ -209,6 +221,9 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             }
 
             if (isNew) {
+                group.addProduct(product);
+            } else {
+                model.removeProduct(displayProduct.getProduct());
                 group.addProduct(product);
             }
 

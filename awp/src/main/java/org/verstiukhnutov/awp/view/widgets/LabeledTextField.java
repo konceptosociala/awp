@@ -31,7 +31,7 @@ public class LabeledTextField extends ConstructWidget<AwpMsg> {
     }
 
     public LabeledTextField label(String label) {
-        this.label = label+" ";
+        this.label = label;
         return this;
     }
 

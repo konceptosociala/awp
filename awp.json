@@ -1,62 +1,684 @@
 {
   "groups" : [ {
     "name" : {
-      "name" : "My Group"
+      "name" : "Меблі"
     },
-    "description" : "",
+    "description" : "Група товарів \"Меблі\" пропонує стильні та функціональні меблі для облаштування вашого домашнього простору. Від столів і ліжок до шаф і диванів, ця категорія пропонує рішення для кожного приміщення вашого будинку або офісу",
     "products" : [ {
       "name" : {
-        "name" : "BFG-300"
+        "name" : "Ліжко"
       },
       "manufacturer" : {
-        "type" : "Tov",
+        "type" : "Pp",
         "name" : {
-          "name" : "KDALSKD"
+          "name" : "СПАЛЬНИЙ КОМФОРТ"
         }
       },
-      "description" : "sfsdfsdfsdf",
-      "amount" : 32423,
-      "price" : 1232
+      "description" : "Ліжко зі шкіряним оббивкою",
+      "amount" : 50,
+      "price" : 500
     }, {
       "name" : {
-        "name" : "Молоко Mleczna Dolina 3,2 в коробці"
+        "name" : "Стіл"
       },
       "manufacturer" : {
         "type" : "Tov",
         "name" : {
-          "name" : "ОЛЛІОЛОВЛІОВ"
+          "name" : "МЕБЛЕВА ФОРТЕЦЯ"
         }
       },
-      "description" : "вфівфів",
-      "amount" : 1,
-      "price" : 1
+      "description" : "Дерев'яний стіл з масиву дуба",
+      "amount" : 80,
+      "price" : 200
+    }, {
+      "name" : {
+        "name" : "Шафа"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "МЕБЛІ ЕКСПРЕС"
+        }
+      },
+      "description" : "Шафа для одягу з великою кількістю полиць",
+      "amount" : 70,
+      "price" : 300
+    }, {
+      "name" : {
+        "name" : "Крісло"
+      },
+      "manufacturer" : {
+        "type" : "Llc",
+        "name" : {
+          "name" : "СТІЛЕЦЬ КОМФОРТ"
+        }
+      },
+      "description" : "Комфортне крісло для відпочинку",
+      "amount" : 120,
+      "price" : 400
+    }, {
+      "name" : {
+        "name" : "Смартфон Samsung Galaxy M10"
+      },
+      "manufacturer" : {
+        "type" : "Llc",
+        "name" : {
+          "name" : "SAMSUNG"
+        }
+      },
+      "description" : "Смартфон з потужною камерою",
+      "amount" : 90,
+      "price" : 550
+    }, {
+      "name" : {
+        "name" : "Диван"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "ДИВАН МЕЙКЕР"
+        }
+      },
+      "description" : "Диван з м'якими подушками",
+      "amount" : 100,
+      "price" : 700
+    } ]
+  }, {
+    "name" : {
+      "name" : "Косметика"
+    },
+    "description" : "Група товарів \"Косметика\" містить широкий асортимент красивих косметичних продуктів, призначених для підкреслення вашої природної краси. Від помад і кремів для обличчя до парфумів і туші для вій, ця категорія допоможе вам виглядати і відчувати себе прекрасно щодня",
+    "products" : [ {
+      "name" : {
+        "name" : "Парфум"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "АРОМАТНИЙ РАЙ"
+        }
+      },
+      "description" : "Елітний парфум для жінок",
+      "amount" : 100,
+      "price" : 50
+    }, {
+      "name" : {
+        "name" : "Крем для обличчя"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "ШКІРНА ГАРМОНІЯ"
+        }
+      },
+      "description" : "Зволожуючий крем для всіх типів шкіри",
+      "amount" : 150,
+      "price" : 25
+    }, {
+      "name" : {
+        "name" : "Туш для вій"
+      },
+      "manufacturer" : {
+        "type" : "Pp",
+        "name" : {
+          "name" : "ВІЯЛЬНИЙ ЕФЕКТ"
+        }
+      },
+      "description" : "Водонепроникна туш для вій",
+      "amount" : 120,
+      "price" : 10
+    }, {
+      "name" : {
+        "name" : "Олія для тіла"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "ОЛІС"
+        }
+      },
+      "description" : "Органічна олія для тіла",
+      "amount" : 145,
+      "price" : 17
+    }, {
+      "name" : {
+        "name" : "Помада"
+      },
+      "manufacturer" : {
+        "type" : "Pp",
+        "name" : {
+          "name" : "ГУБНА МАГІЯ"
+        }
+      },
+      "description" : "Матова помада в стильному дизайні",
+      "amount" : 200,
+      "price" : 15
+    } ]
+  }, {
+    "name" : {
+      "name" : "Електроніка"
+    },
+    "description" : "Група товарів \"Електроніка\" містить широкий асортимент сучасних технологічних пристроїв, призначених для полегшення повсякденного життя. Від смартфонів і ноутбуків до телевізорів та навушників, ця категорія пропонує високоякісні технологічні рішення для всіх потреб.",
+    "products" : [ {
+      "name" : {
+        "name" : "Планшет"
+      },
+      "manufacturer" : {
+        "type" : "Fop",
+        "name" : {
+          "name" : "ВЕРСТЮК МИРОСЛАВ"
+        }
+      },
+      "description" : "Планшет з високою роздільною здатністю",
+      "amount" : 80,
+      "price" : 300
+    }, {
+      "name" : {
+        "name" : "Ноутбук"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "ЕЛЕКТРОСТИЛЬ"
+        }
+      },
+      "description" : "Ноутбук з великим екраном",
+      "amount" : 50,
+      "price" : 1000
+    }, {
+      "name" : {
+        "name" : "Телевізор LG"
+      },
+      "manufacturer" : {
+        "type" : "Fop",
+        "name" : {
+          "name" : "РУБЛЕВСЬКИЙ ОРЕСТ"
+        }
+      },
+      "description" : "4K телевізор з інтернет-підтримкою.",
+      "amount" : 75,
+      "price" : 950
+    }, {
+      "name" : {
+        "name" : "Супер-роутер 13,37"
+      },
+      "manufacturer" : {
+        "type" : "Univ",
+        "name" : {
+          "name" : "КИЄВО-МОГИЛЯНСЬКА АКАДЕМІЯ"
+        }
+      },
+      "description" : "Супер крутий роутер",
+      "amount" : 333,
+      "price" : 444
+    }, {
+      "name" : {
+        "name" : "Навушники"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "САУНДМЕЙКЕР"
+        }
+      },
+      "description" : "Бездротові навушники з хорошим звуком",
+      "amount" : 120,
+      "price" : 80
+    } ]
+  }, {
+    "name" : {
+      "name" : "Одяг і взуття"
+    },
+    "description" : "Група товарів \"Одяг і взуття\" пропонує широкий вибір модного одягу для всієї родини. Від стильних футболок і джинсів до елегантних курток і спідниць, ця категорія містить якісні і модні рішення для будь-якого сезону та заходу",
+    "products" : [ {
+      "name" : {
+        "name" : "Світшот"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "СТИЛЬМОД"
+        }
+      },
+      "description" : "Світшот з капюшоном",
+      "amount" : 120,
+      "price" : 25
+    }, {
+      "name" : {
+        "name" : "Спідниця"
+      },
+      "manufacturer" : {
+        "type" : "Pp",
+        "name" : {
+          "name" : "МІС КРОШКА"
+        }
+      },
+      "description" : "Міді-спідниця з віскози",
+      "amount" : 100,
+      "price" : 30
+    }, {
+      "name" : {
+        "name" : "Джинси"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "ДЕНІМ СТИЛЬ"
+        }
+      },
+      "description" : "Джинси прямого крою",
+      "amount" : 150,
+      "price" : 40
+    }, {
+      "name" : {
+        "name" : "Куртка"
+      },
+      "manufacturer" : {
+        "type" : "Fop",
+        "name" : {
+          "name" : "ПЕЧКУРОВА ОЛЕНА"
+        }
+      },
+      "description" : "Вітровка з водонепроникним покриттям",
+      "amount" : 80,
+      "price" : 60
+    }, {
+      "name" : {
+        "name" : "Футболка"
+      },
+      "manufacturer" : {
+        "type" : "Pp",
+        "name" : {
+          "name" : "МОДА ЛАЙФ"
+        }
+      },
+      "description" : "Бавовняна футболка з принтом",
+      "amount" : 200,
+      "price" : 20
+    } ]
+  }, {
+    "name" : {
+      "name" : "Їжа"
+    },
+    "description" : "Група товарів \"Їжа\" пропонує свіжі, якісні продукти харчування для здорового та смачного харчування. Від свіжого хліба і м'яса до сирів та свіжих фруктів і овочів, ця категорія допоможе задовольнити голод та насолодитися смачними стравами",
+    "products" : [ {
+      "name" : {
+        "name" : "Хліб"
+      },
+      "manufacturer" : {
+        "type" : "Pp",
+        "name" : {
+          "name" : "ХЛІБНИЙ РАЙ"
+        }
+      },
+      "description" : "Свіжий борошняний хліб",
+      "amount" : 300,
+      "price" : 2
+    }, {
+      "name" : {
+        "name" : "Овочі"
+      },
+      "manufacturer" : {
+        "type" : "Pp",
+        "name" : {
+          "name" : "ЗЕЛЕНИЙ ДІМ"
+        }
+      },
+      "description" : "Сезонні овочі з місцевого ринку",
+      "amount" : 200,
+      "price" : 3
+    }, {
+      "name" : {
+        "name" : "Фрукти"
+      },
+      "manufacturer" : {
+        "type" : "Gmbh",
+        "name" : {
+          "name" : "FRUECHTE BAYERNS"
+        }
+      },
+      "description" : "Екзотичні фрукти від місцевих фермерів",
+      "amount" : 300,
+      "price" : 4
+    }, {
+      "name" : {
+        "name" : "Сир"
+      },
+      "manufacturer" : {
+        "type" : "Tov",
+        "name" : {
+          "name" : "СИРНА ЛАСКА"
+        }
+      },
+      "description" : "Натуральний молочний сир",
+      "amount" : 100,
+      "price" : 5
     } ]
   } ],
   "products" : [ {
     "name" : {
-      "name" : "BFG-300"
+      "name" : "Ліжко"
     },
     "manufacturer" : {
-      "type" : "Tov",
+      "type" : "Pp",
       "name" : {
-        "name" : "KDALSKD"
+        "name" : "СПАЛЬНИЙ КОМФОРТ"
       }
     },
-    "description" : "sfsdfsdfsdf",
-    "amount" : 32423,
-    "price" : 1232
+    "description" : "Ліжко зі шкіряним оббивкою",
+    "amount" : 50,
+    "price" : 500
   }, {
     "name" : {
-      "name" : "Молоко Mleczna Dolina 3,2 в коробці"
+      "name" : "Стіл"
     },
     "manufacturer" : {
       "type" : "Tov",
       "name" : {
-        "name" : "ОЛЛІОЛОВЛІОВ"
+        "name" : "МЕБЛЕВА ФОРТЕЦЯ"
       }
     },
-    "description" : "вфівфів",
-    "amount" : 1,
-    "price" : 1
+    "description" : "Дерев'яний стіл з масиву дуба",
+    "amount" : 80,
+    "price" : 200
+  }, {
+    "name" : {
+      "name" : "Шафа"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "МЕБЛІ ЕКСПРЕС"
+      }
+    },
+    "description" : "Шафа для одягу з великою кількістю полиць",
+    "amount" : 70,
+    "price" : 300
+  }, {
+    "name" : {
+      "name" : "Крісло"
+    },
+    "manufacturer" : {
+      "type" : "Llc",
+      "name" : {
+        "name" : "СТІЛЕЦЬ КОМФОРТ"
+      }
+    },
+    "description" : "Комфортне крісло для відпочинку",
+    "amount" : 120,
+    "price" : 400
+  }, {
+    "name" : {
+      "name" : "Смартфон Samsung Galaxy M10"
+    },
+    "manufacturer" : {
+      "type" : "Llc",
+      "name" : {
+        "name" : "SAMSUNG"
+      }
+    },
+    "description" : "Смартфон з потужною камерою",
+    "amount" : 90,
+    "price" : 550
+  }, {
+    "name" : {
+      "name" : "Диван"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "ДИВАН МЕЙКЕР"
+      }
+    },
+    "description" : "Диван з м'якими подушками",
+    "amount" : 100,
+    "price" : 700
+  }, {
+    "name" : {
+      "name" : "Парфум"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "АРОМАТНИЙ РАЙ"
+      }
+    },
+    "description" : "Елітний парфум для жінок",
+    "amount" : 100,
+    "price" : 50
+  }, {
+    "name" : {
+      "name" : "Крем для обличчя"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "ШКІРНА ГАРМОНІЯ"
+      }
+    },
+    "description" : "Зволожуючий крем для всіх типів шкіри",
+    "amount" : 150,
+    "price" : 25
+  }, {
+    "name" : {
+      "name" : "Туш для вій"
+    },
+    "manufacturer" : {
+      "type" : "Pp",
+      "name" : {
+        "name" : "ВІЯЛЬНИЙ ЕФЕКТ"
+      }
+    },
+    "description" : "Водонепроникна туш для вій",
+    "amount" : 120,
+    "price" : 10
+  }, {
+    "name" : {
+      "name" : "Олія для тіла"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "ОЛІС"
+      }
+    },
+    "description" : "Органічна олія для тіла",
+    "amount" : 145,
+    "price" : 17
+  }, {
+    "name" : {
+      "name" : "Помада"
+    },
+    "manufacturer" : {
+      "type" : "Pp",
+      "name" : {
+        "name" : "ГУБНА МАГІЯ"
+      }
+    },
+    "description" : "Матова помада в стильному дизайні",
+    "amount" : 200,
+    "price" : 15
+  }, {
+    "name" : {
+      "name" : "Планшет"
+    },
+    "manufacturer" : {
+      "type" : "Fop",
+      "name" : {
+        "name" : "ВЕРСТЮК МИРОСЛАВ"
+      }
+    },
+    "description" : "Планшет з високою роздільною здатністю",
+    "amount" : 80,
+    "price" : 300
+  }, {
+    "name" : {
+      "name" : "Ноутбук"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "ЕЛЕКТРОСТИЛЬ"
+      }
+    },
+    "description" : "Ноутбук з великим екраном",
+    "amount" : 50,
+    "price" : 1000
+  }, {
+    "name" : {
+      "name" : "Телевізор LG"
+    },
+    "manufacturer" : {
+      "type" : "Fop",
+      "name" : {
+        "name" : "РУБЛЕВСЬКИЙ ОРЕСТ"
+      }
+    },
+    "description" : "4K телевізор з інтернет-підтримкою.",
+    "amount" : 75,
+    "price" : 950
+  }, {
+    "name" : {
+      "name" : "Супер-роутер 13,37"
+    },
+    "manufacturer" : {
+      "type" : "Univ",
+      "name" : {
+        "name" : "КИЄВО-МОГИЛЯНСЬКА АКАДЕМІЯ"
+      }
+    },
+    "description" : "Супер крутий роутер",
+    "amount" : 333,
+    "price" : 444
+  }, {
+    "name" : {
+      "name" : "Навушники"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "САУНДМЕЙКЕР"
+      }
+    },
+    "description" : "Бездротові навушники з хорошим звуком",
+    "amount" : 120,
+    "price" : 80
+  }, {
+    "name" : {
+      "name" : "Світшот"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "СТИЛЬМОД"
+      }
+    },
+    "description" : "Світшот з капюшоном",
+    "amount" : 120,
+    "price" : 25
+  }, {
+    "name" : {
+      "name" : "Спідниця"
+    },
+    "manufacturer" : {
+      "type" : "Pp",
+      "name" : {
+        "name" : "МІС КРОШКА"
+      }
+    },
+    "description" : "Міді-спідниця з віскози",
+    "amount" : 100,
+    "price" : 30
+  }, {
+    "name" : {
+      "name" : "Джинси"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "ДЕНІМ СТИЛЬ"
+      }
+    },
+    "description" : "Джинси прямого крою",
+    "amount" : 150,
+    "price" : 40
+  }, {
+    "name" : {
+      "name" : "Куртка"
+    },
+    "manufacturer" : {
+      "type" : "Fop",
+      "name" : {
+        "name" : "ПЕЧКУРОВА ОЛЕНА"
+      }
+    },
+    "description" : "Вітровка з водонепроникним покриттям",
+    "amount" : 80,
+    "price" : 60
+  }, {
+    "name" : {
+      "name" : "Футболка"
+    },
+    "manufacturer" : {
+      "type" : "Pp",
+      "name" : {
+        "name" : "МОДА ЛАЙФ"
+      }
+    },
+    "description" : "Бавовняна футболка з принтом",
+    "amount" : 200,
+    "price" : 20
+  }, {
+    "name" : {
+      "name" : "Хліб"
+    },
+    "manufacturer" : {
+      "type" : "Pp",
+      "name" : {
+        "name" : "ХЛІБНИЙ РАЙ"
+      }
+    },
+    "description" : "Свіжий борошняний хліб",
+    "amount" : 300,
+    "price" : 2
+  }, {
+    "name" : {
+      "name" : "Овочі"
+    },
+    "manufacturer" : {
+      "type" : "Pp",
+      "name" : {
+        "name" : "ЗЕЛЕНИЙ ДІМ"
+      }
+    },
+    "description" : "Сезонні овочі з місцевого ринку",
+    "amount" : 200,
+    "price" : 3
+  }, {
+    "name" : {
+      "name" : "Фрукти"
+    },
+    "manufacturer" : {
+      "type" : "Gmbh",
+      "name" : {
+        "name" : "FRUECHTE BAYERNS"
+      }
+    },
+    "description" : "Екзотичні фрукти від місцевих фермерів",
+    "amount" : 300,
+    "price" : 4
+  }, {
+    "name" : {
+      "name" : "Сир"
+    },
+    "manufacturer" : {
+      "type" : "Tov",
+      "name" : {
+        "name" : "СИРНА ЛАСКА"
+      }
+    },
+    "description" : "Натуральний молочний сир",
+    "amount" : 100,
+    "price" : 5
   } ]
 }

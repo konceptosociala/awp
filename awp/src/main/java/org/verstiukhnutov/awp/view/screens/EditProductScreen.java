@@ -87,20 +87,21 @@ public class EditProductScreen extends Screen {
                 new BoxContainer(app, "product_manufacturer")
                     .align(BoxContainer.BoxAlign.Horizontal)
                     .componentMargin(10)
-                        .size(new Size(Integer.MAX_VALUE, 60))
-                        .alignmentX(Component.LEFT_ALIGNMENT)
-                        .children(new Widget[]{
-                            new ComboBox(app, "manufacturer_type")
-                                .size(new Size(80, 40))
-                                .items(Manufacturer.ManufacturerType.values())
-                                .selectedItem(product == null ? null : product.getManufacturer().getType()),
+                    .size(new Size(Integer.MAX_VALUE, 60))
+                    .alignmentX(Component.LEFT_ALIGNMENT)
+                    .children(new Widget[]{
+                        new ComboBox(app, "manufacturer_type")
+                            .size(new Size(80, 40))
+                            .items(Manufacturer.ManufacturerType.values())
+                            .selectedItem(product == null ? null : product.getManufacturer().getType()),
 
-                            new LabeledTextField(app, "manufacturer_name")
-                                .label("Manufacturer Name")
-                                .placeholder("Enter manufacturer name")
-                                .text(product == null ? null : product.getManufacturer().getName().toString().replaceAll("\"", ""))
-                                .size(new Size(Integer.MAX_VALUE, 60))
-                        }),
+                        new LabeledTextField(app, "manufacturer_name")
+                            .label("Manufacturer Name")
+                            .placeholder("Enter manufacturer name")
+                            .text(product == null ? null : product.getManufacturer().getName().toString().replaceAll("\"", ""))
+                            .size(new Size(9999, 60))
+                            .alignmentX(Component.LEFT_ALIGNMENT)
+                    }),
 
                 new LabeledTextField(app, "product_amount")
                     .label("Amount")

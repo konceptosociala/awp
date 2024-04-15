@@ -94,7 +94,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
     public void update(Widget[] items) {
         ((BoxContainer) app.getWidget(widgetName + "_box")).removeChildren();
         ((BoxContainer) app.getWidget(widgetName + "_box")).children(items);
-        ((Label) app.getWidget(widgetName + "_search_results_label")).setText("Total products cost: " + model.getProductsTotalCost());
+        ((Label) app.getWidget(widgetName + "_search_results_label")).setText("Total products cost: " + model.totalCost());
     }
 
     @Override
@@ -103,7 +103,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
                 .north(disableControls ? new BoxContainer(app, "empty") :
                         new BorderContainer(app, widgetName + "_search_container")
                                 .north(new SearchBar(app, widgetName + "_search_bar").placeholder("Search products..."))
-                                .south(new Label(app, widgetName + "_search_results_label").text("Total products cost: " + model.getProductsTotalCost()))
+                                .south(new Label(app, widgetName + "_search_results_label").text("Total products cost: " + model.totalCost()))
                 )
                 .center(
                         new BoxContainer(app, widgetName + "_main_box")

@@ -17,7 +17,6 @@ public class SearchPattern {
         regex = regex.replaceAll("\\?", "%").replaceAll("[\\*]+", "#");
         regex = regex.replaceAll("\\%", "[,0-9A-Za-zА-Яа-яҐІЇЄґіїє\\\\-\\\\?\\\\* ]");
         regex = regex.replaceAll("\\#", "[,0-9A-Za-zА-Яа-яҐІЇЄґіїє\\\\-\\\\?\\\\* ]*");
-        System.out.println(regex);
         this.regex = Pattern.compile(regex);
     }
 

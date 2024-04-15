@@ -89,6 +89,13 @@ public class AwpModel {
             .anyMatch(g -> g.getName().toString().equals(name));
     }
 
+    public boolean containsProduct(String name) {
+        return groups
+            .stream()
+            .flatMap(s -> s.getProducts().stream())
+            .anyMatch(p -> p.getName().toString().equals(name));
+    }
+
     public void removeGroup(Group group) {
         groups.remove(group);
     }
@@ -131,7 +138,7 @@ public class AwpModel {
             .ifPresent(g -> g.getProducts().remove(product));
     }
 
-    public int getProductsTotalCost() {
+    public int totalCost() {
         return groups
             .stream()
             .flatMap(g -> g.getProducts().stream())

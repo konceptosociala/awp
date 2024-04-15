@@ -2,21 +2,16 @@ package org.verstiukhnutov.awp.view.screens;
 
 import org.verstiukhnutov.awp.model.AwpModel;
 import org.verstiukhnutov.awp.model.Group;
-import org.verstiukhnutov.awp.model.Product;
 import org.verstiukhnutov.awp.msg.AwpMsg;
 import org.verstiukhnutov.awp.msg.SwitchToMainScreen;
 import org.verstiukhnutov.awp.view.AwpApp;
 import org.verstiukhnutov.awp.view.widgets.DisplayProducts;
 import org.verstiukhnutov.awp.view.widgets.Icon;
-import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.*;
-import org.verstiukhnutov.swelm.widgets.Panel;
 import org.verstiukhnutov.swelm.widgets.containers.BorderContainer;
 import org.verstiukhnutov.swelm.widgets.containers.BoxContainer;
 
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.View;
 import java.awt.*;
 
 public class ViewGroupScreen extends Screen {
@@ -50,7 +45,7 @@ public class ViewGroupScreen extends Screen {
         }
     }
 
-    private int getProductsTotalCost() {
+    private int totalCost() {
         return group.getProducts().stream().mapToInt((product) -> product.getAmount()*product.getPrice()).sum();
     }
 
@@ -100,7 +95,7 @@ public class ViewGroupScreen extends Screen {
                                         new HTMLLabel(app, "group_products_label")
                                                 .alignmentX(0.4f)
                                                 .size(1152, 50)
-                                                .text("Total cost of products: " + getProductsTotalCost())
+                                                .text("Total cost of products: " + totalCost())
                                                 .fontSize(18)
                                                 .bold(true),
 
