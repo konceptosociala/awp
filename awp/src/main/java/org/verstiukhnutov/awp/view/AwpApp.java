@@ -281,7 +281,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
             new Splashcreen(
                 800, 450,
                 new ResourceImage(getClass(), "/img/splash.png"),
-                2000
+                3000
             ).show();
         } catch (IOException e) {
             MsgBox.error("I/O Error", e.getMessage());

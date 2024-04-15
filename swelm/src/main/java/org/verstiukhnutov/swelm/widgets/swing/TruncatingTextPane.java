@@ -3,6 +3,7 @@ package org.verstiukhnutov.swelm.widgets.swing;
 import javax.swing.*;
 import javax.swing.text.*;
 
+@SuppressWarnings("unused")
 public class TruncatingTextPane extends JTextPane {
     private int maxLines = 1;
     private String text;

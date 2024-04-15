@@ -7,8 +7,6 @@ import org.verstiukhnutov.swelm.utils.Size;
 import org.verstiukhnutov.swelm.widgets.ConstructWidget;
 import org.verstiukhnutov.swelm.widgets.Image;
 import org.verstiukhnutov.swelm.widgets.Widget;
-
-import javax.swing.border.Border;
 import java.io.IOException;
 
 public class Icon extends ConstructWidget<AwpMsg> {

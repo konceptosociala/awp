@@ -33,11 +33,11 @@
             - [BorderContainer](swelm/widgets/containers/border-container.md)
             - [BoxContainer](swelm/widgets/containers/box-container.md)
             - [WrapContainer](swelm/widgets/containers/wrap-container.md)
-    - [Utilities](swelm/utilities.md)
+    <!-- - [Utilities](swelm/utilities.md)
         - [App](swelm/utilities/app.md)
         - [AdjustableWidget](swelm/utilities/adjustable-widget.md)
         - [Widget](swelm/utilities/widget.md)
         - [Widgets dump](swelm/utilities/dump.md)
         - [MsgBox](swelm/utilities/msgbox.md)
         - [Resource image](swelm/utilities/res-image.md)
-        - [Splashcreeen](swelm/utilities/splashscreen.md)
+        - [Splashcreeen](swelm/utilities/splashscreen.md) -->
