@@ -207,6 +207,9 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
                 MsgBox.error("Invalid product data", "Amount and price must be integers");
                 return;
             }
+            amount = Math.max(0, amount);
+            price = Math.max(0, price);
+
             Group group = (Group) ((ComboBox) getWidget("product_group")).getSelectedItem();
 
             try {
