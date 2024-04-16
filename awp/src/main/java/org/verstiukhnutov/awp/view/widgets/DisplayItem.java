@@ -70,7 +70,10 @@ public class DisplayItem extends ConstructWidget<AwpMsg> {
                         new Panel(app, widgetName + "_controls_panel",
                                 new BoxContainer(app, widgetName + "_controls_box")
                                         .componentMargin(20)
-                                        .children(disableControls ? new Widget[]{} : new Widget[]{
+                                        .children(disableControls ? new Widget[]{
+                                                new Label(app, widgetName + "_total_cost")
+                                                        .text(Integer.toString(product.getAmount() * product.getPrice()))
+                                        } : new Widget[]{
                                                 new Button(app, widgetName + "_details_button")
                                                         .size(new Size(50, 30))
                                                         .text("Open")

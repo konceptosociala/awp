@@ -62,6 +62,9 @@ public class ViewProductScreen extends Screen {
                                                 .alignmentX(Component.CENTER_ALIGNMENT),
                                         new Label(app, "product_amount")
                                                 .text("Amount: " + product.getAmount())
+                                                .alignmentX(Component.CENTER_ALIGNMENT),
+                                        new Label(app, "product_total_cost")
+                                                .text("Total cost: " + product.getAmount() * product.getPrice())
                                                 .alignmentX(Component.CENTER_ALIGNMENT)
                                 })
                 );

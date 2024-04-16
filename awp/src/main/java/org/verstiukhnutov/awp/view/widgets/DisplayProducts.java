@@ -67,7 +67,7 @@ public class DisplayProducts extends ConstructWidget<AwpMsg> {
                         new Label(app, widgetName + "_price_label").text("Price")
                                 .bold(true)
                                 .border(new MatteBorder(0, 0, 2, 0, Color.WHITE)),
-                        new Label(app, widgetName + "_actions_label").text(disableControls ? "" : "Actions")
+                        new Label(app, widgetName + "_actions_label").text(disableControls ? "Total cost" : "Actions")
                                 .bold(true)
                                 .border(new MatteBorder(0, 0, 2, 0, Color.WHITE))
                 });

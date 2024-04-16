@@ -5,8 +5,12 @@ import org.verstiukhnutov.awp.view.AwpApp;
 import org.verstiukhnutov.awp.view.widgets.*;
 import org.verstiukhnutov.swelm.utils.Color;
 import org.verstiukhnutov.swelm.widgets.*;
+import org.verstiukhnutov.swelm.widgets.Label;
+import org.verstiukhnutov.swelm.widgets.Panel;
 import org.verstiukhnutov.swelm.widgets.containers.BorderContainer;
 import org.verstiukhnutov.swelm.widgets.containers.WrapContainer;
+
+import java.awt.*;
 
 public class MainScreen extends Screen {
     AwpApp app;
@@ -40,6 +44,16 @@ public class MainScreen extends Screen {
                     new Tab("Products", new Panel(app, "products_panel",
                             new DisplayProducts(app, "display_products", model)
                     )),
-            }));
+
+                        new Tab("Statistics", new Panel(app, "statistics_panel",
+                                new BorderContainer(app, "statistics_container")
+                                        .center(new DisplayProducts(app, "display_statistics", model).disableControls())
+                                        .north(
+                                                new Label(app, "total_cost_label")
+                                                        .text("Total products cost: " + model.totalCost())
+                                                        .fontSize(24)
+                                        )
+                        ))
+                }));
     }
 }
