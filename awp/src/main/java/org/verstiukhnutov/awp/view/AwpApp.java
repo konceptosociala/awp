@@ -245,7 +245,7 @@ public class AwpApp extends ConstructWidget<AwpMsg> {
 
         if (msg instanceof OpenProductMsg) {
             OpenProductMsg openProductMsg = (OpenProductMsg) msg;
-            setScreen(viewProductScreen.with(((DisplayItem) getWidget(openProductMsg.widgetName)).getProduct()));
+            setScreen(new ViewProductScreen(this).with(((DisplayItem) getWidget(openProductMsg.widgetName)).getProduct()));
             return;
         }
 
